@@ -3,7 +3,10 @@ import Task from './types'
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
 
 export default function Home() {
-  const [tasks, setTasks] = useState([{ id: 0, name: 'Tâche test', isChecked: true }])
+  const [tasks, setTasks] = useState([
+    { id: 0, name: 'Tâche test', isChecked: false },
+    { id: 1, name: 'caca', isChecked: false }
+  ])
   const [inputTask, setInputTask] = useState('')
   const [updatedTask, setUpdatedTask] = useState('')
 
@@ -38,18 +41,30 @@ export default function Home() {
       <ScrollView>
         <View>
           <Text style={styles.heading}>Today's tasks</Text>
-          {tasks.map((task, index) => (
-            <View key={task.id} style={styles.taskBlock}>
-              <Button onPress={() => handleCheckboxChange(task.id)}>Done</Button>
-              <Text style={styles.taskName}>{task.name}</Text>
 
+          {tasks
+            .filter((task) => !task.isChecked)
+            .map((task, index) => (
+              <View key={task.id} style={styles.taskBlock}>
+                <Text style={styles.taskName}>{task.name}</Text>
+                <View style={styles.buttons}>
+                  <Button title="Done" onPress={() => handleCheckboxChange(task.id)} />
+                  <Button title="Remove" onPress={() => removeItem(task.id)} />
+                </View>
+              </View>
+            ))}
+        </View>
+        <Text style={styles.heading}>Done !</Text>
+        {tasks
+          .filter((task) => task.isChecked)
+          .map((task, index) => (
+            <View key={task.id} style={styles.taskBlock}>
+              <Text style={styles.taskName}>{task.name}</Text>
               <View style={styles.buttons}>
-                <Button title="Remove" onPress={() => removeItem(index)} />
+                <Button title="Remove" onPress={() => removeItem(task.id)} />
               </View>
             </View>
           ))}
-        </View>
-        <Text style={styles.heading}>Done !</Text>
       </ScrollView>
       <View style={styles.inputContainer}>
         <TextInput
