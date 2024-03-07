@@ -1,0 +1,58 @@
+{
+  "basic_tasks": [
+    "Organize my room",
+    "Read my emails",
+    "Go to the grocery store",
+    "Make a gift for a friend",
+    "Take a long walk outside",
+    "Create a playlist",
+    "Make a lunch for some people I like",
+    "Spend less time on my phone",
+    "Do some skincare"
+  ],
+
+  "tough_days": [
+    "Take a shower",
+    "Drink water",
+    "Eat at least a meal",
+    "Listen to music I like",
+    "Get out of my bed",
+    "Brush my teeth",
+    "Wash my hair",
+    "Take my medication",
+    "Make my bed",
+    "Take 10 deep breaths",
+    "Tell myself 'it's gonna be ok' "
+  ],
+
+  "hobbies": [
+    "Take a run",
+    "Create some artpieces",
+    "Read a book",
+    "Finish my ongoing project",
+    "Hang out with my friends",
+    "Compose music",
+    "Meditate"
+  ],
+
+  "important_tasks": [
+    "Complete my work presentation",
+    "Pay my bills",
+    "Schedule a doctor's appointment",
+    "Call a family member",
+    "Prepare for an important meeting",
+    "Update my resume"
+  ],
+
+  "organizing": [
+    "Wash my bed sheets",
+    "Declutter my wardrobe",
+    "Mop the floors",
+    "Wash my makeup brushes",
+    "Fold the laundry",
+    "Clean out the refrigerator",
+    "Organize my desk",
+    "Sort through old paperwork",
+    "Tidy up the living room"
+  ]
+}
