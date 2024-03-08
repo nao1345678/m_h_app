@@ -1,129 +1,88 @@
-import React, { useState } from 'react'
-import Task from './types'
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
+import 'react-native-gesture-handler'
+import * as React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { View, Text, StyleSheet, Image } from 'react-native'
 
-export default function Home() {
-  const [tasks, setTasks] = useState([
-    { id: 0, name: 'Tâche test', isChecked: false },
-    { id: 1, name: 'caca', isChecked: false }
-  ])
-  const [inputTask, setInputTask] = useState('')
-  const [updatedTask, setUpdatedTask] = useState('')
+import Todo from './pages/Todo'
 
-  const handleCheckboxChange = (id: number) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)))
-  }
+const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
 
-  const removeItem = (index: number) => {
-    const updatedTasks = [...tasks]
-    updatedTasks.splice(index, 1)
-    setTasks(updatedTasks)
-  }
+// interface CustomIconProps {
+//   focused: boolean
+// }
 
-  const removeAllItems = () => {
-    setTasks([])
-  }
+// // Custom icon components for each tab
+// const CustomHomeIcon: React.FC<CustomIconProps> = ({ focused }) => (
+//   <Image
+//     source={focused ? require('./assets/home_active.png') : require('./assets/home_inactive.png')}
+//     style={{ width: 12, height: 12 }}
+//   />
+// )
+// const CustomSearchIcon: React.FC<CustomIconProps> = ({ focused }) => (
+//   <Image
+//     source={focused ? require('./assets/search_active.png') : require('./assets/search_inactive.png')}
+//     style={{ width: 12, height: 12 }}
+//   />
+// )
+// const CustomCategoriesIcon: React.FC<CustomIconProps> = ({ focused }) => (
+//   <Image
+//     source={focused ? require('./assets/categories_active.png') : require('./assets/categories_inactive.png')}
+//     style={{ width: 12, height: 12 }}
+//   />
+// )
+// const CustomSettingsIcon: React.FC<CustomIconProps> = ({ focused }) => (
+//   <Image
+//     source={focused ? require('./assets/settings_active.png') : require('./assets/settings_inactive.png')}
+//     style={{ width: 12, height: 12 }}
+//   />
+// )
 
-  const addItem = () => {
-    if (inputTask.trim() !== '') {
-      const newId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1
-      setTasks([...tasks, { id: newId, name: inputTask, isChecked: false }])
-      setInputTask('')
-    }
-  }
-
-  const handleAllCheckboxChange = () => {
-    setTasks(tasks.map((task) => (task.isChecked ? task : { ...task, isChecked: !task.isChecked })))
-  }
-
+const MainTabNavigator = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView>
-        <View>
-          <Text style={styles.heading}>Today's tasks</Text>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
 
-          {tasks
-            .filter((task) => !task.isChecked)
-            .map((task, index) => (
-              <View key={task.id} style={styles.taskBlock}>
-                <Text style={styles.taskName}>{task.name}</Text>
-                <View style={styles.buttons}>
-                  <Button title="Done" onPress={() => handleCheckboxChange(task.id)} />
-                  <Button title="Remove" onPress={() => removeItem(task.id)} />
-                </View>
-              </View>
-            ))}
-        </View>
-        <Text style={styles.heading}>Done !</Text>
-        {tasks
-          .filter((task) => task.isChecked)
-          .map((task, index) => (
-            <View key={task.id} style={styles.taskBlock}>
-              <Text style={styles.taskName}>{task.name}</Text>
-              <View style={styles.buttons}>
-                <Button title="Remove" onPress={() => removeItem(task.id)} />
-              </View>
-            </View>
-          ))}
-      </ScrollView>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          value={inputTask}
-          onChangeText={(text) => setInputTask(text)}
-          placeholder="Add task ..."
-        />
-        <Button title="Add" onPress={addItem} />
-      </View>
-
-      <View style={styles.footer}>
-        <Button title="All done" onPress={() => handleAllCheckboxChange()} />
-        <Button title="Delete all" onPress={() => removeAllItems()} />
-      </View>
-    </View>
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopWidth: 0
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          marginBottom: 5
+        },
+        tabBarActiveTintColor: '#000',
+        tabBarInactiveTintColor: '#ccc'
+      })}
+    >
+      <Tab.Screen name="List" component={Todo} />
+    </Tab.Navigator>
   )
 }
 
-const styles = StyleSheet.create({
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 40,
-    marginBottom: 15
-  },
-  taskBlock: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc'
-  },
-  taskName: {
-    fontSize: 18
-  },
-  buttons: {
-    flexDirection: 'row'
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    borderTopWidth: 1,
-    borderTopColor: '#ccc'
-  },
-  input: {
-    flex: 1,
-    marginRight: 10,
-    padding: 5,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10
-  }
-})
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          title: '★ MHA ★',
+          headerStyle: {
+            backgroundColor: '#fff'
+          },
+          headerShadowVisible: true,
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          }
+        }}
+      >
+        <Stack.Screen name="Home" component={MainTabNavigator} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+export default App
