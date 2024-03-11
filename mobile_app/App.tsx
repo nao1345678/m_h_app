@@ -10,36 +10,6 @@ import Todo from './pages/Todo'
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
-// interface CustomIconProps {
-//   focused: boolean
-// }
-
-// // Custom icon components for each tab
-// const CustomHomeIcon: React.FC<CustomIconProps> = ({ focused }) => (
-//   <Image
-//     source={focused ? require('./assets/home_active.png') : require('./assets/home_inactive.png')}
-//     style={{ width: 12, height: 12 }}
-//   />
-// )
-// const CustomSearchIcon: React.FC<CustomIconProps> = ({ focused }) => (
-//   <Image
-//     source={focused ? require('./assets/search_active.png') : require('./assets/search_inactive.png')}
-//     style={{ width: 12, height: 12 }}
-//   />
-// )
-// const CustomCategoriesIcon: React.FC<CustomIconProps> = ({ focused }) => (
-//   <Image
-//     source={focused ? require('./assets/categories_active.png') : require('./assets/categories_inactive.png')}
-//     style={{ width: 12, height: 12 }}
-//   />
-// )
-// const CustomSettingsIcon: React.FC<CustomIconProps> = ({ focused }) => (
-//   <Image
-//     source={focused ? require('./assets/settings_active.png') : require('./assets/settings_inactive.png')}
-//     style={{ width: 12, height: 12 }}
-//   />
-// )
-
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator
@@ -68,7 +38,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          title: '★ MHA ★',
+          title: '★ MH ★',
           headerStyle: {
             backgroundColor: '#fff'
           },

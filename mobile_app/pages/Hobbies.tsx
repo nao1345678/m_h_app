@@ -1,27 +1,21 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import Task from '../types'
 
-export default function Tough() {
-  const tough: any = [
-    'Take a shower',
-    'Drink water',
-    'Eat at least a meal',
-    'Listen to music I like',
-    'Get out of my bed',
-    'Brush my teeth',
-    'Wash my hair',
-    'Take my medication',
-    'Make my bed',
-    'Take 10 deep breaths',
-    "Tell myself 'it's gonna be ok' "
+export default function Hobbies() {
+  const hobbies: any = [
+    'Take a run',
+    'Create some artpieces',
+    'Read a book',
+    'Finish my ongoing project',
+    'Hang out with my friends',
+    'Compose music',
+    'Meditate'
   ]
-  console.log(tough)
-
   return (
     <View style={styles.container}>
-      <Text>On tough days </Text>
+      <Text>Hobbies</Text>
       <View>
-        {tough.map((task: Task, index: number) => (
+        {hobbies.map((task: Task, index: number) => (
           <Text style={styles.taskName}>{task.name}</Text>
         ))}
       </View>
