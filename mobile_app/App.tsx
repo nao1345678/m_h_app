@@ -4,9 +4,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { View, Text, StyleSheet, Image } from 'react-native'
+// import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import Todo from './pages/Todo'
 
+// const Drawer = createDrawerNavigator()
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
