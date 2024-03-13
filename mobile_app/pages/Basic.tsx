@@ -14,14 +14,18 @@ export default function Basic() {
     'Spend less time on my phone',
     'Do some skincare'
   ]
-  console.log(basic)
 
   return (
     <View style={styles.container}>
       <Text>Basic everyday tasks</Text>
+
       <View>
-        {basic.map((task: Task, index: number) => (
-          <Text style={styles.taskName}>{task.name}</Text>
+        {basic.map((task: any, index: number) => (
+          <View key={index} style={styles.taskBlock}>
+            <Text key={index} style={styles.taskName}>
+              {task}
+            </Text>
+          </View>
         ))}
       </View>
     </View>
@@ -36,6 +40,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   taskName: {
-    color: '#pink'
+    color: 'purple'
+  },
+  taskBlock: {
+    width: 390,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'pink'
   }
 })

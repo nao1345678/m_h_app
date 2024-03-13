@@ -15,8 +15,12 @@ export default function Hobbies() {
     <View style={styles.container}>
       <Text>Hobbies</Text>
       <View>
-        {hobbies.map((task: Task, index: number) => (
-          <Text style={styles.taskName}>{task.name}</Text>
+        {hobbies.map((task: any, index: number) => (
+          <View key={index} style={styles.taskBlock}>
+            <Text key={index} style={styles.taskName}>
+              {task}
+            </Text>
+          </View>
         ))}
       </View>
     </View>
@@ -32,5 +36,13 @@ const styles = StyleSheet.create({
   },
   taskName: {
     color: 'purple'
+  },
+  taskBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'pink'
   }
 })

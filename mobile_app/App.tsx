@@ -1,23 +1,27 @@
-import 'react-native-gesture-handler'
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { View, Text, StyleSheet, Image } from 'react-native'
-// import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { View, Text, StyleSheet, Image, Button } from 'react-native'
 
 import Todo from './pages/Todo'
+import Following from './pages/Following'
+import Basic from './pages/Basic'
+import Tough from './pages/Tough'
+import Organizing from './pages/Organizing'
+import Hobbies from './pages/Hobbies'
+import Important from './pages/Important'
 
-// const Drawer = createDrawerNavigator()
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
+const Drawer = createDrawerNavigator()
 
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-
         tabBarStyle: {
           backgroundColor: '#fff',
           borderTopWidth: 0
@@ -31,6 +35,7 @@ const MainTabNavigator = () => {
       })}
     >
       <Tab.Screen name="List" component={Todo} />
+      <Tab.Screen name="Following" component={Following} />
     </Tab.Navigator>
   )
 }
@@ -40,6 +45,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          headerShown: false,
           title: '★ MH ★',
           headerStyle: {
             backgroundColor: '#fff'

@@ -1,22 +1,30 @@
 import React, { useState } from 'react'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { NavigationContainer } from '@react-navigation/native'
+
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
 
-export default function Todo() {
+import Basic from './Basic'
+import Tough from './Tough'
+import Organizing from './Organizing'
+import Hobbies from './Hobbies'
+import Important from './Important'
+
+const Drawer = createDrawerNavigator()
+
+export default function App() {
   const [tasks, setTasks] = useState([
     { id: 0, name: 'Tâche test', isChecked: false },
     { id: 1, name: 'caca', isChecked: false }
   ])
   const [inputTask, setInputTask] = useState('')
-  const [updatedTask, setUpdatedTask] = useState('')
 
-  const handleCheckboxChange = (id: number) => {
+  const handleCheckboxChange = (id: any) => {
     setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)))
   }
 
-  const removeItem = (index: number) => {
-    const updatedTasks = [...tasks]
-    updatedTasks.splice(index, 1)
-    setTasks(updatedTasks)
+  const removeItem = (id: any) => {
+    setTasks(tasks.filter((task) => task.id !== id))
   }
 
   const removeAllItems = () => {
@@ -36,47 +44,43 @@ export default function Todo() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView>
-        <View>
-          <Text style={styles.heading}>Today's tasks</Text>
-
-          {tasks
-            .filter((task) => !task.isChecked)
-            .map((task, index) => (
-              <View key={task.id} style={styles.taskBlock}>
-                <Text style={styles.taskName}>{task.name}</Text>
-                <View style={styles.buttons}>
-                  <Button title="Done" onPress={() => handleCheckboxChange(task.id)} />
-                  <Button title="Remove" onPress={() => removeItem(task.id)} />
-                </View>
+    <NavigationContainer independent={true}>
+      <Drawer.Navigator initialRouteName="Main">
+        <Drawer.Screen name="Main" options={{ title: '★ MH ★' }}>
+          {() => (
+            <ScrollView>
+              <View>
+                <Text style={styles.heading}>Today's tasks</Text>
+                {tasks
+                  .filter((task) => !task.isChecked)
+                  .map((task, index) => (
+                    <View key={task.id} style={styles.taskBlock}>
+                      <Text style={styles.taskName}>{task.name}</Text>
+                      <View style={styles.buttons}>
+                        <Button title="Done" onPress={() => handleCheckboxChange(task.id)} />
+                        <Button title="Remove" onPress={() => removeItem(task.id)} />
+                      </View>
+                    </View>
+                  ))}
               </View>
-            ))}
-        </View>
-        <Text style={styles.heading}>Done !</Text>
-        {tasks
-          .filter((task) => task.isChecked)
-          .map((task, index) => (
-            <View key={task.id} style={styles.taskBlock}>
-              <Text style={styles.taskName}>{task.name}</Text>
-            </View>
-          ))}
-      </ScrollView>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          value={inputTask}
-          onChangeText={(text) => setInputTask(text)}
-          placeholder="Add task ..."
-        />
-        <Button title="Add" onPress={addItem} />
-      </View>
-
-      <View style={styles.footer}>
-        <Button title="All done" onPress={() => handleAllCheckboxChange()} />
-        <Button title="Delete all" onPress={() => removeAllItems()} />
-      </View>
-    </View>
+              <Text style={styles.heading}>Done !</Text>
+              {tasks
+                .filter((task) => task.isChecked)
+                .map((task, index) => (
+                  <View key={task.id} style={styles.taskBlock}>
+                    <Text style={styles.taskName}>{task.name}</Text>
+                  </View>
+                ))}
+            </ScrollView>
+          )}
+        </Drawer.Screen>
+        <Drawer.Screen name="Basic tasks" component={Basic} />
+        <Drawer.Screen name="On tough days" component={Tough} />
+        <Drawer.Screen name="Important tasks" component={Important} />
+        <Drawer.Screen name="Organizing tasks" component={Organizing} />
+        <Drawer.Screen name="Hobbies" component={Hobbies} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   )
 }
 
@@ -93,33 +97,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc'
+    borderBottomColor: 'pink'
   },
   taskName: {
     fontSize: 18
   },
   buttons: {
     flexDirection: 'row'
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    borderTopWidth: 1,
-    borderTopColor: '#ccc'
-  },
-  input: {
-    flex: 1,
-    marginRight: 10,
-    padding: 5,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10
   }
 })

@@ -15,14 +15,17 @@ export default function Tough() {
     'Take 10 deep breaths',
     "Tell myself 'it's gonna be ok' "
   ]
-  console.log(tough)
 
   return (
     <View style={styles.container}>
       <Text>On tough days </Text>
       <View>
-        {tough.map((task: Task, index: number) => (
-          <Text style={styles.taskName}>{task.name}</Text>
+        {tough.map((task: any, index: number) => (
+          <View key={index} style={styles.taskBlock}>
+            <Text key={index} style={styles.taskName}>
+              {task}
+            </Text>
+          </View>
         ))}
       </View>
     </View>
@@ -38,5 +41,13 @@ const styles = StyleSheet.create({
   },
   taskName: {
     color: 'purple'
+  },
+  taskBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'pink'
   }
 })
