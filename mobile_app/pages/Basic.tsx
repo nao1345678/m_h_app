@@ -1,30 +1,34 @@
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native'
+import { StyleSheet, Text, View, Image, FlatList, Button } from 'react-native'
 import data from '../ressources/tasks.json'
 import Task from '../types'
 
-export default function Basic() {
+export default function Basic({ navigation }: { navigation: any }) {
   const basic: any = [
-    'Organize my room',
-    'Read my emails',
-    'Go to the grocery store',
-    'Make a gift for a friend',
-    'Take a long walk outside',
-    'Create a playlist',
-    'Make a lunch for some people I like',
-    'Spend less time on my phone',
-    'Do some skincare'
+    { id: 1, name: 'Organize my room', isChecked: false },
+    { id: 2, name: 'Read my emails', isChecked: false },
+    { id: 3, name: 'Go to the grocery store', isChecked: false },
+    { id: 4, name: 'Make a gift for a friend', isChecked: false },
+    { id: 5, name: 'Take a long walk outside', isChecked: false },
+    { id: 6, name: 'Create a playlist', isChecked: false },
+    { id: 7, name: 'Make a lunch for some people I like', isChecked: false },
+    { id: 8, name: 'Spend less time on my phone', isChecked: false },
+    { id: 9, name: 'Do some skincare', isChecked: false }
   ]
+
+  const handleAddTask = (id: number) => {
+    navigation.navigate('Todo', { id })
+  }
 
   return (
     <View style={styles.container}>
       <Text>Basic everyday tasks</Text>
-
       <View>
-        {basic.map((task: any, index: number) => (
+        {basic.map((task: Task, index: number) => (
           <View key={index} style={styles.taskBlock}>
             <Text key={index} style={styles.taskName}>
-              {task}
+              {task.name}
             </Text>
+            <Button title="ajoute pitié" onPress={() => handleAddTask(task.id)} />
           </View>
         ))}
       </View>

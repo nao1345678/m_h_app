@@ -3,12 +3,12 @@ import Task from '../types'
 
 export default function Important() {
   const important: any = [
-    'Complete my work presentation',
-    'Pay my bills',
-    "Schedule a doctor's appointment",
-    'Call a family member',
-    'Prepare for an important meeting',
-    'Update my resume'
+    { id: 28, name: 'Complete my work presentation', isChecked: false },
+    { id: 29, name: 'Pay my bills', isChecked: false },
+    { id: 30, name: "Schedule a doctor's appointment", isChecked: false },
+    { id: 31, name: 'Call a family member', isChecked: false },
+    { id: 32, name: 'Prepare for an important meeting', isChecked: false },
+    { id: 33, name: 'Update my resume', isChecked: false }
   ]
   return (
     <View style={styles.container}>
@@ -17,7 +17,7 @@ export default function Important() {
         {important.map((task: any, index: number) => (
           <View key={index} style={styles.taskBlock}>
             <Text key={index} style={styles.taskName}>
-              {task}
+              {task.name}
             </Text>
           </View>
         ))}

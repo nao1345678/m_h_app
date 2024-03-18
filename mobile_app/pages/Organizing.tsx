@@ -3,15 +3,15 @@ import Task from '../types'
 
 export default function Organizing() {
   const orga: any = [
-    'Wash my bed sheets',
-    'Declutter my wardrobe',
-    'Mop the floors',
-    'Wash my makeup brushes',
-    'Fold the laundry',
-    'Clean out the refrigerator',
-    'Organize my desk',
-    'Sort through old paperwork',
-    'Tidy up the living room'
+    { id: 34, name: 'Wash my bed sheets', isChecked: false },
+    { id: 35, name: 'Declutter my wardrobe', isChecked: false },
+    { id: 36, name: 'Mop the floors', isChecked: false },
+    { id: 37, name: 'Wash my makeup brushes', isChecked: false },
+    { id: 38, name: 'Fold the laundry', isChecked: false },
+    { id: 39, name: 'Clean out the refrigerator', isChecked: false },
+    { id: 40, name: 'Organize my desk', isChecked: false },
+    { id: 41, name: 'Sort through old paperwork', isChecked: false },
+    { id: 42, name: 'Tidy up the living room', isChecked: false }
   ]
   return (
     <View style={styles.container}>
@@ -20,7 +20,7 @@ export default function Organizing() {
         {orga.map((task: any, index: number) => (
           <View key={index} style={styles.taskBlock}>
             <Text key={index} style={styles.taskName}>
-              {task}
+              {task.name}
             </Text>
           </View>
         ))}

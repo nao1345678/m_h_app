@@ -3,13 +3,13 @@ import Task from '../types'
 
 export default function Hobbies() {
   const hobbies: any = [
-    'Take a run',
-    'Create some artpieces',
-    'Read a book',
-    'Finish my ongoing project',
-    'Hang out with my friends',
-    'Compose music',
-    'Meditate'
+    { id: 21, name: 'Take a run', isChecked: false },
+    { id: 22, name: 'Create some artpieces', isChecked: false },
+    { id: 23, name: 'Read a book', isChecked: false },
+    { id: 24, name: 'Finish my ongoing project', isChecked: false },
+    { id: 25, name: 'Hang out with my friends', isChecked: false },
+    { id: 26, name: 'Compose music', isChecked: false },
+    { id: 27, name: 'Meditate', isChecked: false }
   ]
   return (
     <View style={styles.container}>
@@ -18,7 +18,7 @@ export default function Hobbies() {
         {hobbies.map((task: any, index: number) => (
           <View key={index} style={styles.taskBlock}>
             <Text key={index} style={styles.taskName}>
-              {task}
+              {task.name}
             </Text>
           </View>
         ))}

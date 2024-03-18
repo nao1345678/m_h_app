@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
-
+import { useRoute } from '@react-navigation/native'
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
 
 import Basic from './Basic'
@@ -13,10 +13,16 @@ import Important from './Important'
 const Drawer = createDrawerNavigator()
 
 export default function App() {
-  const [tasks, setTasks] = useState([
-    { id: 0, name: 'Tâche test', isChecked: false },
-    { id: 1, name: 'caca', isChecked: false }
-  ])
+  const route = useRoute()
+
+  // const { id } = route.params as { id: number }
+
+  // useEffect(() => {
+  //   setTasks(id)
+  // }, [route.params])
+
+  const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }])
+
   const [inputTask, setInputTask] = useState('')
 
   const handleCheckboxChange = (id: any) => {

@@ -3,17 +3,17 @@ import Task from '../types'
 
 export default function Tough() {
   const tough: any = [
-    'Take a shower',
-    'Drink water',
-    'Eat at least a meal',
-    'Listen to music I like',
-    'Get out of my bed',
-    'Brush my teeth',
-    'Wash my hair',
-    'Take my medication',
-    'Make my bed',
-    'Take 10 deep breaths',
-    "Tell myself 'it's gonna be ok' "
+    { id: 10, name: 'Take a shower', isChecked: false },
+    { id: 11, name: 'Drink water', isChecked: false },
+    { id: 12, name: 'Eat at least a meal', isChecked: false },
+    { id: 13, name: 'Listen to music I like', isChecked: false },
+    { id: 14, name: 'Get out of my bed', isChecked: false },
+    { id: 15, name: 'Brush my teeth', isChecked: false },
+    { id: 16, name: 'Wash my hair', isChecked: false },
+    { id: 17, name: 'Take my medication', isChecked: false },
+    { id: 18, name: 'Make my bed', isChecked: false },
+    { id: 19, name: 'Take 10 deep breaths', isChecked: false },
+    { id: 20, name: "Tell myself 'it's gonna be ok'", isChecked: false }
   ]
 
   return (
@@ -23,7 +23,7 @@ export default function Tough() {
         {tough.map((task: any, index: number) => (
           <View key={index} style={styles.taskBlock}>
             <Text key={index} style={styles.taskName}>
-              {task}
+              {task.name}
             </Text>
           </View>
         ))}

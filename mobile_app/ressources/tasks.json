@@ -1,58 +1,54 @@
 {
   "basic_tasks": [
-    "Organize my room",
-    "Read my emails",
-    "Go to the grocery store",
-    "Make a gift for a friend",
-    "Take a long walk outside",
-    "Create a playlist",
-    "Make a lunch for some people I like",
-    "Spend less time on my phone",
-    "Do some skincare"
+    { "id": 1, "name": "Organize my room", "isChecked": false },
+    { "id": 2, "name": "Read my emails", "isChecked": false },
+    { "id": 3, "name": "Go to the grocery store", "isChecked": false },
+    { "id": 4, "name": "Make a gift for a friend", "isChecked": false },
+    { "id": 5, "name": "Take a long walk outside", "isChecked": false },
+    { "id": 6, "name": "Create a playlist", "isChecked": false },
+    { "id": 7, "name": "Make a lunch for some people I like", "isChecked": false },
+    { "id": 8, "name": "Spend less time on my phone", "isChecked": false },
+    { "id": 9, "name": "Do some skincare", "isChecked": false }
   ],
-
   "tough_days": [
-    "Take a shower",
-    "Drink water",
-    "Eat at least a meal",
-    "Listen to music I like",
-    "Get out of my bed",
-    "Brush my teeth",
-    "Wash my hair",
-    "Take my medication",
-    "Make my bed",
-    "Take 10 deep breaths",
-    "Tell myself 'it's gonna be ok' "
+    { "id": 10, "name": "Take a shower", "isChecked": false },
+    { "id": 11, "name": "Drink water", "isChecked": false },
+    { "id": 12, "name": "Eat at least a meal", "isChecked": false },
+    { "id": 13, "name": "Listen to music I like", "isChecked": false },
+    { "id": 14, "name": "Get out of my bed", "isChecked": false },
+    { "id": 15, "name": "Brush my teeth", "isChecked": false },
+    { "id": 16, "name": "Wash my hair", "isChecked": false },
+    { "id": 17, "name": "Take my medication", "isChecked": false },
+    { "id": 18, "name": "Make my bed", "isChecked": false },
+    { "id": 19, "name": "Take 10 deep breaths", "isChecked": false },
+    { "id": 20, "name": "Tell myself 'it's gonna be ok'", "isChecked": false }
   ],
-
   "hobbies": [
-    "Take a run",
-    "Create some artpieces",
-    "Read a book",
-    "Finish my ongoing project",
-    "Hang out with my friends",
-    "Compose music",
-    "Meditate"
+    { "id": 21, "name": "Take a run", "isChecked": false },
+    { "id": 22, "name": "Create some artpieces", "isChecked": false },
+    { "id": 23, "name": "Read a book", "isChecked": false },
+    { "id": 24, "name": "Finish my ongoing project", "isChecked": false },
+    { "id": 25, "name": "Hang out with my friends", "isChecked": false },
+    { "id": 26, "name": "Compose music", "isChecked": false },
+    { "id": 27, "name": "Meditate", "isChecked": false }
   ],
-
   "important_tasks": [
-    "Complete my work presentation",
-    "Pay my bills",
-    "Schedule a doctor's appointment",
-    "Call a family member",
-    "Prepare for an important meeting",
-    "Update my resume"
+    { "id": 28, "name": "Complete my work presentation", "isChecked": false },
+    { "id": 29, "name": "Pay my bills", "isChecked": false },
+    { "id": 30, "name": "Schedule a doctor's appointment", "isChecked": false },
+    { "id": 31, "name": "Call a family member", "isChecked": false },
+    { "id": 32, "name": "Prepare for an important meeting", "isChecked": false },
+    { "id": 33, "name": "Update my resume", "isChecked": false }
   ],
-
   "organizing": [
-    "Wash my bed sheets",
-    "Declutter my wardrobe",
-    "Mop the floors",
-    "Wash my makeup brushes",
-    "Fold the laundry",
-    "Clean out the refrigerator",
-    "Organize my desk",
-    "Sort through old paperwork",
-    "Tidy up the living room"
+    { "id": 34, "name": "Wash my bed sheets", "isChecked": false },
+    { "id": 35, "name": "Declutter my wardrobe", "isChecked": false },
+    { "id": 36, "name": "Mop the floors", "isChecked": false },
+    { "id": 37, "name": "Wash my makeup brushes", "isChecked": false },
+    { "id": 38, "name": "Fold the laundry", "isChecked": false },
+    { "id": 39, "name": "Clean out the refrigerator", "isChecked": false },
+    { "id": 40, "name": "Organize my desk", "isChecked": false },
+    { "id": 41, "name": "Sort through old paperwork", "isChecked": false },
+    { "id": 42, "name": "Tidy up the living room", "isChecked": false }
   ]
 }
