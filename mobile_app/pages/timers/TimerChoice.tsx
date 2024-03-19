@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 
-export default function Tamere() {
+export default function TimerChoice() {
   return (
     <View style={styles.container}>
-      <Text>Time</Text>
+      <Text>Timers choice</Text>
     </View>
   )
 }
