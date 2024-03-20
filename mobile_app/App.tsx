@@ -6,9 +6,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import { View, Text, StyleSheet, Image, Button } from 'react-native'
 
 import Todo from './pages/Todo'
-import Time from './components/Example'
+import Timer from './pages/Time'
 import Following from './pages/Following'
-import TimerChoice from './pages/timers/TimerChoice'
 import Basic from './pages/Basic'
 import Tough from './pages/Tough'
 import Organizing from './pages/Organizing'
@@ -37,7 +36,7 @@ const MainTabNavigator = () => {
       })}
     >
       <Tab.Screen name="List" component={Todo} />
-      <Tab.Screen name="Timers" component={Time} />
+      <Tab.Screen name="Timers" component={Timer} />
     </Tab.Navigator>
   )
 }
