@@ -36,7 +36,7 @@ export default function Timer() {
     }
   }
 
-  // arrêt  du timer
+  // arrêt du timer
   // pause du timer
   // correction des bugs d'affichage
 
