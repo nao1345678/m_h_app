@@ -12,19 +12,46 @@ export default function Timer() {
     seconds: 0
   })
 
+  const [intervalId, setIntervalId] = useState<number | null>()
   const [customTime, setCustomTime] = useState('')
+  const [timerRunning, setTimerRunning] = useState<boolean>(false)
+  const [pausedTime, setPausedTime] = useState<number>(0)
 
   function startTimer(minutes: number) {
     let timeLeft: number = minutes * 60
 
-    const intervalId = setInterval(() => {
+    const id = setInterval(() => {
       timeLeft--
       setTimerState({ minutes: Math.floor(timeLeft / 60), seconds: timeLeft % 60 })
 
       if (timeLeft <= 0) {
-        clearInterval(intervalId)
+        clearInterval(id)
+        setTimerRunning(false)
       }
     }, 1000)
+
+    setIntervalId(id)
+    setTimerRunning(true)
+  }
+
+  function pauseTimer() {
+    if (intervalId !== null) {
+      clearInterval(intervalId)
+      setIntervalId(null)
+      setTimerRunning(true)
+      setPausedTime()
+    }
+  }
+
+  function resumeTimer() {
+    startTimer(pausedTime)
+  }
+
+  function resetTimer() {
+    setTimerState({ minutes: 0, seconds: 0 })
+    clearInterval(intervalId)
+    setIntervalId(null)
+    setTimerRunning(false)
   }
 
   function handleCustomTimeInput() {
@@ -36,38 +63,53 @@ export default function Timer() {
     }
   }
 
-  // arrêt du timer
-  // pause du timer
-  // correction des bugs d'affichage
-
   return (
     <View style={styles.container}>
       <Text>
         {timerState.minutes} minutes {timerState.seconds} seconds remaining
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => startTimer(1)} style={styles.button}>
-          <Text style={styles.buttonText}>1 Minute Timer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => startTimer(5)} style={styles.button}>
-          <Text style={styles.buttonText}>5 Minutes Timer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => startTimer(10)} style={styles.button}>
-          <Text style={styles.buttonText}>10 Minutes Timer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => startTimer(30)} style={styles.button}>
-          <Text style={styles.buttonText}>30 Minutes Timer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleCustomTimeInput} style={styles.button}>
-          <Text style={styles.buttonText}>Start Custom Timer</Text>
-        </TouchableOpacity>
-        <TextInput
-          onChangeText={setCustomTime}
-          value={customTime}
-          placeholder="Enter time (minutes)"
-          keyboardType="numeric"
-          style={styles.input}
-        />
+        {!timerRunning && (
+          <>
+            <TouchableOpacity onPress={() => startTimer(5)} style={styles.button}>
+              <Text style={styles.buttonText}>5 Minutes Timer</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => startTimer(10)} style={styles.button}>
+              <Text style={styles.buttonText}>10 Minutes Timer</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => startTimer(30)} style={styles.button}>
+              <Text style={styles.buttonText}>30 Minutes Timer</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleCustomTimeInput} style={styles.button}>
+              <Text style={styles.buttonText}>Start Custom Timer</Text>
+            </TouchableOpacity>
+          </>
+        )}
+        {!timerRunning && (
+          <TextInput
+            onChangeText={setCustomTime}
+            value={customTime}
+            placeholder="Enter time (minutes)"
+            keyboardType="numeric"
+            style={styles.input}
+          />
+        )}
+        {timerRunning && (
+          <View>
+            {pausedTime > 0 && (
+              <TouchableOpacity onPress={resumeTimer} style={styles.button}>
+                <Text style={styles.buttonText}>Resume</Text>
+              </TouchableOpacity>
+            )}
+
+            <TouchableOpacity onPress={pauseTimer} style={styles.button}>
+              <Text style={styles.buttonText}>Pause</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={resetTimer} style={styles.button}>
+              <Text style={styles.buttonText}>Reset</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </View>
   )
