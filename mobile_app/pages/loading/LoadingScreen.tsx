@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
 
 const LoadingScreen = () => {
-  // État pour contrôler l'affichage du spinner de chargement
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulation d'un chargement en utilisant un délai de 3 secondes
     const timeout = setTimeout(() => {
       setIsLoading(false)
     }, 3000)
 
-    // Nettoyage du timeout pour éviter les fuites de mémoire
     return () => clearTimeout(timeout)
   }, [])
 
-  // Rendu conditionnel basé sur l'état de chargement
   return (
     <View style={styles.container}>
-      <Text>BlissValley</Text>
+      <Image source={require('../../assets/tree.png')} style={styles.tree} resizeMode="contain" />
+      <Image source={require('../../assets/BlissValley.png')} style={styles.blissvalley} resizeMode="contain" />
     </View>
   )
 }
@@ -28,11 +25,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#ffb3f3'
   },
   text: {
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  tree: {
+    width: 50,
+    height: 50
+  },
+  blissvalley: {
+    width: 150,
+    height: 30
   }
 })
 

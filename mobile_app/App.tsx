@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 import Todo from './pages/tasks/Todo'
 import Timer from './pages/timer/Time'
-
+import Journal from './pages/journal/Journal'
 import Basic from './pages/tasks/Basic'
 import Tough from './pages/tasks/Tough'
 import Organizing from './pages/tasks/Organizing'
@@ -38,6 +38,7 @@ const MainTabNavigator = () => {
     >
       <Tab.Screen name="List" component={Todo} />
       <Tab.Screen name="Timers" component={Timer} />
+      <Tab.Screen name="Journal" component={Journal} />
     </Tab.Navigator>
   )
 }
