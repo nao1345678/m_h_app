@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, FlatList, Button } from 'react-native'
-import data from '../ressources/tasks.json'
-import Task from '../types'
+import data from '../../ressources/tasks.json'
+import Task from '../../types'
 
 export default function Basic({ navigation }: { navigation: any }) {
   const basic: any = [

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
-import Task from '../types'
+import Task from '../../types'
 
 export default function Hobbies() {
   const hobbies: any = [

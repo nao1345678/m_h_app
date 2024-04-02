@@ -3,16 +3,17 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { View, Text, StyleSheet, Image, Button } from 'react-native'
+import { useState, useEffect } from 'react'
 
-import Todo from './pages/Todo'
-import Timer from './pages/Time'
-import Following from './pages/Following'
-import Basic from './pages/Basic'
-import Tough from './pages/Tough'
-import Organizing from './pages/Organizing'
-import Hobbies from './pages/Hobbies'
-import Important from './pages/Important'
+import Todo from './pages/tasks/Todo'
+import Timer from './pages/timer/Time'
+
+import Basic from './pages/tasks/Basic'
+import Tough from './pages/tasks/Tough'
+import Organizing from './pages/tasks/Organizing'
+import Hobbies from './pages/tasks/Hobbies'
+import Important from './pages/tasks/Important'
+import LoadingScreen from './pages/loading/LoadingScreen'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -42,6 +43,12 @@ const MainTabNavigator = () => {
 }
 
 const App = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3000)
+  }, [])
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -58,7 +65,11 @@ const App = () => {
           }
         }}
       >
-        <Stack.Screen name="Home" component={MainTabNavigator} />
+        {loading ? (
+          <Stack.Screen name="Loading" component={LoadingScreen} />
+        ) : (
+          <Stack.Screen name="Home" component={MainTabNavigator} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   )
