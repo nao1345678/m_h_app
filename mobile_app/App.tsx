@@ -14,6 +14,8 @@ import Organizing from './pages/tasks/Organizing'
 import Hobbies from './pages/tasks/Hobbies'
 import Important from './pages/tasks/Important'
 import LoadingScreen from './pages/loading/LoadingScreen'
+import BreathingExercise from './pages/breathing_exercise/BreathingExercise'
+import AppLibrary from './pages/library/AppLibrary'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -39,6 +41,7 @@ const MainTabNavigator = () => {
       <Tab.Screen name="List" component={Todo} />
       <Tab.Screen name="Timers" component={Timer} />
       <Tab.Screen name="Journal" component={Journal} />
+      <Tab.Screen name="Breathing exercise" component={BreathingExercise} />
     </Tab.Navigator>
   )
 }
@@ -71,6 +74,7 @@ const App = () => {
         ) : (
           <Stack.Screen name="Home" component={MainTabNavigator} />
         )}
+        <Stack.Screen name="Library" component={AppLibrary} />
       </Stack.Navigator>
     </NavigationContainer>
   )
