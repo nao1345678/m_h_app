@@ -37,9 +37,9 @@ export default function Timer() {
   function pauseTimer() {
     if (intervalId !== null) {
       clearInterval(intervalId)
+      setPausedTime(timerState.minutes + timerState.seconds / 60)
       setIntervalId(null)
       setTimerRunning(true)
-      setPausedTime()
     }
   }
 
