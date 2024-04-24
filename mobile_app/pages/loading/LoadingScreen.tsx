@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
+import { Svg } from 'react-native-svg'
+import BlissValley from '../../components/BlissValley'
+import Tree from '../../components/Tree'
 
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -14,8 +17,10 @@ const LoadingScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/tree.png')} style={styles.tree} resizeMode="contain" />
-      <Image source={require('../../assets/BlissValley.png')} style={styles.blissvalley} resizeMode="contain" />
+      <View style={styles.pics}>
+        <Tree />
+        <BlissValley />
+      </View>
     </View>
   )
 }
@@ -32,12 +37,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   tree: {
-    width: 50,
+    width: 40,
     height: 50
   },
   blissvalley: {
-    width: 150,
+    width: 20,
     height: 30
+    // shadowColor: '#a400ff',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 11
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 5,
+    // elevation: 15
+  },
+  pics: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    marginBottom: 60
   }
 })
 

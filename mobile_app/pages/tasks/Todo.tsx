@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, Modal, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
 
 import Basic from './Basic'
 import Tough from './Tough'
@@ -14,12 +14,6 @@ const Drawer = createDrawerNavigator()
 
 export default function App() {
   const route = useRoute()
-
-  // const { id } = route.params as { id: number }
-
-  // useEffect(() => {
-  //   setTasks(id)
-  // }, [route.params])
 
   const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }])
 
@@ -49,6 +43,12 @@ export default function App() {
     setTasks(tasks.map((task) => (task.isChecked ? task : { ...task, isChecked: !task.isChecked })))
   }
 
+  const [modalVisible, setModalVisible] = useState(true)
+
+  const closeModal = () => {
+    setModalVisible(false)
+  }
+
   return (
     <NavigationContainer independent={true}>
       <Drawer.Navigator initialRouteName="Main">
@@ -56,6 +56,25 @@ export default function App() {
           {() => (
             <ScrollView>
               <View>
+                <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
+                  <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                      <Text>How are you feeling, Boo ?</Text>
+
+                      <View style={styles.moodcontainer}>
+                        <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                          <Text> BAD</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                          <Text>MID</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                          <Text>GOOD</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </View>
+                </Modal>
                 <Text style={styles.heading}>Today's tasks</Text>
                 {tasks
                   .filter((task) => !task.isChecked)
@@ -91,6 +110,15 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  mood: {
+    fontSize: 15,
+    backgroundColor: 'pink',
+    flex: 1,
+    margin: 30
+  },
+  moodcontainer: {
+    flex: 1
+  },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -110,5 +138,19 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row'
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+  },
+  modalContent: {
+    width: '85%',
+    height: '75%',
+    backgroundColor: '#ffb3f3',
+    padding: 20,
+    borderRadius: 0,
+    elevation: 5
   }
 })
