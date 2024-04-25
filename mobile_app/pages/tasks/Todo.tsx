@@ -2,18 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
-import { View, Text, Modal, StyleSheet, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Image } from 'react-native'
+import { useFonts } from 'expo-font'
 
 import Basic from './Basic'
+import Kitty from '../../components/Kitty'
+import Bubble1 from '../../components/Bubble1'
+import Cloud from '../../components/Cloud'
 import Tough from './Tough'
 import Organizing from './Organizing'
 import Hobbies from './Hobbies'
+import GoodMood from '../../components/GoodMood'
+import MidMood from '../../components/MidMood'
+import BadMood from '../../components/BadMood'
 import Important from './Important'
 
 const Drawer = createDrawerNavigator()
 
 export default function App() {
   const route = useRoute()
+  const [fontsLoaded] = useFonts({
+    'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf')
+  })
 
   const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }])
 
@@ -59,17 +69,20 @@ export default function App() {
                 <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
                   <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                      <Text>How are you feeling, Boo ?</Text>
+                      <Cloud />
+                      <Bubble1 />
+                      <Kitty />
+                      <Text style={{ fontFamily: 'PressStart2P'  }}>How are you feeling, Boo ?</Text>
 
                       <View style={styles.moodcontainer}>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Text> BAD</Text>
+                          <BadMood />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Text>MID</Text>
+                          <MidMood />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Text>GOOD</Text>
+                          <GoodMood />
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -112,7 +125,6 @@ export default function App() {
 const styles = StyleSheet.create({
   mood: {
     fontSize: 15,
-    backgroundColor: 'pink',
     flex: 1,
     margin: 30
   },
@@ -146,8 +158,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   modalContent: {
-    width: '85%',
-    height: '75%',
+    width: '100%',
+    height: '100%',
     backgroundColor: '#ffb3f3',
     padding: 20,
     borderRadius: 0,

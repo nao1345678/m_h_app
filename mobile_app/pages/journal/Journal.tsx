@@ -20,7 +20,7 @@ export default function Journal() {
 
   return (
     <View style={styles.container}>
-      <Text>Journal</Text>
+      <Text>Rumble bubble</Text>
       <Text>{currentDate.toDateString()}</Text>
       <TextInput style={styles.input} value={data} onChangeText={setData} placeholder="Write your thoughts here" />
       <TouchableOpacity onPress={saveButton} style={styles.saveButton}>
