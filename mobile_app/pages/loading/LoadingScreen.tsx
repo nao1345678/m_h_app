@@ -3,9 +3,13 @@ import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
 import { Svg } from 'react-native-svg'
 import BlissValley from '../../components/BlissValley'
 import Tree from '../../components/Tree'
+import { useFonts } from 'expo-font'
 
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true)
+  const [fontsLoaded] = useFonts({
+    'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf')
+  })
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -19,7 +23,7 @@ const LoadingScreen = () => {
     <View style={styles.container}>
       <View style={styles.pics}>
         <Tree />
-        <BlissValley />
+        <Text style={styles.blissvalley}>Bliss Valley</Text>
       </View>
     </View>
   )
@@ -41,18 +45,17 @@ const styles = StyleSheet.create({
     height: 50
   },
   blissvalley: {
-    width: 20,
-    height: 30
-    // shadowColor: '#a400ff',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 11
-    // },
-    // shadowOpacity: 1,
-    // shadowRadius: 5,
-    // elevation: 15
+    width: 200,
+    color: 'white',
+    fontFamily: 'PressStart2P',
+    fontSize: 20,
+    textShadowColor: '#a400ff',
+    textShadowOffset: { width: 0, height: 5 },
+    textShadowRadius: 1
   },
+  
   pics: {
+    width : 200,
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',

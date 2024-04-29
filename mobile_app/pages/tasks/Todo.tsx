@@ -4,8 +4,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { useFonts } from 'expo-font'
+import { BlurView } from 'react-native-blur'
 
 import Basic from './Basic'
+import Grass from '../../components/Grass'
+import Sun from '../../components/Sun'
 import Kitty from '../../components/Kitty'
 import Bubble1 from '../../components/Bubble1'
 import Cloud from '../../components/Cloud'
@@ -66,24 +69,32 @@ export default function App() {
           {() => (
             <ScrollView>
               <View>
-                <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
+                <Modal animationType="fade" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
                   <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                      <Cloud />
-                      <Bubble1 />
-                      <Kitty />
-                      <Text style={{ fontFamily: 'PressStart2P'  }}>How are you feeling, Boo ?</Text>
+                      <Cloud style={styles.cloud} />
+                      <Cloud style={styles.cloud2} />
+                      <Sun style={styles.sun} />
+                      <Cloud style={styles.cloud1}/>
+                      <Bubble1 style={styles.bubble}/>
+                      <Kitty style={styles.kitty}/>
+                      <Text style={{ fontFamily: 'PressStart2P', position: 'absolute', top : 315, width : 190, left : 110  }}>Hi Boo, how are you feeling right now ?</Text>
 
                       <View style={styles.moodcontainer}>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <BadMood />
+                        <Image source={require('../../assets/badmoodblur.png')} style={styles.badmoodblur} resizeMode='contain'/>
+                          <BadMood/>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                        <Image source={require('../../assets/midmoodblur.png')} style={styles.midmoodblur} resizeMode='contain'/>
                           <MidMood />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <GoodMood />
+                        <Image source={require('../../assets/goodmoodblur.png')} style={styles.goodmoodblur}  resizeMode='contain'/>
+                          <GoodMood/>
                         </TouchableOpacity>
+
+                        <Grass style={styles.grass}/>
                       </View>
                     </View>
                   </View>
@@ -123,13 +134,43 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  badmoodblur: {
+    width : 120,
+    position : 'absolute',
+    right : -25,
+    top : -50, 
+    opacity : 1
+  },
+  
+  midmoodblur: {
+    width : 120,
+    position : 'absolute',
+    right : -25,
+    top : -50, 
+    opacity : 1
+  }, 
+  goodmoodblur : {
+    width : 120,
+    position : 'absolute',
+    right : -25,
+    top : -50, 
+    opacity : 1
+  },
   mood: {
     fontSize: 15,
     flex: 1,
-    margin: 30
+    margin: 25
   },
   moodcontainer: {
-    flex: 1
+    position : 'absolute',
+    bottom : 200,
+    display : 'flex', 
+    flexDirection : 'row', 
+    justifyContent : 'center', 
+    alignItems : 'center',
+    textAlign : 'center', 
+    alignSelf : 'center',
+    marginLeft : 10
   },
   heading: {
     fontSize: 24,
@@ -164,5 +205,39 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 0,
     elevation: 5
+  }, 
+  sun : { 
+    position : 'absolute', 
+    top : 30
+  }, 
+  cloud : {
+    position : 'absolute', 
+    top : 150, 
+    right : -60
+  }, 
+  cloud1 : {
+    position : 'absolute',
+    top : 70, 
+    left : -50
+  }, 
+  cloud2 : {
+    position : 'absolute',
+    top : 0, 
+    right : -50
+  }, 
+  kitty : {
+    position : 'absolute',
+    bottom : 300, 
+    left : 50 
+  }, 
+  bubble: {
+    position : 'absolute',
+    top : 280,
+    left : 70
+  }, 
+  grass: {
+    position : 'absolute',
+    bottom : -200
   }
+  
 })
