@@ -102,7 +102,15 @@ export default function App() {
 
 
 
-                <TextInput></TextInput>
+                <TextInput
+                  style={styles.addtask}
+                  onChangeText={setInputTask}
+                  value={inputTask}
+                  placeholder='Add task ...'
+                />
+                <TouchableOpacity onPress={addItem}>
+                  <Text>ADD</Text>
+                </TouchableOpacity>
                 <Text style={styles.heading}>Tasks left for today :</Text>
                 {tasks
                   .filter((task) => !task.isChecked)
