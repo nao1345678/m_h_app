@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, useRoute } from '@react-navigation/native';
-import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Image, TextInput } from 'react-native';
 import { useFonts } from 'expo-font';
 
 import Basic from './Basic';
@@ -62,7 +62,7 @@ export default function App() {
   return (
     <NavigationContainer independent={true}>
       <Drawer.Navigator initialRouteName="Main">
-        <Drawer.Screen name="Main" options={{ title: '★ MH ★' }}>
+        <Drawer.Screen name="Main" options={{ title: "Today's tasks" }}>
           {() => (
             <ScrollView>
               <View>
@@ -73,8 +73,8 @@ export default function App() {
                       <Cloud style={styles.cloud2} />
                       <Sun style={styles.sun} />
                       <Cloud style={styles.cloud1} />
-                      {/* <Image source={require('../../assets/Bubble.png')} style={styles.bubble} resizeMode='contain' /> */}
-                      <Bubble1 style={styles.bubble}/>
+                      <Image source={require('../../assets/Bubble.png')} style={styles.bubble} resizeMode='contain' />
+                     
                       <Kitty style={styles.kitty} />
                       <Text style={styles.modalText}>
                         Hi Boo, how are you feeling right now ?
@@ -98,7 +98,12 @@ export default function App() {
                     </View>
                   </View>
                 </Modal>
-                <Text style={styles.heading}>Today's tasks</Text>
+
+
+
+
+                <TextInput></TextInput>
+                <Text style={styles.heading}>Tasks left for today :</Text>
                 {tasks
                   .filter((task) => !task.isChecked)
                   .map((task) => (
@@ -220,9 +225,9 @@ const styles = StyleSheet.create({
   },
   bubble: {
     position: 'absolute',
-    top: 200,
-    left: 60,
-    width : 360
+    top: 40,
+    left: 70,
+    width : 250
 
   },
   grass: {
