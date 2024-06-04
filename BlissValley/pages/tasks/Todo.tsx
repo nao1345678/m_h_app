@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer, useRoute } from '@react-navigation/native';
+import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Image, TextInput } from 'react-native';
 import { useFonts } from 'expo-font';
 
@@ -20,14 +20,26 @@ import Important from './Important';
 
 const Drawer = createDrawerNavigator();
 
-export default function App() {
-  const route = useRoute();
+export default function App({route}) {
+
+  
+
+  const navigation = useNavigation()
   const [fontsLoaded] = useFonts({
     'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf'),
   });
 
   const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }]);
   const [inputTask, setInputTask] = useState('');
+  const tasksToAdd = route.params;
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const finalTasks = tasks.concat(tasksToAdd)
+  //     console.log(finalTasks)
+  //   }
+  //   fetchData()
+  // }, [route.params])
 
   const handleCheckboxChange = (id) => {
     setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)));
@@ -48,6 +60,8 @@ export default function App() {
       setInputTask('');
     }
   };
+
+  console.log(tasksToAdd)
 
   const handleAllCheckboxChange = () => {
     setTasks(tasks.map((task) => (task.isChecked ? task : { ...task, isChecked: !task.isChecked })));
@@ -123,6 +137,9 @@ export default function App() {
                       </View>
                     </View>
                   ))}
+                {/* {tasksToAdd.map((task, index) => (
+                  <Text>{task.name}</Text>
+                ))} */}
               </View>
               <Text style={styles.heading}>Done !</Text>
               {tasks
@@ -132,6 +149,15 @@ export default function App() {
                     <Text style={styles.taskName}>{task.name}</Text>
                   </View>
                 ))}
+              {tasksToAdd === undefined ? 
+              <Text></Text> : 
+              tasksToAdd
+              .map((task) => (
+                <View key={task.id} style={styles.taskBlock}>
+                  <Text style={styles.taskName}>{task.name}</Text>
+                </View>
+                ))}
+              
             </ScrollView>
           )}
         </Drawer.Screen>

@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View, Image, FlatList, Button } from 'react-native'
 import data from '../../ressources/tasks.json'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Task from '../../types'
+import { useState } from 'react'
 
-export default function Basic({ navigation }: { navigation: any }) {
+export default function Basic({ route }: { route: any }) {
   const basic: any = [
     { id: 1, name: 'Organize my room', isChecked: false },
     { id: 2, name: 'Read my emails', isChecked: false },
@@ -15,8 +17,13 @@ export default function Basic({ navigation }: { navigation: any }) {
     { id: 9, name: 'Do some skincare', isChecked: false }
   ]
 
-  const handleAddTask = (id: number) => {
-    navigation.navigate('Todo', { id })
+  const navigation = useNavigation()
+  
+  const[tasksToAdd, setTasksToAdd] = useState([])
+
+  const handleAddTask = (task) => {
+    setTasksToAdd([...tasksToAdd, task]); 
+    console.log(tasksToAdd)
   }
 
   return (
@@ -28,7 +35,7 @@ export default function Basic({ navigation }: { navigation: any }) {
             <Text key={index} style={styles.taskName}>
               {task.name}
             </Text>
-            <Button title="ajoute pitié" onPress={() => handleAddTask(task.id)} />
+            <Button title="+" onPress={() => handleAddTask(task)} />
           </View>
         ))}
       </View>
