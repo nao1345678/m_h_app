@@ -12,6 +12,7 @@ import Cloud from '../../components/Cloud';
 import Tough from './Tough';
 import Organizing from './Organizing';
 import Hobbies from './Hobbies';
+import Bubble1 from '../../components/Bubble1';
 import GoodMood from '../../components/GoodMood';
 import MidMood from '../../components/MidMood';
 import BadMood from '../../components/BadMood';
@@ -72,7 +73,8 @@ export default function App() {
                       <Cloud style={styles.cloud2} />
                       <Sun style={styles.sun} />
                       <Cloud style={styles.cloud1} />
-                      <Image source={require('../../assets/Bubble.png')} style={styles.bubble} resizeMode='contain' />
+                      {/* <Image source={require('../../assets/Bubble.png')} style={styles.bubble} resizeMode='contain' /> */}
+                      <Bubble1 style={styles.bubble}/>
                       <Kitty style={styles.kitty} />
                       <Text style={styles.modalText}>
                         Hi Boo, how are you feeling right now ?
@@ -131,7 +133,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#ffb3f3',
+    backgroundColor: '#ffa3e3',
     padding: 20,
     borderRadius: 0,
     elevation: 5,
@@ -162,15 +163,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   mood: {
-    margin: 25,
+    margin: 28,
   },
   moodImage: {
+    margin : 1,
     width: 120,
     height: 120,
-    opacity: 1,
+    opacity: 1.5,
     position: 'absolute',
     top: -35,
-    left: -25,
+    left: -27,
   },
   heading: {
     fontSize: 24,
@@ -199,7 +201,7 @@ const styles = StyleSheet.create({
   cloud: {
     position: 'absolute',
     top: 80,
-    right: -100,
+    right: -40,
   },
   cloud1: {
     position: 'absolute',
@@ -209,17 +211,17 @@ const styles = StyleSheet.create({
   cloud2: {
     position: 'absolute',
     top: -50,
-    right: -130,
+    right: -140,
   },
   kitty: {
     position: 'absolute',
     bottom: 230,
-    left: -30,
+    left: 10,
   },
   bubble: {
     position: 'absolute',
-    top: 60,
-    left: 12,
+    top: 200,
+    left: 60,
     width : 360
 
   },
