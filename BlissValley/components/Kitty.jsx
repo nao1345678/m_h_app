@@ -6,7 +6,7 @@ const Kitty = (props) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={300}
     zoomAndPan="magnify"
-    viewBox="0 0 225 225"
+    viewBox="0 0 250 250"
     height={300}
     preserveAspectRatio="xMidYMid meet"
     {...props}

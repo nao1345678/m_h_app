@@ -17,29 +17,19 @@ import GoodMood from '../../components/GoodMood';
 import MidMood from '../../components/MidMood';
 import BadMood from '../../components/BadMood';
 import Important from './Important';
+import { Container } from 'native-base';
 
 const Drawer = createDrawerNavigator();
 
 export default function App({route}) {
-
-  
-
-  const navigation = useNavigation()
   const [fontsLoaded] = useFonts({
     'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf'),
+    'Consolas': require('../../assets/fonts/Consolas.ttf')
   });
 
   const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }]);
   const [inputTask, setInputTask] = useState('');
-  const tasksToAdd = route.params;
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const finalTasks = tasks.concat(tasksToAdd)
-  //     console.log(finalTasks)
-  //   }
-  //   fetchData()
-  // }, [route.params])
 
   const handleCheckboxChange = (id) => {
     setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)));
@@ -61,7 +51,7 @@ export default function App({route}) {
     }
   };
 
-  console.log(tasksToAdd)
+ 
 
   const handleAllCheckboxChange = () => {
     setTasks(tasks.map((task) => (task.isChecked ? task : { ...task, isChecked: !task.isChecked })));
@@ -76,10 +66,10 @@ export default function App({route}) {
   return (
     <NavigationContainer independent={true}>
       <Drawer.Navigator initialRouteName="Main">
-        <Drawer.Screen name="Main" options={{ title: "Today's tasks" }}>
+        <Drawer.Screen name="Main" options={{ headerShown : false }}>
           {() => (
-            <ScrollView>
-              <View>
+            <ScrollView style={styles.mainContainer}>
+              <View >
                 <Modal animationType="fade" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
                   <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
@@ -115,16 +105,18 @@ export default function App({route}) {
 
 
 
-
+              <View style={styles.input}>
                 <TextInput
-                  style={styles.addtask}
-                  onChangeText={setInputTask}
-                  value={inputTask}
-                  placeholder='Add task ...'
-                />
-                <TouchableOpacity onPress={addItem}>
-                  <Text>ADD</Text>
-                </TouchableOpacity>
+                    style={styles.addtask}
+                    onChangeText={setInputTask}
+                    value={inputTask}
+                    placeholder='Add task ...'
+                  />
+                  <TouchableOpacity onPress={addItem} style={styles.addItem}>
+                    <Text>+</Text>
+                  </TouchableOpacity>
+              </View>
+               
                 <Text style={styles.heading}>Tasks left for today :</Text>
                 {tasks
                   .filter((task) => !task.isChecked)
@@ -137,9 +129,7 @@ export default function App({route}) {
                       </View>
                     </View>
                   ))}
-                {/* {tasksToAdd.map((task, index) => (
-                  <Text>{task.name}</Text>
-                ))} */}
+         
               </View>
               <Text style={styles.heading}>Done !</Text>
               {tasks
@@ -148,14 +138,6 @@ export default function App({route}) {
                   <View key={task.id} style={styles.taskBlock}>
                     <Text style={styles.taskName}>{task.name}</Text>
                   </View>
-                ))}
-              {tasksToAdd === undefined ? 
-              <Text></Text> : 
-              tasksToAdd
-              .map((task) => (
-                <View key={task.id} style={styles.taskBlock}>
-                  <Text style={styles.taskName}>{task.name}</Text>
-                </View>
                 ))}
               
             </ScrollView>
@@ -172,6 +154,36 @@ export default function App({route}) {
 }
 
 const styles = StyleSheet.create({
+  mainContainer : {
+    backgroundColor : '#ffa3e3'
+  },
+
+  addtask : {
+    opacity : 0.7,
+    backgroundColor : 'white',
+    marginTop : 300,
+    height : 50, 
+    width : '75%', 
+    marginLeft: 25, 
+    borderColor : '#41004f', 
+    borderWidth : 2,
+    fontFamily : 'Consolas',
+    paddingLeft : 10
+    },
+  input : {
+    flexDirection : 'row'
+  },
+  addItem : {
+    justifyContent : 'center',
+    alignItems : 'center',
+    backgroundColor : 'purple', 
+    marginTop : 300,
+    width : 50, 
+    marginLeft : 5,
+    borderColor : '#41004f', 
+    borderWidth : 2,
+
+  },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -229,6 +241,7 @@ const styles = StyleSheet.create({
   },
   taskName: {
     fontSize: 18,
+    fontFamily : 'Consolas'
   },
   buttons: {
     flexDirection: 'row',

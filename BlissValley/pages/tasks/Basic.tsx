@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Image, FlatList, Button } from 'react-native'
+import { StyleSheet, Text, View, Image, FlatList, Button, TouchableOpacity } from 'react-native'
 import data from '../../ressources/tasks.json'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Task from '../../types'
 import { useState } from 'react'
 
-export default function Basic({ route }: { route: any }) {
+export default function Basic({ navigation }: { navigation: any }) {
   const basic: any = [
     { id: 1, name: 'Organize my room', isChecked: false },
     { id: 2, name: 'Read my emails', isChecked: false },
@@ -17,13 +17,15 @@ export default function Basic({ route }: { route: any }) {
     { id: 9, name: 'Do some skincare', isChecked: false }
   ]
 
-  const navigation = useNavigation()
-  
   const[tasksToAdd, setTasksToAdd] = useState([])
 
   const handleAddTask = (task) => {
     setTasksToAdd([...tasksToAdd, task]); 
     console.log(tasksToAdd)
+  }
+
+  const closeDrawer = () => {
+    navigation.navigate("Main", {tasksToAdd : tasksToAdd})
   }
 
   return (
@@ -38,6 +40,9 @@ export default function Basic({ route }: { route: any }) {
             <Button title="+" onPress={() => handleAddTask(task)} />
           </View>
         ))}
+        <TouchableOpacity onPress={closeDrawer}>
+          <Text>Close</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
