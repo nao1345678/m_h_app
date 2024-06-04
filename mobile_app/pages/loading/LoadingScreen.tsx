@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontFamily: 'PressStart2P',
     fontSize: 20,
     textShadowColor: '#a400ff',
-    textShadowOffset: { width: 0, height: 5 },
+    textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 1
   },
   
