@@ -151,7 +151,12 @@ export default function App({route}) {
                 ))}
            
             </ScrollView>
+           
             <Grass style={styles.grass2} />
+            <Kitty style={styles.kitty2} />
+            <Image source={require('../../assets/Bubble.png')} style={{position : 'absolute', top : 460, left: 60, resizeMode : 'contain', width : 150}} />
+            <Text style={{fontFamily : 'PressStart2P', bottom : 90, left : 90}}>Meow...</Text>
+           
             </View>
           )}
         </Drawer.Screen>
@@ -300,6 +305,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 230,
     left: 10,
+  },
+  kitty2: {
+    position : 'absolute',
+    bottom : -130, 
+    left : -30
   },
   bubble: {
     position: 'absolute',
