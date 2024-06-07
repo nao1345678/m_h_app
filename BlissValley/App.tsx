@@ -21,28 +21,16 @@ const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 const Drawer = createDrawerNavigator()
 
-const MainTabNavigator = () => {
+const MainStackNavigator = () => {
   return (
-    <Tab.Navigator
+    <Stack.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#fff',
-          borderTopWidth: 0
-        },
-        tabBarLabelStyle: {
-          fontSize: 11,
-          marginBottom: 5
-        },
-        tabBarActiveTintColor: '#000',
-        tabBarInactiveTintColor: '#ccc'
+        headerShown: false
+        
       })}
     >
-      <Tab.Screen name="List" component={Todo} />
-      <Tab.Screen name="Timers" component={Timer} />
-      <Tab.Screen name="Journal" component={Journal} />
-      <Tab.Screen name="Breathing exercise" component={BreathingExercise} />
-    </Tab.Navigator>
+      <Stack.Screen name="List" component={Todo} />
+    </Stack.Navigator>
   )
 }
 
@@ -72,9 +60,13 @@ const App = () => {
         {loading ? (
           <Stack.Screen name="Loading" component={LoadingScreen} />
         ) : (
-          <Stack.Screen name="Home" component={MainTabNavigator} />
+          <Stack.Screen name="Home" component={MainStackNavigator} />
         )}
-        <Stack.Screen name="Library" component={AppLibrary} />
+        
+      <Stack.Screen name="Timers" component={Timer} />
+      <Stack.Screen name="Journal" component={Journal} />
+      <Stack.Screen name="Breathing exercise" component={BreathingExercise} />
+      <Stack.Screen name="Library" component={AppLibrary} />
       </Stack.Navigator>
     </NavigationContainer>
   )

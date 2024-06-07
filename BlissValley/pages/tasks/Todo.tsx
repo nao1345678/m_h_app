@@ -5,6 +5,8 @@ import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, ScrollView, Im
 import { useFonts } from 'expo-font';
 
 import Basic from './Basic';
+import Done from '../../components/Done';
+import Remove from '../../components/Remove';
 import Grass from '../../components/Grass';
 import Sun from '../../components/Sun';
 import Kitty from '../../components/Kitty';
@@ -68,6 +70,7 @@ export default function App({route}) {
       <Drawer.Navigator initialRouteName="Main">
         <Drawer.Screen name="Main" options={{ headerShown : false }}>
           {() => (
+            <View style={styles.mainBigContainer}>  
             <ScrollView style={styles.mainContainer}>
               <View >
                 <Modal animationType="fade" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
@@ -103,7 +106,10 @@ export default function App({route}) {
                   </View>
                 </Modal>
 
-
+                <Cloud style={styles.cloud} />
+                      <Cloud style={styles.cloud2} />
+                      <Sun style={styles.sun} />
+                      <Cloud style={styles.cloud1} />
 
               <View style={styles.input}>
                 <TextInput
@@ -124,8 +130,12 @@ export default function App({route}) {
                     <View key={task.id} style={styles.taskBlock}>
                       <Text style={styles.taskName}>{task.name}</Text>
                       <View style={styles.buttons}>
-                        <Button title="Done" onPress={() => handleCheckboxChange(task.id)} />
-                        <Button title="Remove" onPress={() => removeItem(task.id)} />
+                        <TouchableOpacity style={{position : 'absolute', top : 12, left : -40}} onPress={() => handleCheckboxChange(task.id)} >
+                            <Done />
+                          </TouchableOpacity>
+                        <TouchableOpacity style={{margin : 10}} onPress={() => removeItem(task.id)} >
+                          <Remove />
+                        </TouchableOpacity>
                       </View>
                     </View>
                   ))}
@@ -139,15 +149,17 @@ export default function App({route}) {
                     <Text style={styles.taskName}>{task.name}</Text>
                   </View>
                 ))}
-              
+           
             </ScrollView>
+            <Grass style={styles.grass2} />
+            </View>
           )}
         </Drawer.Screen>
-        <Drawer.Screen name="Basic tasks" component={Basic} />
+        {/* <Drawer.Screen name="Basic tasks" component={Basic} />
         <Drawer.Screen name="On tough days" component={Tough} />
         <Drawer.Screen name="Important tasks" component={Important} />
         <Drawer.Screen name="Organizing tasks" component={Organizing} />
-        <Drawer.Screen name="Hobbies" component={Hobbies} />
+        <Drawer.Screen name="Hobbies" component={Hobbies} /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -155,9 +167,14 @@ export default function App({route}) {
 
 const styles = StyleSheet.create({
   mainContainer : {
-    backgroundColor : '#ffa3e3'
+    backgroundColor : '#ffa3e3',
+    minHeight : 800
   },
-
+  mainBigContainer : {
+    backgroundColor : '#ffa3e3',
+    minHeight : '100%'
+    
+  },
   addtask : {
     opacity : 0.7,
     backgroundColor : 'white',
@@ -196,7 +213,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffa3e3',
     padding: 20,
     borderRadius: 0,
-    elevation: 5,
+
   },
   modalText: {
     fontFamily: 'PressStart2P',
@@ -226,18 +243,32 @@ const styles = StyleSheet.create({
     left: -27,
   },
   heading: {
+    fontFamily: 'PressStart2P',
+    marginHorizontal : 15,
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 15,
+    color : 'white', 
+    textShadowColor : 'purple', 
+    textShadowOffset : {width : 2, height: 2}, 
+    textShadowRadius : 2
   },
   taskBlock: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
-    borderBottomWidth: 1,
+    alignSelf : 'center',
+    padding: 2,
     borderBottomColor: 'pink',
+    backgroundColor : 'white',
+    height : 65, 
+    width : '92%', 
+    borderColor : '#41004f', 
+    borderWidth : 2,
+    fontFamily : 'Consolas',
+    paddingLeft : 10,
+    marginVertical : 5, 
   },
   taskName: {
     fontSize: 18,
@@ -282,4 +313,10 @@ const styles = StyleSheet.create({
     bottom: -20,
     right: -40
   },
+  grass2: {
+    position: 'absolute',
+    bottom: -20,
+    right: -40
+  },
+  
 });
