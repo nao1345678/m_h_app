@@ -141,7 +141,7 @@ export default function App({route}) {
                   ))}
          
               </View>
-              <Text style={styles.heading}>Done !</Text>
+              <Text style={styles.heading} >Done !</Text>
               {tasks
                 .filter((task) => task.isChecked)
                 .map((task) => (
@@ -248,12 +248,11 @@ const styles = StyleSheet.create({
     left: -27,
   },
   heading: {
-    fontFamily: 'PressStart2P',
+    fontFamily : 'PressStart2P',
     marginHorizontal : 15,
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 20,
-    marginBottom: 15,
+    fontSize: 16,
+    marginTop: 15,
+    marginBottom: 10,
     color : 'white', 
     textShadowColor : 'purple', 
     textShadowOffset : {width : 2, height: 2}, 
