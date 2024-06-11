@@ -155,7 +155,7 @@ export default function App({route}) {
             <Grass style={styles.grass2} />
             <Kitty style={styles.kitty2} />
             <Image source={require('../../assets/Bubble.png')} style={{position : 'absolute', top : 460, left: 60, resizeMode : 'contain', width : 150}} />
-            <Text style={{fontFamily : 'PressStart2P', bottom : 90, left : 90}}>Meow...</Text>
+            <Text style={{fontFamily : 'PressStart2P', bottom : 90, left : 90, position : 'absolute'}}>Meow...</Text>
            
             </View>
           )}
