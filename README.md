@@ -57,6 +57,13 @@ It's ok, the journal (or so called rumble bubble) is here to help you get things
 You may feel like no one actually cares about your wellbeing ? That's probably your anxiety talking, but be rassured, we care! <br>
 A small kitty will ask you everytime you open the app if you feel well enough, so that you can have a following of your mood and see how much progress you make !
 
+## What makes BlissValley a great tool ? 
+
+- Its pleasant and cute aesthetic
+- Its versatility, and how the project is lots of different projects in a big one
+- The large spectrum of illnesses you can discover and treat thanks to the app
+- The way it can redirect you to greater sources and treatments
+- And it's a safe place!
 
 
 
