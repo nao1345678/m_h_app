@@ -11,14 +11,10 @@ import Grass from '../../components/Grass';
 import Sun from '../../components/Sun';
 import Kitty from '../../components/Kitty';
 import Cloud from '../../components/Cloud';
-import Tough from './Tough';
-import Organizing from './Organizing';
-import Hobbies from './Hobbies';
 import Bubble1 from '../../components/Bubble1';
 import GoodMood from '../../components/GoodMood';
 import MidMood from '../../components/MidMood';
 import BadMood from '../../components/BadMood';
-import Important from './Important';
 import { Container } from 'native-base';
 
 const Drawer = createDrawerNavigator();
@@ -28,6 +24,53 @@ export default function App({route}) {
     'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf'),
     'Consolas': require('../../assets/fonts/Consolas.ttf')
   });
+
+  const basic: any = [
+    { id: 1, name: 'Organize my room', isChecked: false },
+    { id: 2, name: 'Read my emails', isChecked: false },
+    { id: 3, name: 'Go to the grocery store', isChecked: false },
+    { id: 4, name: 'Make a gift for a friend', isChecked: false },
+    { id: 5, name: 'Take a long walk outside', isChecked: false },
+    { id: 6, name: 'Create a playlist', isChecked: false },
+    { id: 7, name: 'Make a lunch for some people I like', isChecked: false },
+    { id: 8, name: 'Spend less time on my phone', isChecked: false },
+    { id: 9, name: 'Do some skincare', isChecked: false }
+  ]
+
+  const tough: any = [
+    { id: 10, name: 'Take a shower', isChecked: false },
+    { id: 11, name: 'Drink water', isChecked: false },
+    { id: 12, name: 'Eat at least a meal', isChecked: false },
+    { id: 13, name: 'Listen to music I like', isChecked: false },
+    { id: 14, name: 'Get out of my bed', isChecked: false },
+    { id: 15, name: 'Brush my teeth', isChecked: false },
+    { id: 16, name: 'Wash my hair', isChecked: false },
+    { id: 17, name: 'Take my medication', isChecked: false },
+    { id: 18, name: 'Make my bed', isChecked: false },
+    { id: 19, name: 'Take 10 deep breaths', isChecked: false },
+    { id: 20, name: "Tell myself 'it's gonna be ok'", isChecked: false }
+  ]
+
+  const important: any = [
+    { id: 28, name: 'Complete my work presentation', isChecked: false },
+    { id: 29, name: 'Pay my bills', isChecked: false },
+    { id: 30, name: "Schedule a doctor's appointment", isChecked: false },
+    { id: 31, name: 'Call a family member', isChecked: false },
+    { id: 32, name: 'Prepare for an important meeting', isChecked: false },
+    { id: 33, name: 'Update my resume', isChecked: false }
+  ]
+
+  const orga: any = [
+    { id: 34, name: 'Wash my bed sheets', isChecked: false },
+    { id: 35, name: 'Declutter my wardrobe', isChecked: false },
+    { id: 36, name: 'Mop the floors', isChecked: false },
+    { id: 37, name: 'Wash my makeup brushes', isChecked: false },
+    { id: 38, name: 'Fold the laundry', isChecked: false },
+    { id: 39, name: 'Clean out the refrigerator', isChecked: false },
+    { id: 40, name: 'Organize my desk', isChecked: false },
+    { id: 41, name: 'Sort through old paperwork', isChecked: false },
+    { id: 42, name: 'Tidy up the living room', isChecked: false }
+  ]
 
   const [tasks, setTasks] = useState([{ id: 43, name: 'get Started', isChecked: false }]);
   const [inputTask, setInputTask] = useState('');
@@ -67,11 +110,8 @@ export default function App({route}) {
 
   return (
     <NavigationContainer independent={true}>
-      <Drawer.Navigator initialRouteName="Main">
-        <Drawer.Screen name="Main" options={{ headerShown : false }}>
-          {() => (
             <View style={styles.mainBigContainer}>  
-            <ScrollView style={styles.mainContainer}>
+            <ScrollView style={styles.mainContainer} showsVerticalScrollIndicator={true}>
               <View >
                 <Modal animationType="fade" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
                   <View style={styles.modalContainer}>
@@ -80,7 +120,7 @@ export default function App({route}) {
                       <Cloud style={styles.cloud2} />
                       <Sun style={styles.sun} />
                       <Cloud style={styles.cloud1} />
-                      <Image source={require('../../assets/Bubble.png')} style={styles.bubble} resizeMode='contain' />
+                      <Image source={require('../../assets/pngs/Bubble.png')} style={styles.bubble} resizeMode='contain' />
                      
                       <Kitty style={styles.kitty} />
                       <Text style={styles.modalText}>
@@ -89,15 +129,15 @@ export default function App({route}) {
 
                       <View style={styles.moodContainer}>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Image source={require('../../assets/badmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
+                          <Image source={require('../../assets/pngs/badmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
                           <BadMood />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Image source={require('../../assets/midmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
+                          <Image source={require('../../assets/pngs/midmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
                           <MidMood />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.mood} onPress={closeModal}>
-                          <Image source={require('../../assets/goodmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
+                          <Image source={require('../../assets/pngs/goodmoodblur.png')} style={styles.moodImage} resizeMode='contain' />
                           <GoodMood />
                         </TouchableOpacity>
                       </View>
@@ -122,7 +162,6 @@ export default function App({route}) {
                     <Text>+</Text>
                   </TouchableOpacity>
               </View>
-               
                 <Text style={styles.heading}>Tasks left for today :</Text>
                 {tasks
                   .filter((task) => !task.isChecked)
@@ -130,17 +169,17 @@ export default function App({route}) {
                     <View key={task.id} style={styles.taskBlock}>
                       <Text style={styles.taskName}>{task.name}</Text>
                       <View style={styles.buttons}>
-                        <TouchableOpacity style={{position : 'absolute', top : 12, left : -40}} onPress={() => handleCheckboxChange(task.id)} >
+                        <TouchableOpacity style={{position : 'absolute', top : 6, left : -40}} onPress={() => handleCheckboxChange(task.id)} >
                             <Done />
                           </TouchableOpacity>
-                        <TouchableOpacity style={{margin : 10}} onPress={() => removeItem(task.id)} >
+                        <TouchableOpacity style={{margin : 5}} onPress={() => removeItem(task.id)} >
                           <Remove />
                         </TouchableOpacity>
                       </View>
                     </View>
                   ))}
-         
               </View>
+              <View>
               <Text style={styles.heading} >Done !</Text>
               {tasks
                 .filter((task) => task.isChecked)
@@ -149,34 +188,67 @@ export default function App({route}) {
                     <Text style={styles.taskName}>{task.name}</Text>
                   </View>
                 ))}
+              </View>
+              <View>
+              <Text style={styles.heading} >Tasks inspiration...</Text>
+                {/* <ScrollView horizontal={true}>
+                
+                {basic.map((task: any, index: number) => (
+                <View key={index} style={styles.taskBlock}>
+                  <Text key={index} style={styles.taskName}>
+                    {task.name}
+                  </Text>
+                  <Button title="+"/>
+                </View>
+                ))}
+                {tough.map((task: any, index: number) => (
+                  <View key={index} style={styles.taskBlock}>
+                    <Text key={index} style={styles.taskName}>
+                      {task.name}
+                    </Text>
+                  </View>
+                ))}
+                {important.map((task: any, index: number) => (
+                  <View key={index} style={styles.taskBlock}>
+                    <Text key={index} style={styles.taskName}>
+                      {task.name}
+                    </Text>
+                  </View>
+                ))}
+                {orga.map((task: any, index: number) => (
+                  <View key={index} style={styles.taskBlock}>
+                    <Text key={index} style={styles.taskName}>
+                      {task.name}
+                    </Text>
+                  </View>
+                ))}
+                </ScrollView> */}
+              </View>
+             {/* <Text style={{margin : 100}}>
+              Hello
+             </Text> */}
            
             </ScrollView>
+            
            
             <Grass style={styles.grass2} />
             <Kitty style={styles.kitty2} />
-            <Image source={require('../../assets/Bubble.png')} style={{position : 'absolute', top : 460, left: 60, resizeMode : 'contain', width : 150}} />
+            <Image source={require('../../assets/pngs/Bubble.png')} style={{position : 'absolute', top : 460, left: 60, resizeMode : 'contain', width : 150}} />
             <Text style={{fontFamily : 'PressStart2P', bottom : 90, left : 90, position : 'absolute'}}>Meow...</Text>
            
             </View>
-          )}
-        </Drawer.Screen>
-        {/* <Drawer.Screen name="Basic tasks" component={Basic} />
-        <Drawer.Screen name="On tough days" component={Tough} />
-        <Drawer.Screen name="Important tasks" component={Important} />
-        <Drawer.Screen name="Organizing tasks" component={Organizing} />
-        <Drawer.Screen name="Hobbies" component={Hobbies} /> */}
-      </Drawer.Navigator>
+  
+        
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   mainContainer : {
-    backgroundColor : '#ffa3e3',
-    minHeight : 800
+    backgroundColor : '#fab1e1',
   },
   mainBigContainer : {
-    backgroundColor : '#ffa3e3',
+    backgroundColor : '#fab1e1',
     minHeight : '100%'
     
   },
@@ -198,7 +270,7 @@ const styles = StyleSheet.create({
   addItem : {
     justifyContent : 'center',
     alignItems : 'center',
-    backgroundColor : 'purple', 
+    backgroundColor : '#9200ba', 
     marginTop : 300,
     width : 50, 
     marginLeft : 5,
@@ -215,7 +287,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#ffa3e3',
+    backgroundColor: '#fab1e1',
     padding: 20,
     borderRadius: 0,
 
@@ -254,7 +326,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 10,
     color : 'white', 
-    textShadowColor : 'purple', 
+    textShadowColor : '#9200ba', 
     textShadowOffset : {width : 2, height: 2}, 
     textShadowRadius : 2
   },
@@ -272,11 +344,13 @@ const styles = StyleSheet.create({
     borderWidth : 2,
     fontFamily : 'Consolas',
     paddingLeft : 10,
-    marginVertical : 5, 
+    marginVertical : 6, 
   },
   taskName: {
-    fontSize: 18,
-    fontFamily : 'Consolas'
+    fontSize: 17,
+    fontFamily : 'Consolas',
+    width : '80%',
+    height: 'auto'
   },
   buttons: {
     flexDirection: 'row',

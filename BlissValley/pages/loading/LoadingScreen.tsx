@@ -14,7 +14,7 @@ const LoadingScreen = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false)
-    }, 3000)
+    }, 10000)
 
     return () => clearTimeout(timeout)
   }, [])
