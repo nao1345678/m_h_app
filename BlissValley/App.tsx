@@ -4,6 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { useState, useEffect } from 'react'
+import { ActivityIndicator } from 'react-native'
+import { useFonts } from 'expo-font'
+import { LogBox } from 'react-native';
 
 import Todo from './pages/tasks/Todo'
 import Timer from './pages/timer/Time'
@@ -13,11 +16,28 @@ import LoadingScreen from './pages/loading/LoadingScreen'
 import BreathingExercise from './pages/breathing_exercise/BreathingExercise'
 import AppLibrary from './pages/library/AppLibrary'
 
+LogBox.ignoreLogs([
+  'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
+]);
+
+
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 const Drawer = createDrawerNavigator()
 
 const MainStackNavigator = () => {
+
+  const [fontsLoaded] = useFonts({
+    
+    'Consolas': require('./assets/fonts/Consolas.ttf'),
+    'PressStart2P': require('./assets/fonts/PressStart2P-Regular.ttf'),
+
+  });
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator size="large" />;
+  }
+  
   return (
     <Stack.Navigator
       screenOptions={({ route }) => ({
