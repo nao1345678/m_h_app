@@ -18,6 +18,7 @@ import AppLibrary from './pages/library/AppLibrary'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
+  ' Warning: Each child in a list should have a unique "key" prop. Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.'
 ]);
 
 

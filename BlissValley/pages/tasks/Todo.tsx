@@ -31,18 +31,19 @@ import GoodMood from "../../components/GoodMood";
 import MidMood from "../../components/MidMood";
 import BadMood from "../../components/BadMood";
 import { Container } from "native-base";
+import Add from "../../components/Add";
+import LineTodo from "../../components/LineToDo";
+import Library from "../../components/LibraryBooks";
 
 const Drawer = createDrawerNavigator();
 
-export default function App({}) {
+export default function App({navigation}) {
   const basic: any = [
     { id: 1, name: "Organize my room", isChecked: false },
-    { id: 2, name: "Read my emails", isChecked: false },
     { id: 3, name: "Go to the grocery store", isChecked: false },
     { id: 4, name: "Make a gift for a friend", isChecked: false },
     { id: 5, name: "Take a long walk outside", isChecked: false },
     { id: 6, name: "Create a playlist", isChecked: false },
-    { id: 7, name: "Make a lunch for some people I like", isChecked: false },
     { id: 8, name: "Spend less time on my phone", isChecked: false },
     { id: 9, name: "Do some skincare", isChecked: false },
   ];
@@ -54,11 +55,8 @@ export default function App({}) {
     { id: 13, name: "Listen to music I like", isChecked: false },
     { id: 14, name: "Get out of my bed", isChecked: false },
     { id: 15, name: "Brush my teeth", isChecked: false },
-    { id: 16, name: "Wash my hair", isChecked: false },
     { id: 17, name: "Take my medication", isChecked: false },
     { id: 18, name: "Make my bed", isChecked: false },
-    { id: 19, name: "Take 10 deep breaths", isChecked: false },
-    { id: 20, name: "Tell myself 'it's gonna be ok'", isChecked: false },
   ];
 
   const important: any = [
@@ -68,6 +66,7 @@ export default function App({}) {
     { id: 31, name: "Call a family member", isChecked: false },
     { id: 32, name: "Prepare for an important meeting", isChecked: false },
     { id: 33, name: "Update my resume", isChecked: false },
+    { id: 2, name: "Read my emails", isChecked: false }
   ];
 
   const orga: any = [
@@ -77,7 +76,6 @@ export default function App({}) {
     { id: 37, name: "Wash my makeup brushes", isChecked: false },
     { id: 38, name: "Fold the laundry", isChecked: false },
     { id: 39, name: "Clean out the refrigerator", isChecked: false },
-    { id: 40, name: "Organize my desk", isChecked: false },
     { id: 41, name: "Sort through old paperwork", isChecked: false },
     { id: 42, name: "Tidy up the living room", isChecked: false },
   ];
@@ -125,12 +123,11 @@ export default function App({}) {
     setModalVisible(false);
   };
 
-  const renderTaskBlock = ({ item }) => (
-    <View style={styles.taskBlock}>
-      <Text style={styles.taskName}>{item.name}</Text>
-      <Button title="+" onPress={() => addItem()} />
-    </View>
-  );
+  const handleAddFromInspiration = (task) => {
+    if (!tasks.some(t => t.id === task.id)) {
+      setTasks([...tasks, task]);
+      console.log(task); }
+  };
 
   return (
     <NavigationContainer independent={true}>
@@ -207,7 +204,7 @@ export default function App({}) {
                 placeholder="Add task ..."
               />
               <TouchableOpacity onPress={addItem} style={styles.addItem}>
-                <Text>+</Text>
+                <Text><Add /></Text>
               </TouchableOpacity>
             </View>
             <Text style={styles.heading}>Tasks left for today :</Text>
@@ -244,6 +241,121 @@ export default function App({}) {
               ))}
           </View>
           <Text style={styles.heading}>Tasks inspiration...</Text>
+
+          <ScrollView horizontal={true} style={{ marginLeft : 10, marginBottom : 150}}>
+
+              <View style={styles.taskInspoBlock} >
+              <Text style={styles.inspoTitle}>For the daily</Text>
+                {basic.map((task : any) => (
+                <TouchableOpacity 
+                  key={task.id} 
+                  onPress={() => handleAddFromInspiration(task)}
+                  >
+                  
+                  <Text style={styles.taskInspoName}>
+
+                  <TouchableOpacity 
+                      onPress={() => handleAddFromInspiration(task)}
+                      >
+                      <Text style = {{
+                        fontSize : 16, 
+                        marginHorizontal : 5
+                      }}>+</Text>
+                      </TouchableOpacity>
+                    {task.name}   
+                    
+                  </Text>
+                
+                  <LineTodo />
+                </TouchableOpacity>
+              ))}
+              </View>
+
+
+              <View style={styles.taskInspoBlock} >
+              <Text style={styles.inspoTitle}>On tough days</Text>
+              {tough.map((task : any) => (
+                <TouchableOpacity 
+                  key={task.id} 
+                  onPress={() => handleAddFromInspiration(task)}
+                  >
+                  
+                  <Text style={styles.taskInspoName}>
+
+                  <TouchableOpacity 
+                      onPress={() => handleAddFromInspiration(task)}
+                      >
+                      <Text style = {{
+                        fontSize : 16, 
+                        marginHorizontal : 5
+                      }}>+</Text>
+                      </TouchableOpacity>
+                    {task.name}   
+                    
+                  </Text>
+                
+                  <LineTodo />
+                </TouchableOpacity>
+              ))}
+              </View>
+
+              <View style={styles.taskInspoBlock} >
+              <Text style={styles.inspoTitle}>Important tasks</Text>
+              {important.map((task : any) => (
+                <TouchableOpacity 
+                  key={task.id} 
+                  onPress={() => handleAddFromInspiration(task)}
+                  >
+                  
+                  <Text style={styles.taskInspoName}>
+
+                  <TouchableOpacity 
+                      onPress={() => handleAddFromInspiration(task)}
+                      >
+                      <Text style = {{
+                        fontSize : 16, 
+                        marginHorizontal : 5
+                      }}>+</Text>
+                      </TouchableOpacity>
+                    {task.name}   
+                    
+                  </Text>
+                
+                  <LineTodo />
+                </TouchableOpacity>
+              ))}
+              </View>
+
+              <View style={styles.taskInspoBlock}>
+              <Text style={styles.inspoTitle}>Need to organize?</Text>
+              {orga.map((task : any) => (
+                <TouchableOpacity 
+                  key={task.id} 
+                  onPress={() => handleAddFromInspiration(task)}
+                  >
+                  
+                  <Text style={styles.taskInspoName}>
+
+                  <TouchableOpacity 
+                      onPress={() => handleAddFromInspiration(task)}
+                      >
+                      <Text style = {{
+                        fontSize : 16, 
+                        marginHorizontal : 5
+                      }}>+</Text>
+                      </TouchableOpacity>
+                    {task.name}   
+                    
+                  </Text>
+                
+                  <LineTodo />
+                </TouchableOpacity>
+              ))}
+              </View>
+
+          </ScrollView>
+
+
         </ScrollView>
 
         <Grass style={styles.grass2} />
@@ -253,7 +365,7 @@ export default function App({}) {
           style={{
             position: "absolute",
             top: 460,
-            left: 60,
+            left: 30,
             resizeMode: "contain",
             width: 150,
           }}
@@ -262,12 +374,18 @@ export default function App({}) {
           style={{
             fontFamily: "PressStart2P",
             bottom: 90,
-            left: 90,
+            left: 60,
             position: "absolute",
           }}
         >
           Meow...
         </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Library")}>
+
+          <Library style={{position : 'absolute', bottom : 10, right : 10}} />
+
+        </TouchableOpacity>
+        
       </View>
     </NavigationContainer>
   );
@@ -286,8 +404,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginTop: 300,
     height: 50,
-    width: "75%",
-    marginLeft: 25,
+    width: "78%",
+    marginLeft: 15,
     borderColor: "#41004f",
     borderWidth: 2,
     fontFamily: "Consolas",
@@ -409,7 +527,7 @@ const styles = StyleSheet.create({
   kitty2: {
     position: "absolute",
     bottom: -130,
-    left: -30,
+    left: -60,
   },
   bubble: {
     position: "absolute",
@@ -427,4 +545,27 @@ const styles = StyleSheet.create({
     bottom: -20,
     right: -40,
   },
+  taskInspoBlock : {
+    backgroundColor : 'white',
+    borderBlockColor : 'purple', 
+    borderWidth : 2, 
+    opacity : 0.8,
+    margin : 5, 
+    paddingVertical : 7, 
+  }, 
+  taskInspoName : {
+    fontFamily : 'Consolas',
+    marginTop: 7,
+    marginLeft : 5,
+    marginRight : 8,
+    fontSize : 15
+  }, 
+  inspoTitle : {
+    fontFamily : 'Consolas',
+    marginTop: 2,
+    marginLeft : 5,
+    marginRight : 8,
+    fontSize : 16, 
+    color : '#ff2e85'
+  }
 });
