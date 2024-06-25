@@ -409,6 +409,7 @@ const styles = StyleSheet.create({
     borderColor: "#41004f",
     borderWidth: 2,
     fontFamily: "Consolas",
+    letterSpacing : -0.7,
     paddingLeft: 10,
   },
   input: {
@@ -488,6 +489,7 @@ const styles = StyleSheet.create({
     borderColor: "#41004f",
     borderWidth: 2,
     fontFamily: "Consolas",
+    letterSpacing : -0.7,
     paddingLeft: 10,
     marginVertical: 6,
   },
@@ -496,6 +498,7 @@ const styles = StyleSheet.create({
     fontFamily: "Consolas",
     width: "80%",
     height: "auto",
+    letterSpacing : -0.7
   },
   buttons: {
     flexDirection: "row",
@@ -554,6 +557,7 @@ const styles = StyleSheet.create({
     paddingVertical : 7, 
   }, 
   taskInspoName : {
+    letterSpacing : -0.5,
     fontFamily : 'Consolas',
     marginTop: 7,
     marginLeft : 5,
