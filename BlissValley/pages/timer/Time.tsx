@@ -226,6 +226,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 20,
     marginHorizontal: 5,
+    fontFamily : 'Consolas'
   },
   startButton: {
     justifyContent : 'center', 
