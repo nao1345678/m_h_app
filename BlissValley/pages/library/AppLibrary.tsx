@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import JournalLogo from "../../components/JournalLogo";
+import TimerLogo from "../../components/TimerLogo";
 
 export default function AppLibrary({ navigation }) {
   return (
@@ -23,16 +24,16 @@ export default function AppLibrary({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate("Timers")}>
+            <TimerLogo />
+            <Text style={styles.appName}>Timers</Text>
+          </TouchableOpacity>
+        </View>
 
-        <View
-          style={{
-            width: "100%",
-            height: "100%",
-            opacity: 0.3,
-            backgroundColor: "#cf69ff",
-          }}
-        ></View>
+
+
+        
       </ImageBackground>
     </View>
   );
