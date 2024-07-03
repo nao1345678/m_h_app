@@ -102,10 +102,12 @@ export default function App({navigation}) {
   };
 
   const addItem = () => {
-    if (inputTask.trim() !== "") {
+    if (inputTask.trim() !== "" && inputTask.length <= 95) {
       const newId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
       setTasks([...tasks, { id: newId, name: inputTask, isChecked: false }]);
       setInputTask("");
+    } else if (inputTask.length > 95) {
+      console.log("Data's length must be under 95 characters")
     }
   };
 
@@ -496,7 +498,7 @@ const styles = StyleSheet.create({
   taskName: {
     fontSize: 17,
     fontFamily: "Consolas",
-    width: "80%",
+    width: "69%",
     height: "auto",
     letterSpacing : -0.7
   },
