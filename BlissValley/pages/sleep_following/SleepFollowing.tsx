@@ -83,14 +83,14 @@ export default function SleepFollowing() {
               source={require("../../assets/pngs/PinkBubble.png")}
               resizeMode="contain"
               style={styles.bubble} />
-            <Text style={styles.question}>How long did you sleep last night ?</Text>
+            <Text style={styles.question}>How long did you sleep for last night ?</Text>
             <TextInput
               value={data}
               style={styles.input}
               onChangeText={setData}
               multiline={true}
               textAlignVertical="top"
-              placeholder="Hours of sleep"
+              placeholder="Hours of sleep ..."
               keyboardType="numeric"
             />
 
@@ -98,7 +98,7 @@ export default function SleepFollowing() {
               <SaveSleep />
             </TouchableOpacity>
 
-            <Bug />
+            <Bug style={styles.bug} />
           </View>
         )}
         <Flower4 style={styles.flower4} />

@@ -31,6 +31,12 @@ export default function AppLibrary({ navigation }) {
           </TouchableOpacity>
         </View>
 
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate("Sleep following")}>
+            <TimerLogo />
+            <Text style={styles.appName}>Sleep Following</Text>
+          </TouchableOpacity>
+        </View>
 
 
         
