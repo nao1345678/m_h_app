@@ -33,8 +33,15 @@ export default function AppLibrary({ navigation }) {
 
         <View style={styles.appContainer}>
           <TouchableOpacity onPress={() => navigation.navigate("Sleep following")}>
-            <TimerLogo />
+            <JournalLogo />
             <Text style={styles.appName}>Sleep Following</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate("Quiz home")}>
+            <TimerLogo />
+            <Text style={styles.appName}>Quiz Home</Text>
           </TouchableOpacity>
         </View>
 
