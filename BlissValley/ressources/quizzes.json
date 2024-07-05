@@ -1,0 +1,72 @@
+{
+    "depression_test": [
+        {"id": 1, "question": "Little interest or pleasure in doing things", "answer": 0},
+        {"id": 2, "question": "Feeling down, depressed, or hopeless", "answer": 0},
+        {"id": 3, "question": "Trouble falling or staying asleep, or sleeping too much", "answer": 0},
+        {"id": 4, "question": "Feeling tired or having little energy", "answer": 0},
+        {"id": 5, "question": "Poor appetite or overeating", "answer": 0},
+        {"id": 6, "question": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down", "answer": 0},
+        {"id": 7, "question": "Trouble concentrating on things, such as reading the newspaper or watching television", "answer": 0},
+        {"id": 8, "question": "Moving or speaking so slowly that other people could have noticed or the opposite - being so fidgety or restless that you have been moving around a lot more than usual", "answer": 0},
+        {"id": 9, "question": "Thoughts that you would be better off dead, or of hurting yourself", "answer": 0},
+        {"id": 10, "question": "If you checked off any problems, how difficult have these problems made it for you at work, home, or with other people?", "answer": 0}
+    ], 
+
+    "anxiety_test": [
+        {"id": 1, "question": "Feeling nervous, anxious, or on edge", "answer": 0},
+        {"id": 2, "question": "Not being able to stop or control worrying", "answer": 0},
+        {"id": 3, "question": "Worrying too much about different things", "answer": 0},
+        {"id": 4, "question": "Trouble relaxing", "answer": 0},
+        {"id": 5, "question": "Being so restless that it is hard to sit still", "answer": 0},
+        {"id": 6, "question": "Becoming easily annoyed or irritable", "answer": 0},
+        {"id": 7, "question": "Feeling afraid, as if something awful might happen", "answer": 0}
+    ], 
+
+    "adhd_test": [
+        {"id": 1, "question": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?", "answer": 0},
+        {"id": 2, "question": "How often do you have difficulty getting things in order when you have to do a task that requires organization?", "answer": 0},
+        {"id": 3, "question": "How often do you have problems remembering appointments or obligations?", "answer": 0},
+        {"id": 4, "question": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?", "answer": 0},
+        {"id": 5, "question": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?", "answer": 0},
+        {"id": 6, "question": "How often do you feel overly active and compelled to do things, like you were driven by a motor?", "answer": 0},
+        {"id": 7, "question": "How often do you make careless mistakes when you have to work on a boring or difficult project?", "answer": 0},
+        {"id": 8, "question": "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?", "answer": 0},
+        {"id": 9, "question": "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?", "answer": 0},
+        {"id": 10, "question": "How often do you misplace or have difficulty finding things at home or at work?", "answer": 0},
+        {"id": 11, "question": "How often are you distracted by activity or noise around you?", "answer": 0},
+        {"id": 12, "question": "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?", "answer": 0},
+        {"id": 13, "question": "How often do you feel restless or fidgety?", "answer": 0},
+        {"id": 14, "question": "How often do you have difficulty unwinding and relaxing when you have time to yourself?", "answer": 0},
+        {"id": 15, "question": "How often do you find yourself talking too much when you are in social situations?", "answer": 0},
+        {"id": 16, "question": "When you’re in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?", "answer": 0},
+        {"id": 17, "question": "How often do you have difficulty waiting your turn in situations when turn taking is required?", "answer": 0},
+        {"id": 18, "question": "How often do you interrupt others when they are busy?", "answer": 0}
+    ], 
+    
+        "psychosis_test": [
+            {"id": 1, "question": "Do familiar surroundings sometimes seem strange, confusing, threatening or unreal to you?", "answer": 0},
+            {"id": 2, "question": "Have you heard unusual sounds like banging, clicking, hissing, clapping or ringing in your ears?", "answer": 0},
+            {"id": 3, "question": "Do things that you see appear different from the way they usually do?", "answer": 0},
+            {"id": 4, "question": "Have you had experiences with telepathy, psychic forces, or fortune telling?", "answer": 0},
+            {"id": 5, "question": "Have you felt that you are not in control of your own ideas or thoughts?", "answer": 0},
+            {"id": 6, "question": "Do you have difficulty getting your point across, because you ramble or go off the track a lot when you talk?", "answer": 0},
+            {"id": 7, "question": "Do you have strong feelings or beliefs about being unusually gifted or talented in some way?", "answer": 0},
+            {"id": 8, "question": "Do you feel that other people are watching you or talking about you?", "answer": 0},
+            {"id": 9, "question": "Do you sometimes get strange feelings on or just beneath your skin, like bugs crawling?", "answer": 0},
+            {"id": 10, "question": "Do you sometimes feel suddenly distracted by distant sounds that you are not normally aware of?", "answer": 0},
+            {"id": 11, "question": "Have you had the sense that some person or force is around you, although you couldn’t see anyone?", "answer": 0},
+            {"id": 12, "question": "Do you worry at times that something may be wrong with your mind?", "answer": 0},
+            {"id": 13, "question": "Have you ever felt that you don't exist, the world does not exist, or that you are dead?", "answer": 0},
+            {"id": 14, "question": "Have you been confused at times whether something you experienced was real or imaginary?", "answer": 0},
+            {"id": 15, "question": "Do you hold beliefs that other people would find unusual or bizarre?", "answer": 0},
+            {"id": 16, "question": "Do you feel that parts of your body have changed in some way, or that parts of your body are working differently?", "answer": 0},
+            {"id": 17, "question": "Are your thoughts sometimes so strong that you can almost hear them?", "answer": 0},
+            {"id": 18, "question": "Do you find yourself feeling mistrustful or suspicious of other people?", "answer": 0},
+            {"id": 19, "question": "Have you seen unusual things like flashes, flames, blinding light, or geometric figures?", "answer": 0},
+            {"id": 20, "question": "Have you seen things that other people can't see or don't seem to see?", "answer": 0},
+            {"id": 21, "question": "Do people sometimes find it hard to understand what you are saying?", "answer": 0}
+        ]
+    
+    
+}
+
