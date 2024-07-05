@@ -20,17 +20,17 @@ In a social context where the youth is feeling more anxious and depressed than e
 
 ## Project version and important technologies 
 
-Actual version is 1.0. <br>
+Actual version is 1.0. (the very first unfinished version) <br>
 Using React Native, TypeScript, and JavaScript. <br>
 Database will be hosted with Docker. <br>
-The detailled pacakages are in ```m_h_app/BlissValley/package.json```.
+The detailled packages are in ```m_h_app/BlissValley/package.json```.
 
 ## What are the components ? What do they do ? 
 
 Here's a non-exhaustive list of the components. 
 - [x] To do list
 - [x] Mood following 
-- [ ] Sleep following 
+- [x] Sleep following 
 - [x] Timers 
 - [ ] Breathing exercises
 - [x] Journal 
