@@ -1,6 +1,9 @@
-import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
+import styles from "./quizzes_styles/questionsStyle";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import SaveJournal from "../../components/SaveJournal";
+import QuizButton from "../../components/QuizButton";
 
 export default function AnxietyQuiz({navigation}) {
  
@@ -59,12 +62,16 @@ export default function AnxietyQuiz({navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <View style={styles.upView}>
         <Text style={styles.title}>Anxiety Quiz</Text>
+        <Text style={styles.indicator}>Question {currentQuestionIndex + 1}/7</Text>
+        </View>
+      
         <Text style={styles.generalQuestion}>
           Over the last 2 weeks, how often have you been bothered by the
           following problems?
         </Text>
-        <Text>Question {currentQuestionIndex + 1}/7</Text>
+        
         {questions.length > 0 && (
           <View style={styles.questionContainer}>
             <Text style={styles.question}>
@@ -90,31 +97,49 @@ export default function AnxietyQuiz({navigation}) {
           </View>
         )}
         {currentQuestionIndex !=6 ? 
-         <View style={styles.buttonContainer}>
-         <Button
-           title="Previous"
+         <View style={styles.TouchableOpacityContainer}>
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handlePreviousQuestion}
            disabled={currentQuestionIndex === 0}
-         />
-         <Button
-           title="Next"
+         > 
+          <QuizButton style={styles.quiz} />
+         <Text style={styles.TouchableOpacityText}>Previous</Text>
+        
+         </TouchableOpacity>
+
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handleNextQuestion}
            disabled={currentQuestionIndex === questions.length - 1}
-         />
+         >
+          <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Next</Text>
+         </TouchableOpacity>
+
        </View> 
        :
       
-        <View style={styles.buttonContainer}>
-        <Button
-          title="Previous"
+        <View style={styles.TouchableOpacityContainer}>
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
-        />
-        <Button
-          title="Finish"
+        >
+           <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Previous</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handleFinishQuiz}
           disabled={currentQuestionIndex === 0}
-        />
+        >
+          <QuizButton style={styles.quiz} />
+        <Text style={styles.TouchableOpacityText} >Finish</Text>
+        
+        </TouchableOpacity>
+
       </View> 
         }
        
@@ -122,52 +147,4 @@ export default function AnxietyQuiz({navigation}) {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginVertical: 20,
-  },
-  generalQuestion: {
-    fontSize: 16,
-    marginVertical: 10,
-    textAlign: "center",
-    paddingHorizontal: 20,
-  },
-  questionContainer: {
-    marginVertical: 20,
-    alignItems: "center",
-  },
-  question: {
-    fontSize: 18,
-    marginVertical: 10,
-    textAlign: "center",
-  },
-  answerBox: {
-    backgroundColor: "#e0e0e0",
-    padding: 10,
-    marginVertical: 5,
-    borderRadius: 5,
-    width: '80%',
-    alignItems: 'center'
-  },
-  selectedAnswerBox: {
-    backgroundColor: "#a0a0a0",
-  },
-  answerText: {
-    fontSize: 16,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "80%",
-    marginVertical: 20,
-  },
-});
+;

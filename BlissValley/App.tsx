@@ -21,6 +21,10 @@ import AnxietyQuiz from './pages/quizzes/AnxietyQuiz'
 import DepressionQuiz from './pages/quizzes/DepressionQuiz'
 import ADHDQuiz from './pages/quizzes/ADHDQuiz'
 import PsychosisQuiz from './pages/quizzes/PsychosisQuiz'
+import AnxietyResults from './pages/quizzes/AnxietyResults'
+import DepressionResults from './pages/quizzes/DepressionResult'
+import ADHDResults from './pages/quizzes/ADHDResult'
+import PsychosisResults from './pages/quizzes/PsychosisResult'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
@@ -95,9 +99,11 @@ const App = () => {
       <Stack.Screen name="Anxiety quiz" component={AnxietyQuiz} />
       <Stack.Screen name="Depression quiz" component={DepressionQuiz} />
       <Stack.Screen name="ADHD quiz" component={ADHDQuiz} />
-      <Stack.Screen name="Psychosis home" component={PsychosisQuiz} />
-
-      
+      <Stack.Screen name="Psychosis quiz" component={PsychosisQuiz} />
+      <Stack.Screen name="Anxiety results" component={AnxietyResults} />
+      <Stack.Screen name="Depression results" component={DepressionResults} />
+      <Stack.Screen name="ADHD results" component={ADHDResults} />
+      <Stack.Screen name="Psychosis results" component={PsychosisResults} />
 
 
 

@@ -81,7 +81,6 @@ export default function App({navigation}) {
   ];
 
   const [tasks, setTasks] = useState([
-    { id: 43, name: "get Started", isChecked: false },
   ]);
   const [inputTask, setInputTask] = useState("");
 
@@ -107,7 +106,9 @@ export default function App({navigation}) {
       setTasks([...tasks, { id: newId, name: inputTask, isChecked: false }]);
       setInputTask("");
     } else if (inputTask.length > 95) {
-      console.log("Data's length must be under 95 characters")
+      console.log("Error : data's length must be under 95 characters")
+    } else if (inputTask.trim() == '') {
+      console.log("Error : cannot add empty task")
     }
   };
 
@@ -128,7 +129,10 @@ export default function App({navigation}) {
   const handleAddFromInspiration = (task) => {
     if (!tasks.some(t => t.id === task.id)) {
       setTasks([...tasks, task]);
-      console.log(task); }
+      console.log(task); 
+    } else if (tasks.some(t => t.id === task.id)) {
+      console.log('Error : cannot add an already added task');
+    };
   };
 
   return (
@@ -362,7 +366,7 @@ export default function App({navigation}) {
 
         <Grass style={styles.grass2} />
         <Kitty style={styles.kitty2} />
-        <Image
+        {/* <Image
           source={require("../../assets/pngs/Bubble.png")}
           style={{
             position: "absolute",
@@ -381,7 +385,7 @@ export default function App({navigation}) {
           }}
         >
           Meow...
-        </Text>
+        </Text> */}
         <TouchableOpacity onPress={() => navigation.navigate("Library")}>
 
           <Library style={{position : 'absolute', bottom : 10, right : 10}} />
