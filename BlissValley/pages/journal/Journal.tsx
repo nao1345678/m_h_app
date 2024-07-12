@@ -17,6 +17,8 @@ export default function Journal() {
     if (data.trim() !== '') {
       setListData((prevListData) => [...prevListData, data]);
       setData('');
+    } else if (data.trim() == '') {
+      console.log("Error : journal's entry can't be empty")
     }
   }
 

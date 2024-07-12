@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
       width: "75%",
       marginVertical: 20,
       alignItems : 'center',
-      marginLeft : 45
+      marginLeft : 40
       
     },
     TouchableOpacityText : {
