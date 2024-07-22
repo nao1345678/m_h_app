@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
 import { useEffect, useState } from "react";
 import styles from "./quizzes_styles/questionsStyle";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import QuizButton from "../../components/QuizButton";
 
 export default function DepressionQuiz({navigation}) {
  
@@ -58,13 +59,17 @@ export default function DepressionQuiz({navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <View style={styles.upView} >
         <Text style={styles.title}>Psychosis and schizophrenia Quiz</Text>
+        <Text style={styles.indicator} >Question {currentQuestionIndex + 1}/21</Text>
+        </View>
+       
         <Text style={styles.generalQuestion}>
         In the past month, have you had the following thoughts, feelings, or experiences? Check “yes” or “no” for each item.
 
 Do not include experiences that occur only while under the influence of alcohol, drugs or medications that were not prescribed to you.
         </Text>
-        <Text>Question {currentQuestionIndex + 1}/21</Text>
+       
         {questions.length > 0 && (
           <View style={styles.questionContainer}>
             <Text style={styles.question}>
@@ -89,32 +94,50 @@ Do not include experiences that occur only while under the influence of alcohol,
             })}
           </View>
         )}
-        {currentQuestionIndex !=20 ? 
-         <View style={styles.buttonContainer}>
-         <Button
-           title="Previous"
+         {currentQuestionIndex !=20 ? 
+         <View style={styles.TouchableOpacityContainer}>
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handlePreviousQuestion}
            disabled={currentQuestionIndex === 0}
-         />
-         <Button
-           title="Next"
+         > 
+          <QuizButton style={styles.quiz} />
+         <Text style={styles.TouchableOpacityText}>Previous</Text>
+        
+         </TouchableOpacity>
+
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handleNextQuestion}
            disabled={currentQuestionIndex === questions.length - 1}
-         />
+         >
+          <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Next</Text>
+         </TouchableOpacity>
+
        </View> 
        :
       
-        <View style={styles.buttonContainer}>
-        <Button
-          title="Previous"
+        <View style={styles.TouchableOpacityContainer}>
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
-        />
-        <Button
-          title="Finish"
+        >
+           <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Previous</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handleFinishQuiz}
           disabled={currentQuestionIndex === 0}
-        />
+        >
+          <QuizButton style={styles.quiz} />
+        <Text style={styles.TouchableOpacityText} >Finish</Text>
+        
+        </TouchableOpacity>
+
       </View> 
         }
        

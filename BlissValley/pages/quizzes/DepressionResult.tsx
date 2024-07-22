@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
+import styles from "./quizzes_styles/resultStyle";
+import YellowFlower from "../../components/YellowFlower";
+import PinkFlower from "../../components/PinkFlower";
 
 export default function DepressionResults({ route, navigation }) {
   const { selectedAnswers } = route.params;
@@ -49,15 +52,24 @@ export default function DepressionResults({ route, navigation }) {
       <TouchableOpacity onPress={() => navigation.navigate("Quiz home")}>
         <Text>Back to home </Text>
       </TouchableOpacity>
+
+      <Text style={styles.disclaimer}>Quizzes can’t replace a real diagnosis. It’s always better to see a therapist.</Text>
+        <PinkFlower 
+            style={{
+                position : 'absolute',
+                bottom: 0, 
+                left : 0
+            }}
+        />
+        <YellowFlower 
+            style={{
+                position : 'absolute',
+                bottom: 0, 
+                right : 0
+            }}
+        />
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

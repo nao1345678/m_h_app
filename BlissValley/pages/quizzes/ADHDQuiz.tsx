@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
 import { useEffect, useState } from "react";
 import styles from "./quizzes_styles/questionsStyle";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import QuizButton from "../../components/QuizButton";
 
 export default function ADHDQuiz({navigation}) {
  
@@ -61,11 +62,17 @@ export default function ADHDQuiz({navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <View style={styles.upView} >
+
         <Text style={styles.title}>ADHD Quiz</Text>
+        <Text style={styles.indicator} >Question {currentQuestionIndex + 1}/18</Text>
+
+        </View>
+        
         <Text style={styles.generalQuestion}>
         As you answer each question, select the button that best describes how you have felt and conducted yourself over the past 6 months.
         </Text>
-        <Text>Question {currentQuestionIndex + 1}/18</Text>
+      
         {questions.length > 0 && (
           <View style={styles.questionContainer}>
             <Text style={styles.question}>
@@ -90,32 +97,50 @@ export default function ADHDQuiz({navigation}) {
             })}
           </View>
         )}
-        {currentQuestionIndex !=17 ? 
-         <View style={styles.buttonContainer}>
-         <Button
-           title="Previous"
+          {currentQuestionIndex !=17 ? 
+         <View style={styles.TouchableOpacityContainer}>
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handlePreviousQuestion}
            disabled={currentQuestionIndex === 0}
-         />
-         <Button
-           title="Next"
+         > 
+          <QuizButton style={styles.quiz} />
+         <Text style={styles.TouchableOpacityText}>Previous</Text>
+        
+         </TouchableOpacity>
+
+         <TouchableOpacity
+         style={styles.textContainer}
            onPress={handleNextQuestion}
            disabled={currentQuestionIndex === questions.length - 1}
-         />
+         >
+          <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Next</Text>
+         </TouchableOpacity>
+
        </View> 
        :
       
-        <View style={styles.buttonContainer}>
-        <Button
-          title="Previous"
+        <View style={styles.TouchableOpacityContainer}>
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
-        />
-        <Button
-          title="Finish"
+        >
+           <QuizButton style={styles.quiz} />
+          <Text style={styles.TouchableOpacityText}>Previous</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.textContainer}
           onPress={handleFinishQuiz}
           disabled={currentQuestionIndex === 0}
-        />
+        >
+          <QuizButton style={styles.quiz} />
+        <Text style={styles.TouchableOpacityText} >Finish</Text>
+        
+        </TouchableOpacity>
+
       </View> 
         }
        

@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import styles from "./quizzes_styles/questionsStyle";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import SaveJournal from "../../components/SaveJournal";
 import QuizButton from "../../components/QuizButton";
 
 export default function AnxietyQuiz({navigation}) {
