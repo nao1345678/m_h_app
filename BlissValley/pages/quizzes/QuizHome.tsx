@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'react-native'
 import TimerLogo from '../../components/TimerLogo'
 import WhiteCloud from '../../components/WhiteCloud'
 import Ladybug from '../../components/Ladybug'
@@ -145,6 +145,12 @@ export default function QuizHome({navigation}) {
             }}
         />
 
+        <Pressable onPress={() => { styles.infoPressed }}>
+        {({pressed}) => (
+          <Text>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+        )}
+        </Pressable>
+
     </View>
   )
 }
@@ -163,5 +169,10 @@ const styles = StyleSheet.create({
     fontFamily : 'Consolas', 
     letterSpacing : -0.5, 
     fontSize : 15
+  }, 
+  infoPressed : {
+    position : 'absolute',
+    bottom : 20, 
+    right : -20
   }
 })
