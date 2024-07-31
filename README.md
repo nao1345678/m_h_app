@@ -23,7 +23,6 @@ In a social context where the youth is feeling more anxious and depressed than e
 Actual version is 1.0. (the very first unfinished version) <br>
 Using React Native, TypeScript, and JavaScript. <br>
 Database will be hosted with Docker. <br>
-The detailled packages are in ```m_h_app/BlissValley/package.json```.
 
 ## What are the components ? What do they do ? 
 
