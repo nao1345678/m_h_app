@@ -38,7 +38,7 @@ Here's a non-exhaustive list of the components.
 - [ ] Mini-games
 - [ ] Medication following 
 - [ ] Sobriety timer
-- [ ] Quizzes
+- [x] Quizzes
 - [ ] Reminders 
 
 ### To do list 
