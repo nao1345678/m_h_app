@@ -145,12 +145,6 @@ export default function QuizHome({navigation}) {
             }}
         />
 
-        <Pressable onPress={() => { styles.infoPressed }}>
-        {({pressed}) => (
-          <Text>{pressed ? 'Pressed!' : 'Press Me'}</Text>
-        )}
-        </Pressable>
-
     </View>
   )
 }

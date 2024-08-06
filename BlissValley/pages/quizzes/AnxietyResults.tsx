@@ -8,6 +8,7 @@ import PinkFlower from "../../components/PinkFlower";
 import YellowButterfly from "../../components/YellowButterfly";
 import BlackButterfly from "../../components/BlackButterfly";
 import WhiteCloud from "../../components/WhiteCloud";
+import QuizButton from "../../components/QuizButton";
 
 export default function AnxietyResults({ route, navigation }) {
   const { selectedAnswers } = route.params;
@@ -35,7 +36,7 @@ export default function AnxietyResults({ route, navigation }) {
     );
 
     sum = sum / 7;
-    sum = (sum * 10) / 3;
+    sum = (sum * 10)/3;
     let final = parseFloat(sum.toFixed(1));
     setScore(final); 
     handleResult(final);
@@ -88,13 +89,10 @@ export default function AnxietyResults({ route, navigation }) {
       <TouchableOpacity 
         onPress={() => navigation.navigate("Quiz home")}
         style={styles.homeButton}>
-        <Text style={styles.homeButtonText}>Back to home </Text>
+          <QuizButton style={{position : 'absolute', alignSelf : 'center'}} />
+        <Text style={styles.homeButtonText}>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("Quiz home")}
-        style={styles.homeButton}>
-        <Text style={styles.homeButtonText}>See more about it</Text>
-      </TouchableOpacity>
+
 
       <Text style={styles.disclaimer}>Quizzes can’t replace a real diagnosis. It’s always better to see a therapist.</Text>
         <PinkFlower 

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
       fontFamily: 'Consolas', 
       letterSpacing : -0.5,
       marginVertical: 5,
-      width : '100%',
+      width : '95%',
       marginHorizontal: 15,
       color :'#410091'
 

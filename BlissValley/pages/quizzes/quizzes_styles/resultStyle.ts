@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         color : 'white', 
         letterSpacing : -0.8, 
         margin : 5,
+        alignSelf : 'center',
     }, 
     result : {
         fontFamily : 'PressStart2P', 
@@ -53,7 +54,11 @@ const styles = StyleSheet.create({
     }, 
     homeButtonText : {
         fontFamily : 'PressStart2P', 
-        margin : 30
+        margin : 15,
+        color : 'white',
+        textShadowColor : 'black',
+        textShadowOffset : {width: 2, height: 2},
+        textShadowRadius : 2,
     }, 
     disclaimer : {
         position : 'absolute',
@@ -63,10 +68,6 @@ const styles = StyleSheet.create({
         width : 150, 
         textAlign : 'center'
     }
-
-
-
-    
 
 });
 

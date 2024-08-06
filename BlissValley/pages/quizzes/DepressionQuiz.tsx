@@ -37,7 +37,6 @@ export default function DepressionQuiz({navigation}) {
     const updatedAnswers = [...selectedAnswers];
     updatedAnswers[currentQuestionIndex] = value;
     setSelectedAnswers(updatedAnswers);
-    console.log(value)
     console.log(updatedAnswers)
   };
 
@@ -66,9 +65,10 @@ export default function DepressionQuiz({navigation}) {
         <View style={styles.upView}>
 
         <Text style={styles.title}>Depression Quiz</Text>
-        <Text style={styles.indicator}>Question {currentQuestionIndex + 1}/10</Text>
 
         </View>
+
+        <Text style={styles.indicator}>Question {currentQuestionIndex + 1}/10</Text>
 
      
         <Text style={styles.generalQuestion}>
