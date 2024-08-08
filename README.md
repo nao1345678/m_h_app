@@ -38,7 +38,11 @@ Here's a non-exhaustive list of the components.
 - [ ] Medication following 
 - [ ] Sobriety timer
 - [x] Quizzes
-- [ ] Reminders 
+- [ ] Reminders
+- [ ] IA generated recipes with filters
+- [ ] Meals reminders
+- [ ] Motivational messages
+      
 
 ### To do list 
 
