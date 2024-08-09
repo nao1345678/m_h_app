@@ -8,7 +8,7 @@ import { useFonts } from 'expo-font'
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [fontsLoaded] = useFonts({
-    'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf')
+    PressStart2P: require('../../assets/fonts/PressStart2P-Regular.ttf')
   })
 
   useEffect(() => {
@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 1
   },
-  
+
   pics: {
-    width : 200,
+    width: 200,
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',

@@ -17,15 +17,15 @@ export default function Basic({ navigation }: { navigation: any }) {
     { id: 9, name: 'Do some skincare', isChecked: false }
   ]
 
-  const[tasksToAdd, setTasksToAdd] = useState([])
+  const [tasksToAdd, setTasksToAdd] = useState([])
 
   const handleAddTask = (task) => {
-    setTasksToAdd([...tasksToAdd, task]); 
+    setTasksToAdd([...tasksToAdd, task])
     console.log(tasksToAdd)
   }
 
   const closeDrawer = () => {
-    navigation.navigate("Main", {tasksToAdd : tasksToAdd})
+    navigation.navigate('Main', { tasksToAdd })
   }
 
   return (

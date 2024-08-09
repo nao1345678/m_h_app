@@ -1,37 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ImageBackground, Image } from 'react-native';
-import Doggo from '../../components/Doggo';
-import SaveButton from '../../components/SaveJournal';
+import React, { useState, useEffect } from 'react'
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+  ImageBackground,
+  Image
+} from 'react-native'
+import Doggo from '../../components/Doggo'
+import SaveButton from '../../components/SaveJournal'
 
 export default function Journal() {
-  const currentDate = new Date();
+  const currentDate = new Date()
 
-  const [data, setData] = useState('');
-  const [listData, setListData] = useState([]);
+  const [data, setData] = useState('')
+  const [listData, setListData] = useState([])
 
   useEffect(() => {
-    console.log(listData);
-  }, [listData]);
+    console.log(listData)
+  }, [listData])
 
   function saveButton() {
     if (data.trim() !== '') {
-      setListData((prevListData) => [...prevListData, data]);
-      setData('');
+      setListData((prevListData) => [...prevListData, data])
+      setData('')
     } else if (data.trim() == '') {
       console.log("Error : journal's entry can't be empty")
     }
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
-    >
-      <ImageBackground
-        source={require('../../assets/pngs/Journal.png')}
-        resizeMode='cover'
-        style={styles.image}
-      >
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
+      <ImageBackground source={require('../../assets/pngs/Journal.png')} resizeMode="cover" style={styles.image}>
         <View style={styles.innerContainer}>
           <Text
             style={{
@@ -52,7 +55,7 @@ export default function Journal() {
               value={data}
               onChangeText={setData}
               multiline={true}
-              textAlignVertical='top'
+              textAlignVertical="top"
               placeholder="Write about your thoughts here..."
             />
           </View>
@@ -61,12 +64,12 @@ export default function Journal() {
           </TouchableOpacity>
           <Image
             source={require('../../assets/pngs/BubbleDoggo.png')}
-            resizeMode='contain'
+            resizeMode="contain"
             style={{
               width: 120,
               position: 'absolute',
               top: 450,
-              left: 30,
+              left: 30
             }}
           />
           <Text
@@ -74,7 +77,7 @@ export default function Journal() {
               fontFamily: 'PressStart2P',
               position: 'absolute',
               bottom: 100,
-              left: 60,
+              left: 60
             }}
           >
             Waf...
@@ -82,33 +85,33 @@ export default function Journal() {
           <Doggo
             style={{
               position: 'absolute',
-              bottom: 0,
+              bottom: 0
             }}
           />
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   innerContainer: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-start'
   },
   image: {
     flex: 1,
-    width: '100%',
+    width: '100%'
   },
   inputContainer: {
     marginLeft: 40,
     marginTop: 90,
     width: 330,
     height: 670,
-    paddingHorizontal: 10 
+    paddingHorizontal: 10
   },
   input: {
     flex: 1,
@@ -118,11 +121,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     letterSpacing: -0.7,
     borderRadius: 8,
-    paddingTop: 10,
+    paddingTop: 10
   },
   saveButton: {
     position: 'absolute',
     right: 10,
-    bottom: -20,
-  },
-});
+    bottom: -20
+  }
+})

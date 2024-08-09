@@ -11,9 +11,8 @@ import { LogBox } from 'react-native';
 import Todo from './pages/tasks/Todo'
 import Timer from './pages/timer/Time'
 import Journal from './pages/journal/Journal'
-import Basic from './pages/tasks/Basic'
 import LoadingScreen from './pages/loading/LoadingScreen'
-// import BreathingExercise from './pages/breathing_exercise/BreathingExercise'
+import BreathingExercise from './pages/breathing_exercise/BreathingExercise'
 import AppLibrary from './pages/library/AppLibrary'
 import SleepFollowing from './pages/sleep_following/SleepFollowing'
 import QuizHome from './pages/quizzes/QuizHome'
@@ -92,7 +91,7 @@ const App = () => {
         
       <Stack.Screen name="Timers" component={Timer} />
       <Stack.Screen name="Journal" component={Journal} />
-      {/* <Stack.Screen name="Breathing exercise" component={BreathingExercise} /> */}
+      <Stack.Screen name="Breathing exercise" component={BreathingExercise} />
       <Stack.Screen name="Library" component={AppLibrary} />
       <Stack.Screen name="Sleep following" component={SleepFollowing} />
       <Stack.Screen name="Quiz home" component={QuizHome} />
