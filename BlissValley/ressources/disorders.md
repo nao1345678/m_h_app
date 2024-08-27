@@ -6,5 +6,6 @@
 - schizophrenia
 - ocd 
 - ptsd's
-- ed's
+- pmdd
+- ed's and body dysmorphic disorders
 - derealisation/depersonalisation 
