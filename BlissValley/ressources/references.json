@@ -61,7 +61,7 @@
             "title": "Anxiety Prevention and Stories - Playlist",
             "type": "Video",
             "description": "A playlist full of people's stories, advices, and tips on how to prevent the spread of anxiety. ",
-            "image": "../../assets/anxietyyoutube.png",
+            "image": "../../assets/youtube.png",
             "url": "https://www.youtube.com/playlist?list=PLEDcQfrSOvg8cXmVeefgDJ9tEuNOSkccz"
         },
         {
@@ -70,7 +70,7 @@
             "type": "Article",
             "description": "Anxiety disorders are serious mental illnesses that cause significant worry or fear that doesn't go away and may even get worse over time. We all feel anxious at times, but with an anxiety disorder, the anxiety tends to be fairly constant and has a very negative and intrusive impact on quality of life.",
             "image": "../../assets/vwm.png",
-            "url": "https://www.youtube.com/watch?v=K0yUd2rQ8pQ"
+            "url": "https://www.verywellmind.com/anxiety-disorder-2510539"
         },
         {
             "id": 10,
@@ -79,6 +79,14 @@
             "description": "Doctolib distribue en France, en Italie, en Allemagne et aux Pays Bas un service de prise de rendez-vous en ligne, destiné aux patients. Le site web est principalement dédié aux services des professionnels de santé, exerçant dans un cadre réglementé (dotés d'un numéro RPPS ou inscrits à l'annuaire Adeli) une médecine conventionnelle ou non.",
             "image": "../../assets/doctolib.png",
             "url": "https://www.doctolib.fr/therapie-troubles-anxieux"
+        },
+        {
+            "id": 11,
+            "title": "SOS Amitié - Hotline",
+            "type": "Hotline",
+            "description": "09 72 39 40 50",
+            "image": "../../assets/heart.png",
+            "url": "https://www.sos-amitie.com"
         }
     ],
     "adhd_references": [
@@ -105,6 +113,207 @@
             "description": "Across the lifespan, attention deficit/hyperactivity disorder (ADHD) is associated with increased health risk behaviors including substance abuse, binge eating and obesity, and unsafe sexual behavior. These risks are directly linked to the neurocognitive deficits associated with ADHD, and are also mediated by the cascade of psychosocial impairments and stressors caused by ADHD across development.",
             "image": "../../assets/nih.png",
             "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6281045/"
+        },
+        {
+            "id": 4,
+            "title": "NACFC 2023 | S22: Let’s Focus on ADHD and Executive Functioning",
+            "type": "Video",
+            "description": "The Cystic Fibrosis Foundation on the 2023 North American Cystic Fibrosis Conference",
+            "image": "../../assets/youtube.png",
+            "url": "https://www.youtube.com/watch?v=xTVAIeSu9EU"
+        },
+        {
+            "id": 5,
+            "title": "How ADHD Affects Adults | ADHD - Not Just for Kids (Full Documentary)",
+            "type": "Video",
+            "description": "'ADHD - Not Just for Kids' debunks some of the myths surrounding this invisible, cognitive disability as more and more adults are recognised as having ADHD or ADD. While following the personal journeys made by adults that was diagnosed with the disorder late in life, the documentary also challenges some of the most persistent myths surrounding ADHD, through interviews with some of the leading experts in the area and a look at the most recent research into the field. ",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/jyUVc0Iteb0?feature=shared"
+        },
+        {
+            "id": 6,
+            "title": "Risks Associated With Undiagnosed ADHD and/or Autism: A Mixed-Method Systematic Review",
+            "type": "Study",
+            "description": "The findings suggest that undiagnosed ASD/ADHD is linked to many risks and negative outcomes affecting individuals, their families, and the wider society. The restricted number of studies on ASD are a limitation to the generalization of these findings Implications for research and practice are discussed, highlighting the importance of screening and acknowledging the possibility of ASD/ADHD in many settings such as psychiatric and forensic.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10498662/"
+        },
+        {
+            "id": 7,
+            "title": "ADHD - Get medical attention (France)",
+            "type": "Website",
+            "description": "Trouvez un rendez-vous sur cette plateforme en ligne avec un expert du TDAH, pour diagnostiquer et soigner votre trouble. ",
+            "image": "../../assets/doctolib.png",
+            "url": "https://www.psychologue.net/cabinets/tdah"
+        },
+        {
+            "id": 8,
+            "title": "The ADHD mini coach",
+            "type": "Website",
+            "description": "ADHD presents in three main types: Inattentive, Hyperactive-Impulsive, and Combined. Each type affects individuals differently, influencing their attention, impulsivity, and activity levels. Recognizing the specific type of ADHD is crucial for effective treatment and management, tailoring strategies to meet individual needs. This differentiation helps understand the diverse symptoms and challenges, paving the way for targeted support and interventions. ",
+            "image": "../../assets/alicelogo.webp",
+            "url": "https://www.theminiadhdcoach.com"
+        },
+        {
+            "id": 9,
+            "title": "ADHD - Get medical attention",
+            "type": "Website",
+            "description": "Doctolib distribue en France, en Italie, en Allemagne et aux Pays Bas un service de prise de rendez-vous en ligne, destiné aux patients. Le site web est principalement dédié aux services des professionnels de santé, exerçant dans un cadre réglementé (dotés d'un numéro RPPS ou inscrits à l'annuaire Adeli) une médecine conventionnelle ou non.",
+            "image": "../../assets/doctolib.webp",
+            "url": "https://www.doctolib.fr/tda-trouble-du-deficit-d-attention"
+        }
+    ],
+    "autism_references": [
+        {
+            "id": 1,
+            "title": "The history of autism",
+            "type": "Website",
+            "description": "It has been more than 50 years since Leo Kanner first described his classic autistic syndrome. Since then, the results of research and clinical work have helped us learn more about autism. More and more people are being diagnosed as autistic, although we still have a long way to go in creating a world that works for autistic people.. ",
+            "image": "../../assets/NAS.png",
+            "url": "https://www.autism.org.uk/advice-and-guidance/what-is-autism/the-history-of-autism"
+        },
+        {
+            "id": 2,
+            "title": "Leo Kanner's biography",
+            "type": "Website",
+            "description": "Leo Kanner (/ˈkænər/; born Chaskel Leib Kanner; June 13, 1894 – April 3, 1981) was an Austrian-American psychiatrist, physician, and social activist best known for his work related to infantile autism. ",
+            "image": "../../assets/NAS.png",
+            "url": "https://en.wikipedia.org/wiki/Leo_Kanner"
+        },
+        {
+            "id": 2,
+            "title": "Leo Kanner's biography",
+            "type": "Website",
+            "description": "Leo Kanner (/ˈkænər/; born Chaskel Leib Kanner; June 13, 1894 – April 3, 1981) was an Austrian-American psychiatrist, physician, and social activist best known for his work related to infantile autism. ",
+            "image": "../../assets/NAS.png",
+            "url": "https://en.wikipedia.org/wiki/Leo_Kanner"
+        },
+        {
+            "id": 3,
+            "title": "Validation of Proposed DSM-5 criteria for autism",
+            "type": "Study",
+            "description": "To explore the relative classification accuracy of DSM-IV-TR and DSM-5, autism symptoms from the SCQ and SRS were mapped onto DSM-IV-TR and proposed DSM-5. ",
+            "image": "../../assets/nih.png",
+            "url": "https://cdr.lib.unc.edu/downloads/h702qd81k"
+        },
+        {
+            "id": 4,
+            "title": "DSM-5 Diagnostic Criteria",
+            "type": "Study",
+            "description": "To explore the relative classification accuracy of DSM-IV-TR and DSM-5, autism symptoms from the SCQ and SRS were mapped onto DSM-IV-TR and proposed DSM-5. ",
+            "image": "../../assets/nih.png",
+            "url": "https://cdr.lib.unc.edu/downloads/h702qd81k"
+        },
+        {
+            "id": 5,
+            "title": "Comparison of the Diagnostic Criteria for Autism Spectrum Disorder Across DSM-5, DSM-IV-TR, and the Individuals with Disabilities Education Act (IDEA) Definition of Autism",
+            "type": "Study",
+            "description": "There's a huge difference in the diagnostic criterias of Autism between the DSM-5 and the DSM-IV ; this paper is a comparison table.",
+            "image": "../../assets/heart.png",
+            "url": "https://iris.peabody.vanderbilt.edu/wp-content/uploads/pdf_info_briefs/ASD_Comparison_information_brief.pdf"
+        },
+        {
+            "id": 6,
+            "title": "Autism in simple terms",
+            "type": "Website",
+            "description": "In this post, let me address a common question among parents – What is autism in simple terms? When I try to explain to them that their child may be suspected of having autistic disorder, they are often confused on what Autism Spectrum Disorder actually is.",
+            "image": "../../assets/autism360.png",
+            "url": "https://www.autism360.com/what-is-autism-in-simple-terms/"
+        },
+        {
+            "id": 7,
+            "title": "Autism experience stories and history - Playlist",
+            "type": "Video",
+            "description": "A thoughtfully curated playlist dedicated to raising autism awareness, featuring a diverse collection of powerful personal testimonials and essential prevention tips. These videos aim to educate, inspire, and promote a deeper understanding and support for individuals on the autism spectrum",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtube.com/playlist?list=PLEDcQfrSOvg8hf3eV0AYMCLonsbc4pkfv&feature=shared"
+        },
+        {
+            "id": 8,
+            "title": "Understanding The Impact of Undiagnosed Autism in Adults",
+            "type": "Article",
+            "description": "While there is a big focus on diagnosing and treating children with ASD, there are many individuals who go undiagnosed with autism until later in life. Astonishingly, in July 2022, around 125,000 people with a ‘suspected autism’ referral were waiting for a diagnosis – and 84% waited for more than 13 weeks to even get their first appointment. This delay can often lead to significant developmental challenges, which have a tremendous impact on a person’s health, social and professional life.",
+            "image": "../../assets/journal.png",
+            "url": "https://timian.co.uk/understanding-the-impact-of-undiagnosed-autism-in-adults/#:~:text=Undiagnosed%20autistic%20individuals%20are%20more,which%20can%20induce%20further%20withdrawal."
+        }
+    ],
+    "bipolar_disorder_references": [
+        {
+            "id": 1,
+            "title": "DSM-IV to DSM-5 Bipolar I Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for bipolar disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t8/"
+        },
+        {
+            "id": 2,
+            "title": "What is bipolar disorder?",
+            "type": "Article",
+            "description": "Bipolar disorder (formerly called manic-depressive illness or manic depression) is a mental illness that causes unusual shifts in a person’s mood, energy, activity levels, and concentration. These shifts can make it difficult to carry out day-to-day tasks.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/topics/bipolar-disorder"
+        },
+        {
+            "id": 3,
+            "title": "Myths and Facts of Bipolar Disorder",
+            "type": "Article",
+            "description": "While the media is doing a better job today of depicting bipolar disorder, such as in shows like “Euphoria,” “Homeland” and “Modern Love,” there are still many misconceptions when it comes to understanding this mood disorder.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.nami.org/bipolar-and-related-disorders/myths-and-facts-of-bipolar-disorder/"
+        },
+        {
+            "id": 4,
+            "title": "What is bipolar disorder?",
+            "type": "Video",
+            "description": "Bipolar Disorder is a mood disorder featuring manic, hypomanic, and/or depressive symptoms that are experienced in distinct episodes. We review the 3 types of bipolar disorders, bipolar I, bipolar II, and cyclothymic disorder. Learn more about the symptoms and treatment options for bipolar disorder.",
+            "image": "../../assets/youtube.png",
+            "url": "https://www.youtube.com/watch?v=G9vkGCo7Gtg"
+        },
+        {
+            "id": 5,
+            "title": "Shematic reprensentation of mood patterns in bipolar disorder",
+            "type": "Picture",
+            "description": "An illustration of manic, hypomanic, and depressive mood episodes in bipolar disorder.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://s38322.pcdn.co/wp-content/uploads/2019/03/bipolar_disorder.png"
+        },
+        {
+            "id": 6,
+            "title": "Being bipolar (Psychology documentary)",
+            "type": "Video",
+            "description": "One minute you’re up and the next you’re down. But what if those ups were manias, generating feelings of omnipotence and invincibility? And what if those downs were depressions so stark, that you were left feeling immobile and even suicidal? ",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/P0MEF-RWtBA?feature=shared"
+        },
+        {
+            "id": 7,
+            "title": "Living with Bipolar Disorder",
+            "type": "Video",
+            "description": "Explore the realities of living with bipolar disorder.",
+            "image": "../../assets/youtube.png",
+            "url": "https://www.youtube.com/watch?v=XFj0KYB3teU"
+        },
+        {
+            "id": 8,
+            "title": "Treatment of Bipolar Disorder",
+            "type": "Study",
+            "description": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3876031/?mobile-app=true&theme=wiki",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3876031"
+        },
+        {
+            "id": 9,
+            "title": "Bipolar Disorder - Get medical attention (France)",
+            "type": "Website",
+            "description": "Doctolib distribue en France, en Italie, en Allemagne et aux Pays Bas un service de prise de rendez-vous en ligne, destiné aux patients. Le site web est principalement dédié aux services des professionnels de santé, exerçant dans un cadre réglementé (dotés d'un numéro RPPS ou inscrits à l'annuaire Adeli) une médecine conventionnelle ou non.",
+            "image": "../../assets/doctolib.png",
+            "url": "https://www.doctolib.fr/troubles-bipolaires"
+        }
+    ],
+    "bpd_references": [
+        {
+            "id": 1,
         }
     ]
 }

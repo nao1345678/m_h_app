@@ -1,9 +1,10 @@
 ### Talk about in my references library 
-- anxiety
+- ~~anxiety~~
 - depression
-- adhd
-- austism 
-- schizophrenia
+- bipolar and borderline personality disorder
+- ~~adhd~~
+- ~~austism~~ 
+- schizophrenia & psychotic disorders 
 - ocd 
 - ptsd's
 - pmdd
