@@ -1,7 +1,8 @@
 ### Talk about in my references library 
 - ~~anxiety~~
 - depression
-- bipolar and borderline personality disorder
+- ~~bipolar~~
+- borderline personality disorder
 - ~~adhd~~
 - ~~austism~~ 
 - schizophrenia & psychotic disorders 
