@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native'
 import JournalLogo from '../../components/JournalLogo'
 import TimerLogo from '../../components/TimerLogo'
+import styles from "./AppLibraryStyle";
 
 export default function AppLibrary({ navigation }) {
   return (
@@ -50,23 +51,3 @@ export default function AppLibrary({ navigation }) {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  image: {
-    flex: 1,
-    width: '100%'
-  },
-  appName: { alignSelf: 'center', justifyContent: 'center' },
-  appContainer: {},
-  appRow1: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    margin: 30
-  }
-})

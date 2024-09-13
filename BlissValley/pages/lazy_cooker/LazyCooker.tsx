@@ -1,7 +1,7 @@
 import { View, Text } from 'native-base';
 import React, { useState } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
-import styles from '../sleep_following/SleepFollowingStyle';
+import styles from '../../pages/lazy_cooker/LazyCooker';
 
 const LazyCooker = () => {
     

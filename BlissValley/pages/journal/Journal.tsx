@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -12,6 +11,7 @@ import {
 } from 'react-native'
 import Doggo from '../../components/Doggo'
 import SaveButton from '../../components/SaveJournal'
+import styles from "./JournalStyle";
 
 export default function Journal() {
   const currentDate = new Date()
@@ -94,38 +94,4 @@ export default function Journal() {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  innerContainer: {
-    flex: 1,
-    justifyContent: 'flex-start'
-  },
-  image: {
-    flex: 1,
-    width: '100%'
-  },
-  inputContainer: {
-    marginLeft: 40,
-    marginTop: 90,
-    width: 330,
-    height: 670,
-    paddingHorizontal: 10
-  },
-  input: {
-    flex: 1,
-    textAlignVertical: 'top',
-    lineHeight: 54,
-    fontFamily: 'Consolas',
-    fontSize: 16,
-    letterSpacing: -0.7,
-    borderRadius: 8,
-    paddingTop: 10
-  },
-  saveButton: {
-    position: 'absolute',
-    right: 10,
-    bottom: -20
-  }
-})
+

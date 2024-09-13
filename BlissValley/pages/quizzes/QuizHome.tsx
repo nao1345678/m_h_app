@@ -9,7 +9,7 @@ import YellowButterfly from '../../components/YellowButterfly'
 import Bee from '../../components/Bee'
 import PinkFlower from '../../components/PinkFlower'
 import YellowFlower from '../../components/YellowFlower'
-import { position } from 'native-base/lib/typescript/theme/styled-system'
+import styles from "./quizzes_styles/HomeStyle";
 
 export default function QuizHome({ navigation }) {
   return (
@@ -153,23 +153,3 @@ export default function QuizHome({ navigation }) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#AAADFF',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  appContainer: {},
-  appName: {
-    fontFamily: 'Consolas',
-    letterSpacing: -0.5,
-    fontSize: 15
-  },
-  infoPressed: {
-    position: 'absolute',
-    bottom: 20,
-    right: -20
-  }
-})

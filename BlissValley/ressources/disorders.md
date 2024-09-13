@@ -2,7 +2,7 @@
 - ~~anxiety~~
 - depression
 - ~~bipolar~~
-- borderline personality disorder
+- ~~borderline personality disorder~~
 - ~~adhd~~
 - ~~austism~~ 
 - schizophrenia & psychotic disorders 

@@ -1,5 +1,6 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
+import { Text, View, Image, TouchableOpacity} from 'react-native'
 import { useState } from 'react'
+import styles from "./BreathingExerciseStyle";
 
 export default function BreathingExercise() {
   const [ExerciseState, setExerciseState] = useState<ExerciseState>({
@@ -68,11 +69,4 @@ export default function BreathingExercise() {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+
