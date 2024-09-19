@@ -403,12 +403,12 @@
             "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t5/"
         },
         {
-            "id" : 2,
-            "title" : "What is depression ?",
-            "type" : "Article",
-            "description" : "An overview of what depression is by the NIH.",
-            "image" : "../../assets/nih.png",
-            "url" : "https://www.nimh.nih.gov/health/topics/depression"
+            "id": 2,
+            "title": "What is depression ?",
+            "type": "Article",
+            "description": "An overview of what depression is by the NIH.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/topics/depression"
         },
         {
             "id": 3,
@@ -426,6 +426,103 @@
             "image": "../../assets/journal.png",
             "url": "https://www.psychologytoday.com/fr/psychologues/ile-de-france?gad_source=1&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwPoS8SZuCRqMAKvuTcAwyD0u6L8Wp-aXQvgewUPUGjFHQ_QMtnW69hoChcsQAvD_BwE"
         },
-
+        {
+            "id": 5,
+            "title": "Suicide Ecoute - Hotline",
+            "type": "Hotline",
+            "description": "01 45 39 40 00",
+            "image": "../../assets/heart.png",
+            "url": "https://www.suicide-ecoute.fr"
+        },
+        {
+            "id": 6,
+            "title": "Types of Depression",
+            "type": "Article",
+            "description": "An overview of the different types of depression, including major depression, persistent depressive disorder, and others.",
+            "image": "../../assets/beyondblue.png",
+            "url": "https://www.beyondblue.org.au/mental-health/depression/types-of-depression"
+        },
+        {
+            "id": 7,
+            "title": "Basic concept of depression, history and core symptoms",
+            "type": "Study",
+            "description": "An in-depth study on the basic concepts of depression, its history, and core symptoms.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3181879/"
+        },
+        {
+            "id": 8,
+            "title": "History of Depression",
+            "type": "Website",
+            "description": "An overview of the history of depression, including its recognition and treatment throughout the ages.",
+            "image": "../../assets/wikipedia.png",
+            "url": "https://en.wikipedia.org/wiki/History_of_depression"
+        },
+        {
+            "id": 9,
+            "title": "Depression, the silent epidemic",
+            "type": "Video",
+            "description": "A documentary exploring the silent epidemic of depression, its impact on individuals and society, and the importance of seeking help.",
+            "image": "../../assets/youtube.png",
+            "url": "https://www.youtube.com/watch?v=7Ud5sTW8tvc"
+        },
+        {
+            "id": 10,
+            "title": "What is depression?",
+            "type": "Video",
+            "description": "An informative video explaining what depression is, its symptoms, and how it can be treated.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/z-IR48Mb3W0?feature=shared"
+        },
+        {
+            "id": 11,
+            "title": "SOS Amitié - Hotline",
+            "type": "Hotline",
+            "description": "09 72 39 40 50",
+            "image": "../../assets/heart.png",
+            "url": "https://www.sos-amitie.com"
+        },
+        {
+            "id": 12,
+            "title": "The Link between Depression and Physical Symptoms",
+            "type": "Study",
+            "description": "Physical symptoms are common in depression and include fatigue, sleep disturbances, activity changes, and appetite changes.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC486942/#:~:text=Physical%20symptoms%20are%20common%20in,activity%20changes%2C%20and%20appetite%20changes."
+        },
+        {
+            "id": 13,
+            "title": "Stereotypes, Prejudice, and Depression: The Integrated Perspective",
+            "type": "Study",
+            "description": "This study explores the relationship between stereotypes, prejudice, and depression, providing an integrated perspective on how these factors interact.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.researchgate.net/profile/William-Cox-15/publication/258180074_Stereotypes_Prejudice_and_Depression_The_Integrated_Perspective/links/53e3b0b70cf25d674e91bfce/Stereotypes-Prejudice-and-Depression-The-Integrated-Perspective.pdf"
+        }
+    ],
+    "eds_and_body_dysmorphic_disorders_references": [
+        {
+            "id": 1,
+            "title": "Anorexia Nervosa ",
+            "type": "Article",
+            "description": "Anorexia nervosa is a serious eating disorder that affects people of all ages. It is characterized by an intense fear of gaining weight and a distorted body image. People with anorexia nervosa have a low body weight and may restrict their food intake to dangerous levels.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.nationaleatingdisorders.org/learn/by-eating-disorder/anorexia"
+        },
+        {
+            "id": 2,
+            "title": "DSM-IV to DSM-5 Anorexia Nervosa Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for anorexia nervosa. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t15/"
+        },
+        {
+            "id": 3,
+            "title": "DSM-IV to DSM-5 Bulimia Nervosa Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for bulimia nervosa. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t16/"
+        }
     ]
 }
