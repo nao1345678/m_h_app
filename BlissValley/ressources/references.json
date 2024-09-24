@@ -523,6 +523,102 @@
             "description": "A comparison of the DSM-IV and DSM-5 classification for bulimia nervosa. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
             "image": "../../assets/dsm5.png",
             "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t16/"
+        },
+        {
+            "id": 4,
+            "title": "Eating Disorders DSM Criteria, Types, and Treatment",
+            "type": "Article",
+            "description": "An overview of the DSM criteria for various eating disorders, their types, and available treatment options.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.medcentral.com/behavioral-mental/eating/eating-disorders-dsm-criteria-types-and-treatment"
+        },
+        {
+            "id": 5,
+            "title": "DSM-IV to DSM-5 Binge Eating Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for binge eating disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK338301/table/introduction.t1/"
+        },
+        {
+            "id": 6,
+            "title": "DSM-IV to DSM-5 ARFID Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for ARFID. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t18/"
+        },
+        {
+            "id": 7,
+            "title": "Common Eating Disorders",
+            "type": "Article",
+            "description": "An overview of common eating disorders, including anorexia nervosa, bulimia nervosa, binge eating disorder, and others.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.healthline.com/nutrition/common-eating-disorders"
+        },
+        {
+            "id": 9,
+            "title": "Anorexia",
+            "type": "Video",
+            "description": "This video explores the silent struggle of individuals dealing with anorexia, shedding light on their experiences and the impact of these eating disorders on their lives.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/_zKZsTJNud8?feature=shared"
+        },
+        {
+            "id": 10,
+            "title": "ARFID Documentary",
+            "type": "Video",
+            "description": "This documentary provides an in-depth look at Avoidant/Restrictive Food Intake Disorder (ARFID), exploring the challenges faced by individuals with this eating disorder.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/Ntt1q8XxAj4?feature=shared"
+        },
+        {
+            "id": 11,
+            "title": "Eating Disorders Expertise",
+            "type": "Website",
+            "description": "Castle Connolly provides expertise and resources on various eating disorders, including anorexia nervosa, bulimia nervosa, and binge eating disorder.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.castleconnolly.com/expertise/eating-disorders"
+        },
+        {
+            "id": 11,
+            "title": "SOS Amitié - Hotline",
+            "type": "Hotline",
+            "description": "09 72 39 40 50",
+            "image": "../../assets/heart.png",
+            "url": "https://www.sos-amitie.com"
+        },
+        {
+            "id": 12,
+            "title": "Myths about Eating Disorders",
+            "type": "Website",
+            "description": "This website debunks common myths about eating disorders, providing accurate information and resources.",
+            "image": "../../assets/journal.png",
+            "url": "https://healthtalk.org/experiences/eating-disorders/myths-about-eating-disorders/"
+        },
+        {
+            "id": 13,
+            "title": "DSM-IV to DSM-5 Body Dysmorphic Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for body dysmorphic disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t19/"
+        },
+        {
+            "id": 14,
+            "title": "Body Dysmorphic Disorder - Symptoms and Causes",
+            "type": "Study",
+            "description": "An in-depth study on the symptoms and causes of body dysmorphic disorder.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3181960/"
+        },
+        {
+            "id": 15,
+            "title": "The Relationship of Body Dysmorphic Disorder and Eating Disorders to Obsessive-Compulsive Disorder",
+            "type": "Study",
+            "description": "This study explores the relationship between body dysmorphic disorder, eating disorders, and obsessive-compulsive disorder.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.researchgate.net/profile/Walter-Kaye/publication/6318675_The_Relationship_of_Body_Dysmorphic_Disorder_and_Eating_Disorders_to_Obsessive-Compulsive_Disorder/links/548dd3f40cf214269f2435c9/The-Relationship-of-Body-Dysmorphic-Disorder-and-Eating-Disorders-to-Obsessive-Compulsive-Disorder.pdf"
         }
     ]
 }
