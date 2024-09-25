@@ -620,5 +620,130 @@
             "image": "../../assets/journal.png",
             "url": "https://www.researchgate.net/profile/Walter-Kaye/publication/6318675_The_Relationship_of_Body_Dysmorphic_Disorder_and_Eating_Disorders_to_Obsessive-Compulsive_Disorder/links/548dd3f40cf214269f2435c9/The-Relationship-of-Body-Dysmorphic-Disorder-and-Eating-Disorders-to-Obsessive-Compulsive-Disorder.pdf"
         }
-    ]
+    ],
+    "ocd_references": [
+        {
+            "id": 1,
+            "title": "DSM-IV to DSM-5 Obsessive-Compulsive Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for obsessive-compulsive disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t13/"
+        },
+        {
+            "id": 2,
+            "title": "What is Obsessive-Compulsive Disorder?",
+            "type": "Article",
+            "description": "Obsessive-compulsive disorder (OCD) is a mental health disorder that affects people of all ages and walks of life, and occurs when a person gets caught in a cycle of obsessions and compulsions. Obsessions are unwanted, intrusive thoughts, images, or urges that trigger intensely distressing feelings. Compulsions are behaviors an individual engages in to attempt to get rid of the obsessions and/or decrease his or her distress.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/topics/obsessive-compulsive-disorder-ocd"
+        },
+        {
+            "id": 3,
+            "title": "Obsessive-Compulsive Disorder - Symptoms and Causes",
+            "type": "Article",
+            "description": "Obsessive-compulsive disorder (OCD) is a mental health disorder that affects people of all ages and walks of life, and occurs when a person gets caught in a cycle of obsessions and compulsions. Obsessions are unwanted, intrusive thoughts, images, or urges that trigger intensely distressing feelings. Compulsions are behaviors an individual engages in to attempt to get rid of the obsessions and/or decrease his or her distress.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.mayoclinic.org/diseases-conditions/obsessive-compulsive-disorder/symptoms-causes/syc-20354432"
+        },
+        {
+            "id": 4,
+            "title": "Understanding OCD",
+            "type": "Video",
+            "description": "A comprehensive video explaining obsessive-compulsive disorder, its symptoms, and treatment options.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/bKiu1IZcEF0?feature=shared"
+        },
+        {
+            "id": 5,
+            "title": "OCD Myths and Facts",
+            "type": "Article",
+            "description": "This article debunks common myths about obsessive-compulsive disorder and provides accurate information about the condition.",
+            "image": "../../assets/journal.png",
+            "url": "https://iocdf.org/wp-content/uploads/2014/10/OCDMyth-Handout-092313.pdf"
+        },
+        {
+            "id": 6,
+            "title": "Find a Therapist for OCD",
+            "type": "Website",
+            "description": "A resource to find therapists specializing in obsessive-compulsive disorder.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.psychologytoday.com/us/therapists?category=obsessive-compulsive-ocd"
+        },
+        {
+            "id": 7,
+            "title": "Common Misconceptions about OCD",
+            "type": "Article",
+            "description": "This article addresses common misconceptions about obsessive-compulsive disorder and provides accurate information to help understand the condition better.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.jeffersonhealth.org/your-health/living-well/common-misconceptions-about-ocd"
+        },
+        {
+            "id": 8,
+            "title": "Living with OCD",
+            "type": "Video",
+            "description": "A video that explores the daily life of individuals living with obsessive-compulsive disorder and how they manage their symptoms.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/ivyLkTcvanQ?feature=shared"
+        }
+    ],
+    "pmdd_references": [
+        {
+            "id": 1,
+            "title": "DSM-IV to DSM-5 Premenstrual Dysphoric Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for premenstrual dysphoric disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t24/"
+        },
+        {
+            "id": 2,
+            "title": "What is Premenstrual Dysphoric Disorder?",
+            "type": "Article",
+            "description": "Premenstrual dysphoric disorder (PMDD) is a severe, sometimes disabling extension of premenstrual syndrome (PMS). Although regular PMS and PMDD both have physical and emotional symptoms, PMDD causes extreme mood shifts that can disrupt your work and damage your relationships.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4890701/"
+        },
+        {
+            "id": 3,
+            "title": "Understanding PMDD",
+            "type": "Video",
+            "description": "A comprehensive video explaining premenstrual dysphoric disorder, and its symptoms.",
+            "image": "../../assets/youtube.png",
+            "url": "https://www.youtube.com/watch?v=42IsNFubuGA"
+        },
+        {
+            "id": 4,
+            "title": "History and Evolution of the Diagnosis of Premenstrual Dysphoric Disorder",
+            "type": "Study",
+            "description": "This study explores the history and evolution of the diagnosis of premenstrual dysphoric disorder.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.psychiatrist.com/wp-content/uploads/2021/02/24797_history-evolution-diagnosis-premenstrual-dysphoric.pdf"
+        },
+        {
+            "id": 5,
+            "title": "PMDD Treatment",
+            "type": "Website",
+            "description": "Information and support for treatment of premenstrual dysphoric disorder (PMDD).",
+            "image": "../../assets/heart.png",
+            "url": "https://www.mind.org.uk/information-support/types-of-mental-health-problems/premenstrual-dysphoric-disorder-pmdd/treatment/"
+        },
+        {
+            "id": 6,
+            "title": "PMDD Myths and Facts",
+            "type": "Article",
+            "description": "This article debunks common myths about premenstrual dysphoric disorder and provides accurate information about the condition.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.therecoveryvillage.com/mental-health/pmdd/pmdd-myths/"
+        },
+        {
+            "id": 7,
+            "title": "PMDD - Get medical attention (USA)",
+            "type": "Website",
+            "description": "Find help and get a diagnosis for your disorder.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.psychologytoday.com/us/therapists?category=premenstrual-dysphoric-disorder-pmdd"
+        }
+    ],
+    "ptsd_references": []
 }

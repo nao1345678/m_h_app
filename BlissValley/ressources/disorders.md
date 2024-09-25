@@ -1,13 +1,12 @@
 ### Talk about in my references library 
 - ~~anxiety~~
-- depression
+- ~~depression~~
 - ~~bipolar~~
 - ~~borderline personality disorder~~
 - ~~adhd~~
 - ~~austism~~ 
 - schizophrenia & psychotic disorders 
-- ocd 
+- ~~ocd~~
 - ptsd's
-- pmdd
-- ed's and body dysmorphic disorders
-- derealisation/depersonalisation 
+- ~~pmdd~~
+- ~~ed's and body dysmorphic disorders~~
