@@ -745,5 +745,176 @@
             "url": "https://www.psychologytoday.com/us/therapists?category=premenstrual-dysphoric-disorder-pmdd"
         }
     ],
-    "ptsd_references": []
+    "ptsd_references": [
+        {
+            "id": 1,
+            "title": "DSM-IV to DSM-5 Post-Traumatic Stress Disorder Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for post-traumatic stress disorder. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t14/"
+        },
+        {
+            "id": 2,
+            "title": "What is Post-Traumatic Stress Disorder?",
+            "type": "Article",
+            "description": "Post-traumatic stress disorder (PTSD) is a mental health condition that's triggered by a terrifying event — either experiencing it or witnessing it. Symptoms may include flashbacks, nightmares, and severe anxiety, as well as uncontrollable thoughts about the event.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/topics/post-traumatic-stress-disorder-ptsd"
+        },
+        {
+            "id": 3,
+            "title": "Returning From the Iraq War With PTSD - The Soldier’s Heart (full documentary) | FRONTLINE",
+            "type": "Video",
+            "description": "This documentary follows the stories of soldiers returning from the Iraq War with post-traumatic stress disorder (PTSD). It explores the challenges they face and the impact of PTSD on their lives.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/1FCOyuZ2JJI?feature=shared"
+        },
+        {
+            "id": 4,
+            "title": "PTSD and links with depression",
+            "type": "Article",
+            "description": "This article explores the links between post-traumatic stress disorder (PTSD) and depression, providing insights into the relationship between these two mental health conditions.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.verywellmind.com/myths-and-facts-about-ptsd-2797533"
+        },
+        {
+            "id": 5,
+            "title": "Find a Therapist for PTSD",
+            "type": "Website",
+            "description": "A resource to find therapists specializing in post-traumatic stress disorder.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.psychologytoday.com/us/therapists"
+        },
+        {
+            "id": 6,
+            "title": "Understanding PTSD",
+            "type": "Video",
+            "description": "A video that provides a comprehensive understanding of post-traumatic stress disorder (PTSD), its symptoms, and treatment options.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/wsgcCbdZW48?feature=shared"
+        },
+        {
+            "id": 7,
+            "title": "Women Face Higher Health Risks with PTSD",
+            "type": "Video",
+            "description": "This video explores the higher health risks that women face when dealing with post-traumatic stress disorder (PTSD). It provides insights into the unique challenges and symptoms experienced by women with PTSD.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/x_iruRSOnwM?feature=shared"
+        },
+        {
+            "id": 8,
+            "title": "SOS Amitié - Hotline",
+            "type": "Hotline",
+            "description": "09 72 39 40 50",
+            "image": "../../assets/heart.png",
+            "url": "https://www.sos-amitie.com"
+        }
+    ],
+    "schizophrenia_and_psychotic_diseases_references": [
+        {
+            "id": 1,
+            "title": "DSM-IV to DSM-5 Schizophrenia Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for schizophrenia. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t22/"
+        },
+        {
+            "id": 2,
+            "title": "What is Schizophrenia?",
+            "type": "Article",
+            "description": "Schizophrenia is a serious mental disorder in which people interpret reality abnormally. Schizophrenia may result in some combination of hallucinations, delusions, and extremely disordered thinking and behavior that impairs daily functioning, and can be disabling.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/topics/schizophrenia"
+        },
+        {
+            "id": 3,
+            "title": "Schizophrenia - Symptoms and Causes",
+            "type": "Article",
+            "description": "Schizophrenia is a serious mental disorder in which people interpret reality abnormally. Schizophrenia may result in some combination of hallucinations, delusions, and extremely disordered thinking and behavior that impairs daily functioning, and can be disabling.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.mayoclinic.org/diseases-conditions/schizophrenia/symptoms-causes/syc-20354443"
+        },
+        {
+            "id": 4,
+            "title": "Understanding Schizophrenia",
+            "type": "Video",
+            "description": "A comprehensive video explaining schizophrenia, its symptoms, and treatment options.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/0zHU6fiM2KY?feature=shared"
+        },
+        {
+            "id": 5,
+            "title": "Schizophrenia Myths",
+            "type": "Article",
+            "description": "This article debunks common myths about schizophrenia and provides accurate information about the condition.",
+            "image": "../../assets/journal.png",
+            "url": "https://livingwithschizophreniauk.org/myths-about-schizophrenia/"
+        },
+        {
+            "id": 6,
+            "title": "Find a Therapist for Schizophrenia",
+            "type": "Website",
+            "description": "A resource to find therapists specializing in schizophrenia.",
+            "image": "../../assets/heart.png",
+            "url": "https://www.psychologytoday.com/us/therapists/schizophrenia"
+        },
+        {
+            "id": 7,
+            "title": "Mental Health and Psychotic Disorders",
+            "type": "Website",
+            "description": "An informative resource on mental health and psychotic disorders, including schizophrenia.",
+            "image": "../../assets/journal.png",
+            "url": "https://www.webmd.com/schizophrenia/mental-health-psychotic-disorders"
+        },
+        {
+            "id": 8,
+            "title": "Schizophrenia - A Brief History",
+            "type": "Website",
+            "description": "An informative resource on the history of schizophrenia.",
+            "image": "../../assets/journal.png",
+            "url": "https://livingwithschizophreniauk.org/information-sheets/schizophrenia-a-brief-history/"
+        },
+        {
+            "id": 9,
+            "title": "Schizophrenia - Get medical attention (France)",
+            "type": "Website",
+            "description": "Find help and get a diagnosis for your disorder.",
+            "image": "../../assets/doctolib.png",
+            "url": "https://www.doctolib.fr/psychiatre"
+        },
+        {
+            "id": 10,
+            "title": "Understanding Psychosis",
+            "type": "Website",
+            "description": "A comprehensive resource on understanding psychosis, its symptoms, and treatment options.",
+            "image": "../../assets/nih.png",
+            "url": "https://www.nimh.nih.gov/health/publications/understanding-psychosis"
+        },
+        {
+            "id": 11,
+            "title": "Schizophrenia Fact Sheet",
+            "type": "Website",
+            "description": "A fact sheet from the World Health Organization providing an overview of schizophrenia, its causes, symptoms, and treatment.",
+            "image": "../../assets/who.png",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/schizophrenia#:~:text=Causes%20of%20schizophrenia,onset%20and%20course%20of%20schizophrenia."
+        },
+        {
+            "id": 12,
+            "title": "Symptoms of psychosis",
+            "type": "Video",
+            "description": "This video provides an overview of the symptoms of psychosis, including hallucinations, delusions, and disorganized thinking.",
+            "image": "../../assets/youtube.png",
+            "url": "https://youtu.be/qtUZvsVI56o?feature=shared"
+        },
+        {
+            "id": 13,
+            "title": "DSM-IV to DSM-5 Psychotic Disorders Comparison",
+            "type": "Study",
+            "description": "A comparison of the DSM-IV and DSM-5 classification for psychotic disorders. This table can be useful to compare your symptoms with the one from the DSM-5 classification.",
+            "image": "../../assets/dsm5.png",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t20/"
+        }
+    ]
 }

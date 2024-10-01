@@ -5,8 +5,8 @@
 - ~~borderline personality disorder~~
 - ~~adhd~~
 - ~~austism~~ 
-- schizophrenia & psychotic disorders 
+- ~~schizophrenia & psychotic disorders~~
 - ~~ocd~~
-- ptsd's
+- ~~ptsd's~~
 - ~~pmdd~~
 - ~~ed's and body dysmorphic disorders~~
