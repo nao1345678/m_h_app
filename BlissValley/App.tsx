@@ -24,6 +24,8 @@ import AnxietyResults from './pages/quizzes/AnxietyResults'
 import DepressionResults from './pages/quizzes/DepressionResult'
 import ADHDResults from './pages/quizzes/ADHDResult'
 import PsychosisResults from './pages/quizzes/PsychosisResult'
+import LazyCooker from './pages/lazy_cooker/LazyCooker'
+import References from './pages/references/References'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
@@ -31,9 +33,7 @@ LogBox.ignoreLogs([
 ]);
 
 
-const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
-const Drawer = createDrawerNavigator()
 
 const MainStackNavigator = () => {
 
@@ -103,10 +103,8 @@ const App = () => {
       <Stack.Screen name="Depression results" component={DepressionResults} />
       <Stack.Screen name="ADHD results" component={ADHDResults} />
       <Stack.Screen name="Psychosis results" component={PsychosisResults} />
-
-
-
-
+      <Stack.Screen name="Lazy Cooker" component={LazyCooker} />
+      <Stack.Screen name="References" component={References} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -46,6 +46,13 @@ export default function AppLibrary({ navigation }) {
             <Text style={styles.appName}>Breathing Exercise</Text>
           </TouchableOpacity>
         </View>
+
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('Lazy Cooker')}>
+            <TimerLogo />
+            <Text style={styles.appName}>Lazy cooker</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   )
