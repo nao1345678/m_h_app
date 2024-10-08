@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FF7E1C',
+        backgroundColor: '#f56b02',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     timeText: {
         fontFamily: 'PressStart2P',
-        fontSize: 11,
+        fontSize: 13,
         letterSpacing: -0.3,
         margin: 1,
         alignSelf: 'center', 
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     mealTypeText: {
         fontFamily: 'PressStart2P',
-        fontSize: 11,
+        fontSize: 13,
         letterSpacing: -0.3,
         margin: 1,
         alignSelf: 'center', 
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
     budgetText: {
         fontFamily: 'PressStart2P',
-        fontSize: 11,
+        fontSize: 13,
         letterSpacing: -0.3,
         margin: 1,
         alignSelf: 'center', 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     },
     caloriesLimitText: {
         fontFamily: 'PressStart2P',
-        fontSize: 11,
+        fontSize: 13,
         letterSpacing: -0.3,
         margin: 1,
         alignSelf: 'center', 
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     },
     ingredientsText: {
         fontFamily: 'PressStart2P',
-        fontSize: 11,
+        fontSize: 13,
         letterSpacing: -0.3,
         margin: 1,
         alignSelf: 'center', 
@@ -200,6 +200,30 @@ const styles = StyleSheet.create({
         textShadowOffset : { width: 2, height: 2 },
         textShadowRadius : 2,
     },
+    rat : {
+        position : 'relative',
+        top : 20,
+        left : 90
+    }, 
+    bubble : {
+        position : 'absolute',
+        width : 200,
+        bottom : -100,
+        left : 190
+    }, 
+    ratText : {
+        fontFamily: 'PressStart2P',
+        fontSize: 11,
+        letterSpacing: -0.3,
+        margin: 5,
+        alignSelf: 'center', 
+        bottom : 87,
+        right : 10, 
+        color : 'black', 
+        width : 160, 
+        position : 'absolute'
+        
+    }
 })
 
 export default styles

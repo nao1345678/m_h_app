@@ -1,4 +1,4 @@
-import { View, Text,  TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
 import { } from 'react-native';
 import styles from './LazyCookerStyle';
@@ -6,6 +6,8 @@ import axios from 'axios';
 import DownloadButton from '../../components/DownloadButton';
 import Piggy from '../../components/Piggy';
 import Generate from '../../components/Generate';
+import Rat from '../../components/Rat';
+import Toque from '../../components/Toque';
 
 
 export default function LazyCooker () {
@@ -65,13 +67,15 @@ export default function LazyCooker () {
     return (
         <View style={styles.container}>
 
+            <Toque />
+
 
             <View style={styles.ingredientsView}>
                 <Text style={styles.ingredientsText}>Enter ingredients</Text>
                 <View style={styles.ingredientsOptionsView}>
                     <TextInput
                         style={styles.ingredientsInput}
-                        placeholder="Enter ingredients"
+                        placeholder="Enter ingredients (4 max, separated by commas)"
                         onChangeText={(text) => seIngredientsOptions(text)}
                     />
                 </View>
@@ -128,6 +132,11 @@ export default function LazyCooker () {
             <View style={styles.recipeView}>
                 <Text style={styles.recipeText}>{recipe}</Text>
                 </View>
+
+            <Image source={require("../../assets/pngs/GreyBubble.png")} style={styles.bubble} resizeMode='contain' />
+            
+            <Text  style={styles.ratText}>I take care of your recipes for you.</Text>
+            <Rat style={styles.rat} />
 
         </View>
     
