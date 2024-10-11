@@ -27,6 +27,7 @@ import PsychosisResults from './pages/quizzes/PsychosisResult'
 import LazyCooker from './pages/lazy_cooker/LazyCooker'
 import References from './pages/references/References'
 import RecipePage from './pages/lazy_cooker/RecipePage'
+import ReferencesDetails from './pages/references/ReferencesDetails'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
@@ -107,6 +108,7 @@ const App = () => {
       <Stack.Screen name="Lazy Cooker" component={LazyCooker} />
       <Stack.Screen name="References" component={References} />
       <Stack.Screen name="Recipe Page" component={RecipePage} />
+      <Stack.Screen name="Reference Details" component={ReferencesDetails} />
 
 
       </Stack.Navigator>

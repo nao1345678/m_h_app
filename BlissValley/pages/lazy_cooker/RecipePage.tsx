@@ -8,8 +8,9 @@ export default function RecipePage({route}) {
 
   return (
     <View style={styles.container}>
-      <Text>Recipe</Text>
-        <Text>{recipe}</Text>
+        <Image source={require("../../assets/pngs/dK58Rm.png")} style={styles.book} resizeMode='contain'/>
+      <Text style={styles.title}>Recipe</Text>
+        <Text style={styles.recipe}>{recipe}</Text>
     </View>
   )
 }

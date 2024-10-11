@@ -217,12 +217,27 @@ const styles = StyleSheet.create({
         letterSpacing: -0.3,
         margin: 5,
         alignSelf: 'center', 
-        bottom : 77,
+        bottom : 97,
         right : 10, 
         color : 'black', 
         width : 160, 
         position : 'absolute'
         
+    },
+    loadingView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f56b02',
+    },
+    loadingText: {
+        fontFamily: 'PressStart2P',
+        fontSize: 11,
+        marginTop: 20,
+        color: '#ffdbb3',
+        textShadowColor: '#380000',
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 2,
     }
 })
 

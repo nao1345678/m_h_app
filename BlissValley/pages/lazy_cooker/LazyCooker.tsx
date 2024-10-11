@@ -53,7 +53,7 @@ export default function LazyCooker ( { navigation }) {
     const [budgetOptions, setBudgetOptions] = useState("")
     const [caloriesLimitOptions, setCaloriesLimitsOptions] = useState("")
     const [ingredientsOptions, seIngredientsOptions] = useState("")
-    let generalPrompt = `Generate a recipe that takes ${cookingTimesOptions[0]} to make, is a ${mealTypeOptions[0]}, costs under ${budgetOptions} euros, has a calories limit of ${caloriesLimitOptions}, and includes the following ingredients: ${ingredientsOptions}`
+    let generalPrompt = `Generate a recipe with ingredients and directions that takes ${cookingTimesOptions[0]} to make, is a ${mealTypeOptions[0]}, costs under ${budgetOptions} euros, has a calories limit of ${caloriesLimitOptions}, and includes the following ingredients: ${ingredientsOptions}`
    
     const [recipe, setRecipe] = useState("")
 
@@ -73,7 +73,9 @@ export default function LazyCooker ( { navigation }) {
     console.log(recipe)
 
     return (
-        <View style={styles.container}>
+        <>
+        {!loading && 
+            <View style={styles.container}>
 
             <Toque />
 
@@ -136,25 +138,28 @@ export default function LazyCooker ( { navigation }) {
                 <Text style={styles.generateText}>Let him cook !</Text>
             </TouchableOpacity>
 
-            {loading && 
 
-        <View style={styles.loadingView}>
-            <Pizza/>
-            <Text style={styles.loadingText}>Preparing your meal...</Text>
-            </View>
-
-            }
+           
 
 
        
         
 
-            <Image source={require("../../assets/pngs/GreyBubble.png")} style={styles.bubble} resizeMode='contain' />
-            
-            <Text  style={styles.ratText}>I take care of your recipes for you.</Text>
+          
             <Rat style={styles.rat} />
-
         </View>
-    
+        }
+         {loading && 
+    <View style={styles.container}>
+                <View style={styles.loadingView}>
+                    <Image source={require("../../assets/pngs/loadingbook.gif")} style={{width : 100}} resizeMode='contain'/>
+                    <Text style={styles.loadingText}>Preparing your meal...</Text>
+                    </View>
+                  
+                    
+                    </View>
+
+    }
+    </>
     );
-}
+}   
