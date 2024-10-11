@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',        
     },
     selectedTimeOption: {
-
+        backgroundColor : '#ffaf87' 
     },
     timeOptionText: {
         fontFamily: 'Consolas',
@@ -202,13 +202,13 @@ const styles = StyleSheet.create({
     },
     rat : {
         position : 'relative',
-        top : 20,
+        top : 30,
         left : 90
     }, 
     bubble : {
         position : 'absolute',
         width : 200,
-        bottom : -100,
+        bottom : -110,
         left : 190
     }, 
     ratText : {
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
         letterSpacing: -0.3,
         margin: 5,
         alignSelf: 'center', 
-        bottom : 87,
+        bottom : 77,
         right : 10, 
         color : 'black', 
         width : 160, 

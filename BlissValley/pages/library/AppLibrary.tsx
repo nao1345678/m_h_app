@@ -33,7 +33,9 @@ export default function AppLibrary({ navigation }) {
           </View>
         </View>
 
-        <View style={styles.appContainer}>
+      <View style={styles.appRow1}>
+
+      <View style={styles.appContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Quiz home')}>
             <TimerLogo />
             <Text style={styles.appName}>Quiz Home</Text>
@@ -51,6 +53,16 @@ export default function AppLibrary({ navigation }) {
           <TouchableOpacity onPress={() => navigation.navigate('Lazy Cooker')}>
             <TimerLogo />
             <Text style={styles.appName}>Lazy cooker</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+       
+
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('References')}>
+            <TimerLogo />
+            <Text style={styles.appName}>References</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>

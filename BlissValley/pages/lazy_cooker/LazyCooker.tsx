@@ -8,11 +8,16 @@ import Piggy from '../../components/Piggy';
 import Generate from '../../components/Generate';
 import Rat from '../../components/Rat';
 import Toque from '../../components/Toque';
+import { useNavigation } from '@react-navigation/native';
+import Pizza from '../../components/Pizza';
 
 
-export default function LazyCooker () {
+export default function LazyCooker ( { navigation }) {
+
+    const [loading, setLoading] = useState(false);
 
     async function generateRecipe() {
+        setLoading(true);
         try {
             const response = await axios.post(
                 'https://api.ai21.com/studio/v1/j2-ultra/complete',
@@ -32,8 +37,11 @@ export default function LazyCooker () {
 
               console.log(response.data);
               setRecipe(response.data.completions[0].data.text);
+              setLoading(false);
+              navigation.navigate('Recipe Page', {recipe: response.data.completions[0].data.text});
         } catch (error) {
           console.error("Erreur lors de la génération du texte :", error);
+          setLoading(false);
         }
     }
    
@@ -85,7 +93,7 @@ export default function LazyCooker () {
                 <Text style={styles.timeText}>Select a cooking time</Text>
                 <View style={styles.timeOptionsView}>
                     {cookingTimesOptions.map((option, index) => (
-                        <TouchableOpacity key={index} style={styles.timeOption} onPress={() => handleTimeOptionPress(option)}>
+                        <TouchableOpacity key={index}  style={[styles.timeOption, chosenCookingTime === option && styles.selectedTimeOption]} onPress={() => handleTimeOptionPress(option)}>
                             <Text style={styles.timeOptionText}>{option}</Text>
                         </TouchableOpacity>
                     ))}
@@ -128,10 +136,18 @@ export default function LazyCooker () {
                 <Text style={styles.generateText}>Let him cook !</Text>
             </TouchableOpacity>
 
+            {loading && 
+
+        <View style={styles.loadingView}>
+            <Pizza/>
+            <Text style={styles.loadingText}>Preparing your meal...</Text>
+            </View>
+
+            }
+
+
        
-            <View style={styles.recipeView}>
-                <Text style={styles.recipeText}>{recipe}</Text>
-                </View>
+        
 
             <Image source={require("../../assets/pngs/GreyBubble.png")} style={styles.bubble} resizeMode='contain' />
             

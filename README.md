@@ -39,7 +39,7 @@ Here's a non-exhaustive list of the components.
 - [ ] Sobriety timer
 - [x] Quizzes
 - [ ] Reminders
-- [ ] IA generated recipes with filters
+- [x] IA generated recipes with filters
 - [ ] Meals reminders
 - [ ] Motivational messages
       
