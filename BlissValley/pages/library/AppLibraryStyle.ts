@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%'
     },
-    appName: { alignSelf: 'center', justifyContent: 'center' },
+    appName: { alignSelf: 'center', justifyContent: 'center', fontFamily: 'Consolas', fontSize: 13 , color: 'white', width : 75, textAlign: 'center'},
     appContainer: {},
     appRow1: {
         flexDirection: 'row',

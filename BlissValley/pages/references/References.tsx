@@ -66,40 +66,48 @@ export default function References({ navigation }) {
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
         <ImageBackground source={require('../../assets/pngs/references_background.png')} resizeMode="cover" style={{ width: 400 }}>
             <ScrollView style={styles.container}>
-                <TextInput
-                    placeholder="Search by title"
-                    value={searchQuery}
-                    onChangeText={setSearchQuery}
-                    style={styles.searchInput}
-                />
+        
+                {loading ?  (
+                   <></>
+                ) : (
+                    <>
+                    <TextInput
+                   placeholder="Search by title"
+                   value={searchQuery}
+                   onChangeText={setSearchQuery}
+                   style={styles.searchInput}
+                    />
+                   
+                   {Object.keys(filteredReferences).length > 0 ? (
+                       Object.entries(filteredReferences).map(([disorder, refs], disorderIndex) => (
+                           <View key={disorderIndex}>
+                               <Text style={styles.disorderTitle}>{disorder.toUpperCase().replace("_", " ")}</Text>
 
-               
-                    Object.keys(filteredReferences).length > 0 ? (
-                        Object.entries(filteredReferences).map(([disorder, refs], disorderIndex) => (
-                            <View key={disorderIndex}>
-                                <Text style={styles.disorderTitle}>{disorder.toUpperCase().replace("_", " ")}</Text>
-
-                                {refs.map((reference, refIndex) => (
-                                    <View key={refIndex}>
-                                        <TouchableOpacity onPress={() => handlePress(reference)}>
-                                            <Reference reference={reference} />
-                                        </TouchableOpacity>
-                                        <View
-                                            style={{
-                                                borderBottomColor: 'black',
-                                                borderBottomWidth: StyleSheet.hairlineWidth,
-                                            }}
-                                        />
-                                    </View>
-                                ))}
-                            </View>
-                        ))
-                    ) : (
-                        <View style={styles.loadingContainer}>
-                            <Image source={require("../../assets/pngs/loadingbook.gif")} style={{ width: 100 }} resizeMode='contain' />
-                            <Text style={styles.loadingText}>BlissValley</Text>
-                        </View>
-                    )
+                               {refs.map((reference, refIndex) => (
+                                   <View key={refIndex}>
+                                       <TouchableOpacity onPress={() => handlePress(reference)}>
+                                           <Reference reference={reference} />
+                                       </TouchableOpacity>
+                                       <View
+                                           style={{
+                                               borderBottomColor: 'black',
+                                               borderBottomWidth: StyleSheet.hairlineWidth,
+                                           }}
+                                       />
+                                   </View>
+                               ))}
+                           </View>
+                       ))
+                   ) : (
+                    <View style={styles.loadingContainer}>
+                          <Image
+                        source={require("../../assets/pngs/loadingbook.gif")}
+                        style={{ width: 100 }}
+                        resizeMode="contain"
+                    />
+                    </View>
+                   )}
+                   </>
                 )}
             </ScrollView>
         </ImageBackground>

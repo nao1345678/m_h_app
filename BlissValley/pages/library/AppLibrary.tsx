@@ -65,6 +65,13 @@ export default function AppLibrary({ navigation }) {
             <Text style={styles.appName}>References</Text>
           </TouchableOpacity>
         </View>
+
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('Sobriety counter')}>
+          <Image source={require("../../assets/pngs/brain.png")} resizeMode='contain' style={{width : 100, height : 100}}/>
+            <Text style={styles.appName}>Sobriety counter</Text>
+          </TouchableOpacity>
+        </View>
        </View>
 
        
