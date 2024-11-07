@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 export default function Sobriety() {
   return (
     <View style={styles.container}>
-      <Text>Sobriety</Text>
+      <Text>Sobriety test </Text>
     </View>
   )
 }
