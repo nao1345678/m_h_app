@@ -29,10 +29,12 @@ import References from './pages/references/References'
 import RecipePage from './pages/lazy_cooker/RecipePage'
 import ReferencesDetails from './pages/references/ReferencesDetails'
 import Sobriety from './pages/sobriety_counter/SobrietyCounter'
+import Auth from './pages/authentication/Auth'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
-  ' Warning: Each child in a list should have a unique "key" prop. Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.'
+  ' Warning: Each child in a list should have a unique "key" prop. Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.', 
+  'fontFamily "Consolas" is not a system font and has not been loaded through expo-font.',
 ]);
 
 
@@ -67,7 +69,7 @@ const App = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000)
+    setTimeout(() => setLoading(false), 8000)
   }, [])
 
   return (
@@ -89,9 +91,11 @@ const App = () => {
         {loading ? (
           <Stack.Screen name="Loading" component={LoadingScreen} />
         ) : (
-          <Stack.Screen name="Home" component={MainStackNavigator} />
+          <Stack.Screen name="Authentication" component={Auth} />
         )}
-        
+
+
+      <Stack.Screen name="Home" component={MainStackNavigator} />  
       <Stack.Screen name="Timers" component={Timer} />
       <Stack.Screen name="Journal" component={Journal} />
       <Stack.Screen name="Breathing exercise" component={BreathingExercise} />

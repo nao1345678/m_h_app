@@ -31,9 +31,9 @@ Here's a non-exhaustive list of the components.
 - [x] Mood following 
 - [x] Sleep following 
 - [x] Timers 
-- [ ] Breathing exercises
+- [x] Breathing exercises
 - [x] Journal 
-- [ ] References 
+- [x] References 
 - [ ] Mini-games
 - [ ] Medication following 
 - [ ] Sobriety timer
