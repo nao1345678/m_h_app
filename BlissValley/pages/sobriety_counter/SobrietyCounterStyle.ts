@@ -42,17 +42,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         color: 'black',
         textAlign: 'center',
-        position: 'absolute',
+        position : 'relative', 
+        bottom : 27,
         zIndex: 2, 
         fontFamily : 'PressStart2P',
         fontSize: 12
     },
+    buttonBoot : {
+
+    },
     addContainer: {
-        backgroundColor : "#BCBFFF",
-        width : 140, 
-        height : 90, 
-        borderWidth : 1.5, 
-        borderColor : 'black',
+        position: 'absolute',
+        bottom : -100,
         justifyContent: 'center', 
         alignItems: 'center', 
         alignSelf: 'center',
@@ -68,12 +69,13 @@ const styles = StyleSheet.create({
     addictionTime: {
         color: 'black',
         fontFamily : 'PressStart2P',
-        fontSize: 14,
+        fontSize: 12,
         textAlign: 'center',
         margin : 5,
         textShadowColor: '#a400ff',
-        textShadowOffset: { width: 0, height: 2 },
-        textShadowRadius: 1
+        textShadowOffset: { width: 0, height: 1 },
+        textShadowRadius: 1, 
+        letterSpacing : -2
     }, 
     buttonContainer: {
         display : 'flex',
@@ -84,9 +86,10 @@ const styles = StyleSheet.create({
     addictionBox: {
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf : 'center',
         backgroundColor : "#BCBFFF",
-        width : 140, 
-        height : 90, 
+        width : 170, 
+        height : 120, 
         borderWidth : 1.5, 
         borderColor : 'black',
         margin : 10
@@ -97,7 +100,10 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        margin : 10
+        margin : 5
+    }, 
+    previous : {
+        alignSelf : 'center'
     }
 });
 

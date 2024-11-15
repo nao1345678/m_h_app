@@ -30,6 +30,7 @@ import RecipePage from './pages/lazy_cooker/RecipePage'
 import ReferencesDetails from './pages/references/ReferencesDetails'
 import Sobriety from './pages/sobriety_counter/SobrietyCounter'
 import Auth from './pages/authentication/Auth'
+import UserData from './pages/user_data/UserData'
 
 LogBox.ignoreLogs([
   'fontFamily "PressStart2P" is not a system font and has not been loaded through expo-font.',
@@ -115,7 +116,7 @@ const App = () => {
       <Stack.Screen name="Recipe Page" component={RecipePage} />
       <Stack.Screen name="Reference Details" component={ReferencesDetails} />
       <Stack.Screen name="Sobriety counter" component={Sobriety} />
-
+      <Stack.Screen name="User data" component={UserData} />
 
       </Stack.Navigator>
     </NavigationContainer>

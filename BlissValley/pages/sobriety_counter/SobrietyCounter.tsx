@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import PurpleButton from '../../components/PurpleButton';
@@ -66,6 +66,48 @@ export default function Sobriety() {
     console.log([...listAddedAddictions, data]);
     console.log(data);
   };
+
+  const [elapsedTimes, setElapsedTimes] = useState({});
+  const [isRunning, setIsRunning] = useState(false);
+  const intervalIds = useRef({});
+
+  useEffect(() => {
+    listAddedAddictions.forEach((addiction) => {
+      const startTime = new Date(addiction.startingDate).getTime();
+      const initialElapsedTime = Date.now() - startTime;
+      setElapsedTimes((prevElapsedTimes) => ({
+        ...prevElapsedTimes,
+        [addiction.addiction]: initialElapsedTime,
+      }));
+      startStopwatch(addiction.addiction, startTime);
+    });
+
+    return () => {
+      Object.values(intervalIds.current).forEach(clearInterval);
+    };
+  }, [listAddedAddictions]);
+
+
+  const startStopwatch = (addictionName, startTime) => {
+    intervalIds.current[addictionName] = setInterval(() => {
+      setElapsedTimes((prevElapsedTimes) => ({
+        ...prevElapsedTimes,
+        [addictionName]: Date.now() - startTime,
+      }));
+    }, 1000);
+  };
+
+  const formatTime = (elapsedTime) => {
+    const seconds = Math.floor((elapsedTime / 1000) % 60);
+    const minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+    const hours = Math.floor((elapsedTime / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24)% 30);
+    const months = Math.floor(elapsedTime / (1000 * 60 * 60 * 24* 30) % 12);
+    const years = Math.floor(elapsedTime / (1000 * 60 * 60 * 24* 30* 12));
+
+    return `${years}y ${months}m ${days}d ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
 
   return (
     <View style={styles.container}>
@@ -187,43 +229,51 @@ export default function Sobriety() {
           <View>
             
           </View>
-          <TouchableOpacity onPress={handleAddNew}>
-            <View style={styles.addContainer}>
-              <Add />
-            </View>
-          </TouchableOpacity>
+          
           {addictionClicked && selectedAddiction ? (
             <View>
-              <Text style={styles.addictionText}>{selectedAddiction.addiction}</Text>
-              <Text style={styles.addictionTime}>{selectedAddiction.startingDate}</Text>
+             <View style={styles.addictionBox}>
+             <Text style={styles.addictionText}>{selectedAddiction.addiction} free for</Text>
+             <Text style={styles.addictionTime}>{formatTime(elapsedTimes[selectedAddiction.addiction]) || 0}</Text>
+             </View>
               <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={() => { deleteAddiction(selectedAddiction); }}>
-                <BlueBoot />
+                <BlueBoot style={styles.buttonBoot}/>
                 <Text style={styles.buttonText}>Delete</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => resetStartingDate(selectedAddiction)}>
-                <BlueBoot />
+              <TouchableOpacity onPress={() => [resetStopwatch(), resetStartingDate(selectedAddiction)]}>
+                <BlueBoot style={styles.buttonBoot} />
                 <Text style={styles.buttonText}>Reset</Text>
               </TouchableOpacity>
                  </View>
             
-              <TouchableOpacity onPress={handlePrevious}>
+              <TouchableOpacity onPress={handlePrevious} style={styles.previous}>
                 <Previous />
               </TouchableOpacity>
             </View>
           ) : (
+            <View>
+              
+             
             <View style={styles.addictionList}>
               {listAddedAddictions.map((addiction, key) => {
                 return (
                   <View key={key} style={styles.addictionBox}>
                     <TouchableOpacity onPress={() => updateAddiction(addiction)}>
                       <Text style={styles.addictionText}>{addiction.addiction} free for</Text>
-                      <Text style={styles.addictionTime}>{addiction.startingDate}</Text>
+                      <Text style={styles.addictionTime}>{formatTime(elapsedTimes[addiction.addiction]) || 0}</Text>
                     </TouchableOpacity>
                   </View>
                 );
               })}
             </View>
+            <TouchableOpacity onPress={handleAddNew}>
+            <View style={styles.addContainer}>
+              <Add />
+            </View>
+          </TouchableOpacity>
+               </View>
+            
           )}
         </View>
       )}
