@@ -6,20 +6,34 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    
     },
     image: {
         flex: 1,
-        width: '100%'
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
     },
-    appName: { alignSelf: 'center', justifyContent: 'center', fontFamily: 'Consolas', fontSize: 13 , color: 'white', width : 75, textAlign: 'center'},
-    appContainer: {},
+    appName: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        fontFamily: 'Consolas',
+        fontSize: 13,
+        color: 'white',
+        width: 105,
+        textAlign: 'center',
+        textShadowColor: '#693301',
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 1,
+    },
+    appContainer: {
+        margin: 10,
+    },
     appRow1: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        margin: 20
-    }
-})
+        margin: 5,
+    },
+});
 
 export default styles

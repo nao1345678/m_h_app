@@ -72,6 +72,13 @@ export default function AppLibrary({ navigation }) {
             <Text style={styles.appName}>Sobriety counter</Text>
           </TouchableOpacity>
         </View>
+
+        <View style={styles.appContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('User data')}>
+          <Image source={require("../../assets/pngs/data.png")} resizeMode='contain' style={{width : 100, height : 100}}/>
+            <Text style={styles.appName}>My data</Text>
+          </TouchableOpacity>
+        </View>
        </View>
 
        
