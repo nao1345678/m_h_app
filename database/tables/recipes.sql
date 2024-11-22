@@ -1,0 +1,6 @@
+CREATE TABLE RecipesStorage (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    prompt VARCHAR(255) NOT NULL,
+    recipe VARCHAR(255) NOT NULL
+);

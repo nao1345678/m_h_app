@@ -1,0 +1,5 @@
+CREATE TABLE AnxietyQuiz (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    score FLOAT NOT NULL,
+    answer VARCHAR(255) NOT NULL
+);
