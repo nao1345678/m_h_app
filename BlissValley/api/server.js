@@ -160,6 +160,70 @@ app.post('/mood', authenticateToken, (req, res) => {
   });
 });
 
+// Tasks routes 
+app.post('/task/add', authenticateToken, (req, res) => {
+  const { name, user_id } = req.body;
+
+  if (!user_id || typeof task !== 'string') {
+    return res.status(400).send('Données invalides');
+  }
+
+  const checkUserQuery = 'SELECT id FROM User WHERE id = ?'; // Vérifie l'existence de l'utilisateur
+  db.query(checkUserQuery, [user_id], (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la vérification de l\'utilisateur :', err);
+      return res.status(500).send('Erreur serveur');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send('Utilisateur non trouvé');
+    }
+
+    // Si l'utilisateur existe, on ajoute la tâche
+    const insertTaskQuery = 'INSERT INTO Task (name, user_id) VALUES (?, ?)';
+    db.query(insertTaskQuery, [name, user_id], (err, result) => {
+      if (err) {
+        console.error('Erreur lors de l\'insertion dans la base de données :', err);
+        res.status(500).send('Erreur serveur');
+      } else {
+        res.status(200).send('Tâche ajoutée avec succès');
+      }
+    });
+  });
+
+});
+
+app.put('/task/setDone', authenticateToken, (req, res) => {
+  const { id } = req.body;
+
+  if (!id || typeof task !== 'string') {
+    return res.status(400).send('Données invalides');
+  }
+
+  const checkTaskQuery = 'SELECT id FROM Task WHERE id = ?'; // Vérifie l'existence de la tâche
+  db.query(checkTaskQuery, [id], (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la vérification de la tâche :', err);
+      return res.status(500).send('Erreur serveur');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send('Tâche non trouvée');
+    }
+
+    // Si la tâche existe, on la met à jour
+    const updateTaskQuery = 'UPDATE Task SET isDone = TRUE WHERE id = ?';
+    db.query(updateTaskQuery, [id], (err, result) => {
+      if (err) {
+        console.error('Erreur lors de la mise à jour dans la base de données :', err);
+        res.status(500).send('Erreur serveur');
+      } else {
+        res.status(200).send('Tâche mise à jour avec succès');
+      }
+    });
+  });
+});
+
 
 
 // App routes
