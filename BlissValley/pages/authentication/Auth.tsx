@@ -5,6 +5,8 @@ import styles from './AuthStyles';
 import PurpleButton from '../../components/PurpleButton';
 import Previous from '../../components/Previous';
 import { useFonts } from 'expo-font';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 
@@ -52,6 +54,10 @@ const handleLogin = async () => {
     });
 
     if (response.ok) {
+      var userData = await response.json();
+      await AsyncStorage.setItem('token', userData.token);
+      await AsyncStorage.setItem('user_id', userData.user_id.toString());
+      console.log(userData.token);
       console.log('Connexion réussie');
       navigation.navigate('Home' as never); 
     } else {
@@ -112,7 +118,10 @@ const handleLogin = async () => {
     try {
       const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/signup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${token}`
+         },
         body: JSON.stringify({
           firstName,
           email, 
@@ -120,7 +129,7 @@ const handleLogin = async () => {
         }),
       });
   
-      if (response.ok) {
+      if (response.ok && response) {
         console.log('Utilisateur enregistré avec succès');
         // Réinitialiser les champs ou naviguer vers une autre page
         navigation.navigate('Home' as never);
@@ -181,9 +190,7 @@ const handleLogin = async () => {
             <Text style={styles.buttonText}>Sign in</Text>
           </TouchableOpacity>
         
-          <TouchableOpacity onPress={() => navigation.navigate('Home' as never)}>
-            <Text>Skip</Text>
-          </TouchableOpacity>
+          
         </View>
 
         {/* Modale d'inscription */}

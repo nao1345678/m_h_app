@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer} from '@react-navigation/native'
 import {
@@ -24,10 +24,13 @@ import BadMood from '../../components/BadMood'
 import Add from '../../components/Add'
 import LineTodo from '../../components/LineToDo'
 import Library from '../../components/LibraryBooks'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Drawer = createDrawerNavigator()
 
 export default function App({ navigation }) {
+
   const basic: any = [
     { id: 1, name: 'Organize my room', isChecked: false },
     { id: 3, name: 'Go to the grocery store', isChecked: false },
@@ -73,6 +76,13 @@ export default function App({ navigation }) {
   const [tasks, setTasks] = useState([])
   const [inputTask, setInputTask] = useState('')
 
+  const formatDate = (now : any) => {
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Mois commence à 0
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const handleCheckboxChange = (id) => {
     setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)))
   }
@@ -96,14 +106,95 @@ export default function App({ navigation }) {
       console.log('Error : cannot add empty task')
     }
   }
+  const [modalVisible, setModalVisible] = useState(true);
 
-  const handleAllCheckboxChange = () => {
-    setTasks(tasks.map((task) => (task.isChecked ? task : { ...task, isChecked: !task.isChecked })))
+  const handleHappyMood = async () => {
+    try { 
+      const token = await AsyncStorage.getItem('token')
+
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/mood', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`
+
+        },
+        body: JSON.stringify({
+          mood: 3,
+          date : formatDate(new Date()),
+          user_id: await AsyncStorage.getItem('user_id')
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Mood saved');
+      } else {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+    setModalVisible(false)
   }
 
-  const [modalVisible, setModalVisible] = useState(true)
+  const handleMidMood = async () => {
+    try { 
+      const token = await AsyncStorage.getItem('token')
 
-  const closeModal = () => {
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/mood', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`
+
+        },
+        body: JSON.stringify({
+          mood: 2,
+          date : formatDate(new Date()),
+          user_id: await AsyncStorage.getItem('user_id')
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Mood saved');
+      } else {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+    setModalVisible(false)
+  }
+
+  const handleBadMood = async () => {
+    try { 
+      const token = await AsyncStorage.getItem('token')
+
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/mood', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`
+
+        },
+        body: JSON.stringify({
+          mood: 3,
+          date : formatDate(new Date()),
+          user_id: await AsyncStorage.getItem('user_id')
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Mood saved');
+      } else {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
     setModalVisible(false)
   }
 
@@ -121,7 +212,7 @@ export default function App({ navigation }) {
       <View style={styles.mainBigContainer}>
         <ScrollView style={styles.mainContainer} showsVerticalScrollIndicator={true}>
           <View>
-            <Modal animationType="fade" transparent={true} visible={modalVisible} onRequestClose={closeModal}>
+            <Modal animationType="fade" transparent={true} visible={modalVisible} >
               <View style={styles.modalContainer}>
                 <View style={styles.modalContent}>
                   <Cloud style={styles.cloud} />
@@ -134,7 +225,7 @@ export default function App({ navigation }) {
                   <Text style={styles.modalText}>Hi Boo, how are you feeling right now ?</Text>
 
                   <View style={styles.moodContainer}>
-                    <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                    <TouchableOpacity style={styles.mood} onPress={handleBadMood}>
                       <Image
                         source={require('../../assets/pngs/badmoodblur.png')}
                         style={styles.moodImage}
@@ -142,7 +233,7 @@ export default function App({ navigation }) {
                       />
                       <BadMood />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                    <TouchableOpacity style={styles.mood} onPress={handleMidMood}>
                       <Image
                         source={require('../../assets/pngs/midmoodblur.png')}
                         style={styles.moodImage}
@@ -150,7 +241,7 @@ export default function App({ navigation }) {
                       />
                       <MidMood />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.mood} onPress={closeModal}>
+                    <TouchableOpacity style={styles.mood} onPress={handleHappyMood}>
                       <Image
                         source={require('../../assets/pngs/goodmoodblur.png')}
                         style={styles.moodImage}
