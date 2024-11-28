@@ -5,7 +5,6 @@ import styles from './AuthStyles';
 import PurpleButton from '../../components/PurpleButton';
 import Previous from '../../components/Previous';
 import { useFonts } from 'expo-font';
-import axios from 'axios';
 
 
 
@@ -15,6 +14,7 @@ const Auth: React.FC = () => {
     'PressStart2P': require('../../assets/fonts/PressStart2P-Regular.ttf'),
 
   });
+  
 
   const navigation = useNavigation();
   const [showSignupModal, setShowSignupModal] = useState<boolean>(false);
@@ -40,7 +40,7 @@ const handleLogin = async () => {
   }
 
   try {
-    const response = await fetch('http://172.28.8.36:2999/login', { 
+    const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/login', { //
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const handleLogin = async () => {
       navigation.navigate('Home' as never); 
     } else {
       const errorMessage = await response.text();
-      setLoginError(errorMessage);
+      setLoginError(errorMessage); 
     }
   } catch (error) {
     console.error('Erreur réseau :', error);
@@ -87,80 +87,77 @@ const handleLogin = async () => {
     setLoginError('');
   };
 
-  const handleSignupWithXHR = async () => {
-    const xhr = new XMLHttpRequest();
+  const handleSignupValidation = async (
+    firstName: string,
+    email: string,
+    password: string,
+    confirmPassword: string,
+    navigation: any,
+  ) => {
+    // Validation des champs de saisie
+    const errors = {
+      firstName: !firstName,
+      email: !email,
+      password: !password,
+      confirmPassword: !confirmPassword || password !== confirmPassword,
+    };
   
-    xhr.open('POST', 'http://172.28.8.36:2999/signup');
+    setFieldErrors(errors); // Mise à jour des erreurs dans l'état
   
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    // Si une erreur est présente, arrête l'envoi
+    if (Object.values(errors).some((error) => error)) {
+      return;
+    }
   
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) { // Requête terminée
-        if (xhr.status === 200) {
-          console.log('Inscription réussie :', xhr.responseText);
-          navigation.navigate('Home' as never);
-        } else {
-          console.error('Erreur lors de l\'inscription :', xhr.responseText);
-          setLoginError(xhr.responseText || 'Une erreur est survenue.');
-        }
+    try {
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          email, 
+          password,
+        }),
+      });
+  
+      if (response.ok) {
+        console.log('Utilisateur enregistré avec succès');
+        // Réinitialiser les champs ou naviguer vers une autre page
+        navigation.navigate('Home' as never);
+        setFirstName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setShowSignupModal(false);
+      } else {
+        const errorMessage = await response.text();
+        console.error('Erreur lors de l\'inscription :', errorMessage);
+        // Afficher l'erreur à l'utilisateur
+        setLoginError(errorMessage);
       }
-    };
-  
-    xhr.onerror = (error) => {
+    } catch (error) {
       console.error('Erreur réseau :', error);
-      console.error('Erreur réseau :', error);
-      console.log('URL appelée :', xhr._url); // Vérifiez l’URL
-      console.log('Méthode utilisée :', xhr._method);
-      console.log('Headers envoyés :', xhr._headers);
-      console.log('Données envoyées :', xhr._body); // Ajoutez si nécessaire
+      // Afficher une erreur de connexion à l'utilisateur
       setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
-      setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
-    };
-  
-    xhr.send(
-      JSON.stringify({
-        firstName,
-        email,
-        password,
-      })
-    );
+    }
   };
-  
   
   
 
-  const handleLoginWithXHR = async () => {
-    const xhr = new XMLHttpRequest();
-  
-    xhr.open('POST', 'http://172.28.8.36:2999/login');
-  
-    xhr.setRequestHeader('Content-Type', 'application/json');
-  
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          console.log('Connexion réussie :', xhr.responseText);
-          navigation.navigate('Home' as never);
-        } else {
-          console.error('Erreur de connexion :', xhr.responseText);
-          setLoginError(xhr.responseText || 'Une erreur est survenue.');
-        }
-      }
+  const handleLoginValidation = () => {
+    const errors: { [key: string]: boolean } = {
+      email: !email,
+      password: !password,
     };
-  
-    xhr.onerror = (error) => {
-      console.error('Erreur réseau :', error);
-      setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
-    };
-  
-    xhr.send(
-      JSON.stringify({
-        email,
-        password,
-      })
-    );
+
+    setFieldErrors(errors);
+
+    if (Object.values(errors).some(error => error)) {
+      return;
+    }
+
+    handleLogin();
   };
-  
 
   return (
    
@@ -213,7 +210,7 @@ const handleLogin = async () => {
               setFieldErrors({ ...fieldErrors, confirmPassword: false });
             }} secureTextEntry />
             <View style={styles.modalButtonContainer}>
-            <TouchableOpacity style={styles.modalButton} onPress={handleSignupWithXHR}>
+            <TouchableOpacity style={styles.modalButton} onPress={() => handleSignupValidation(firstName, email, password, confirmPassword, navigation)}>
             <PurpleButton />
             <Text style={styles.buttonText}>Sign up</Text>
             </TouchableOpacity>
@@ -240,7 +237,7 @@ const handleLogin = async () => {
               setFieldErrors({ ...fieldErrors, password: false });
             }} secureTextEntry />
             <View style={styles.modalButtonContainer}>
-            <TouchableOpacity style={styles.modalButton} onPress={handleLoginWithXHR}>
+            <TouchableOpacity style={styles.modalButton} onPress={handleLoginValidation}>
             <PurpleButton/>
                 <Text style={styles.buttonText}>Connexion</Text>
               </TouchableOpacity>

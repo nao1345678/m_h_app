@@ -16,11 +16,13 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.34.0",
     "expo-build-properties": "^0.13.1",
+    "expo-constants": "^17.0.3",
     "expo-sharing": "^12.0.1",
     "ngrok": "^5.0.0-beta.2",
     "prettier-eslint": "^16.3.0",
     "react": "^18.2.0",
     "react-native": "^0.74.0",
+    "react-native-ssl-pinning": "^1.5.8",
     "react-native-svg": "^15.2.0"
   }
 }
