@@ -5,7 +5,8 @@ import styles from './AuthStyles';
 import PurpleButton from '../../components/PurpleButton';
 import Previous from '../../components/Previous';
 import { useFonts } from 'expo-font';
-import bcrypt from 'react-native-bcrypt';
+import axios from 'axios';
+
 
 
 const Auth: React.FC = () => {
@@ -31,55 +32,38 @@ const Auth: React.FC = () => {
     confirmPassword: false,
   });
 
-  const hashPassword = async (password: string)  => {
-    var bcrypt = require('bcryptjs');
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync("B4c0/\/", salt);
-    console.log(hash);
-    return hash;
-  };
 
-const handleSignup = (
-  firstName: string,
-  emailOrPhone: string,
-  password: string,
-  confirmPassword: string,
-  navigation: any,
-  setShowSignupModal: (value: boolean) => void,
-  setFirstName: (value: string) => void,
-  setEmailOrPhone: (value: string) => void,
-  setPassword: (value: string) => void,
-  setConfirmPassword: (value: string) => void
-) => {
-  if (!firstName || !emailOrPhone || !password || !confirmPassword) {
-    console.error('Tous les champs doivent être remplis.');
+const handleLogin = async () => {
+  if (!email || !password) {
+    setLoginError('Tous les champs doivent être remplis.');
     return;
   }
 
-  if (password !== confirmPassword) {
-    console.error('Les mots de passe ne correspondent pas.');
-    return;
-  }
+  try {
+    const response = await fetch('http://172.28.8.36:2999/login', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
-  navigation.navigate('Home' as never);
-  setFirstName('');
-  setEmailOrPhone('');
-  setPassword('');
-  setConfirmPassword('');
-  setShowSignupModal(false);
-};
-
-
-const handleLogin = (emailOrPhone: string, password: string, navigation: any, setShowLoginModal: (value: boolean) => void, setEmailOrPhone: (value: string) => void, setPassword: (value: string) => void) => {
-    if (emailOrPhone === 'test@example.com' && password === 'password') {
-        navigation.navigate('Home' as never);
-        setEmailOrPhone('');
-        setPassword('');
-        setShowLoginModal(false);
+    if (response.ok) {
+      console.log('Connexion réussie');
+      navigation.navigate('Home' as never); 
     } else {
-        setLoginError('Email or password is incorrect.');
+      const errorMessage = await response.text();
+      setLoginError(errorMessage);
     }
+  } catch (error) {
+    console.error('Erreur réseau :', error);
+    setLoginError('Une erreur est survenue. Veuillez réessayer.');
+  }
 };
+
 
   const handleSignupModalClose = () => {
     setShowSignupModal(false);
@@ -103,37 +87,80 @@ const handleLogin = (emailOrPhone: string, password: string, navigation: any, se
     setLoginError('');
   };
 
-  const handleSignupValidation = () => {
-    const errors: { [key: string]: boolean } = {
-      firstName: !firstName,
-      email: !email,
-      password: !password,
-      confirmPassword: !confirmPassword || password !== confirmPassword,
+  const handleSignupWithXHR = async () => {
+    const xhr = new XMLHttpRequest();
+  
+    xhr.open('POST', 'http://172.28.8.36:2999/signup');
+  
+    xhr.setRequestHeader('Content-Type', 'application/json');
+  
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) { // Requête terminée
+        if (xhr.status === 200) {
+          console.log('Inscription réussie :', xhr.responseText);
+          navigation.navigate('Home' as never);
+        } else {
+          console.error('Erreur lors de l\'inscription :', xhr.responseText);
+          setLoginError(xhr.responseText || 'Une erreur est survenue.');
+        }
+      }
     };
-
-    setFieldErrors(errors);
-
-    if (Object.values(errors).some(error => error)) {
-      return;
-    }
-
-    handleSignup(firstName, email, password, confirmPassword, navigation, setShowSignupModal, setFirstName, setEmail, setPassword, setConfirmPassword);
-  };
-
-  const handleLoginValidation = () => {
-    const errors: { [key: string]: boolean } = {
-      email: !email,
-      password: !password,
+  
+    xhr.onerror = (error) => {
+      console.error('Erreur réseau :', error);
+      console.error('Erreur réseau :', error);
+      console.log('URL appelée :', xhr._url); // Vérifiez l’URL
+      console.log('Méthode utilisée :', xhr._method);
+      console.log('Headers envoyés :', xhr._headers);
+      console.log('Données envoyées :', xhr._body); // Ajoutez si nécessaire
+      setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
+      setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
     };
-
-    setFieldErrors(errors);
-
-    if (Object.values(errors).some(error => error)) {
-      return;
-    }
-
-    handleLogin(email, password, navigation, setShowLoginModal, setEmail, setPassword);
+  
+    xhr.send(
+      JSON.stringify({
+        firstName,
+        email,
+        password,
+      })
+    );
   };
+  
+  
+  
+
+  const handleLoginWithXHR = async () => {
+    const xhr = new XMLHttpRequest();
+  
+    xhr.open('POST', 'http://172.28.8.36:2999/login');
+  
+    xhr.setRequestHeader('Content-Type', 'application/json');
+  
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log('Connexion réussie :', xhr.responseText);
+          navigation.navigate('Home' as never);
+        } else {
+          console.error('Erreur de connexion :', xhr.responseText);
+          setLoginError(xhr.responseText || 'Une erreur est survenue.');
+        }
+      }
+    };
+  
+    xhr.onerror = (error) => {
+      console.error('Erreur réseau :', error);
+      setLoginError('Une erreur réseau est survenue. Veuillez réessayer.');
+    };
+  
+    xhr.send(
+      JSON.stringify({
+        email,
+        password,
+      })
+    );
+  };
+  
 
   return (
    
@@ -186,10 +213,11 @@ const handleLogin = (emailOrPhone: string, password: string, navigation: any, se
               setFieldErrors({ ...fieldErrors, confirmPassword: false });
             }} secureTextEntry />
             <View style={styles.modalButtonContainer}>
-              <TouchableOpacity style={styles.modalButton} onPress={handleSignupValidation}>
-                <PurpleButton/>
-                <Text style={styles.buttonText}>Sign up</Text>
-              </TouchableOpacity>
+            <TouchableOpacity style={styles.modalButton} onPress={handleSignupWithXHR}>
+            <PurpleButton />
+            <Text style={styles.buttonText}>Sign up</Text>
+            </TouchableOpacity>
+
               <TouchableOpacity style={styles.modalButton} onPress={handleSignupModalClose}>
               <Previous/>
               </TouchableOpacity>
@@ -212,7 +240,7 @@ const handleLogin = (emailOrPhone: string, password: string, navigation: any, se
               setFieldErrors({ ...fieldErrors, password: false });
             }} secureTextEntry />
             <View style={styles.modalButtonContainer}>
-            <TouchableOpacity style={styles.modalButton} onPress={handleLoginValidation}>
+            <TouchableOpacity style={styles.modalButton} onPress={handleLoginWithXHR}>
             <PurpleButton/>
                 <Text style={styles.buttonText}>Connexion</Text>
               </TouchableOpacity>
