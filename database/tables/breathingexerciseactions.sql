@@ -3,5 +3,7 @@ CREATE TABLE BreathingExerciseActions (
     focusTimeDone FLOAT NOT NULL,
     relaxTimeDone FLOAT NOT NULL,
     amountDone FLOAT AS (focusTimeDone + relaxTimeDone) STORED,
-    date DATE NOT NULL
+    date DATE NOT NULL, 
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );

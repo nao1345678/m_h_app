@@ -2,5 +2,7 @@ CREATE TABLE RecipesStorage (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     prompt VARCHAR(255) NOT NULL,
-    recipe VARCHAR(255) NOT NULL
+    recipe VARCHAR(255) NOT NULL, 
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );

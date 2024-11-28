@@ -10,5 +10,6 @@ CREATE TABLE UserData (
     recipesGenerated VARCHAR(255),
     formerAddictions VARCHAR(255), 
     journalEntries VARCHAR(255), 
-    idUser INT FOREIGN KEY
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );
