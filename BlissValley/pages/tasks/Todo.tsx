@@ -78,12 +78,37 @@ export default function App({ navigation }) {
 
   const formatDate = (now : any) => {
     const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // Mois commence à 0
+    const month = String(now.getMonth() + 1).padStart(2, '0');
     const day = String(now.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
 
-  const handleCheckboxChange = (id) => {
+  const handleCheckboxChange = async (id) => {
+    try {
+      const token = await AsyncStorage.getItem('token');
+      const userId = await AsyncStorage.getItem('user_id');
+  
+      const response = await fetch(`https://cf5a-77-136-66-145.ngrok-free.app/task/setDone`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`  
+        },
+        body: JSON.stringify({ 
+          id : id
+        }),
+      });
+  
+      if (response.ok) {
+        console.log('Task set as done in the backend');
+      } else {
+        const errorMessage = await response.text();
+        console.log('Error updating task in the backend:', errorMessage);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+
     setTasks(tasks.map((task) => (task.id === id ? { ...task, isChecked: !task.isChecked } : task)))
   }
 
@@ -95,17 +120,51 @@ export default function App({ navigation }) {
     setTasks([])
   }
 
-  const addItem = () => {
-    if (inputTask.trim() !== '' && inputTask.length <= 95) {
-      const newId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1
-      setTasks([...tasks, { id: newId, name: inputTask, isChecked: false }])
-      setInputTask('')
-    } else if (inputTask.length > 95) {
-      console.log("Error : data's length must be under 95 characters")
-    } else if (inputTask.trim() == '') {
-      console.log('Error : cannot add empty task')
+  const addItem = async () => {
+    if (inputTask.trim() === '') {
+      console.log('Error: cannot add empty task');
+      return;
     }
-  }
+  
+    if (inputTask.length > 95) {
+      console.log("Error: data's length must be under 95 characters");
+      return;
+    }
+  
+    try {
+      const token = await AsyncStorage.getItem('token');
+      const userId = await AsyncStorage.getItem('user_id');
+  
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/task/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`  
+        },
+        body: JSON.stringify({
+          name: inputTask, 
+          user_id: userId
+        }),
+      });
+  
+      if (response.ok) {
+        // Task successfully added to backend
+        console.log('Task added to the list');
+  
+        // Update local state after API success
+        const newId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
+        setTasks([...tasks, { id: newId, name: inputTask, isChecked: false }]);
+        setInputTask(''); // Clear input field
+      } else {
+        // Handle API error
+        const errorMessage = await response.text();
+        console.log('Error adding task to backend:', errorMessage);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+  };
+  
   const [modalVisible, setModalVisible] = useState(true);
 
   const handleHappyMood = async () => {
@@ -198,10 +257,35 @@ export default function App({ navigation }) {
     setModalVisible(false)
   }
 
-  const handleAddFromInspiration = (task) => {
+  const handleAddFromInspiration = async (task : any) => {
+    try { 
+      const token = await AsyncStorage.getItem('token')
+
+      const response = await fetch('https://cf5a-77-136-66-145.ngrok-free.app/task/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${token}`
+
+        },
+        body: JSON.stringify({
+          name: task.name,
+          user_id: await AsyncStorage.getItem('user_id')
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Task added to the list');
+      } else {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+      }
+    } catch (error) { 
+      console.error('Network error:', error);
+    };
+
     if (!tasks.some((t) => t.id === task.id)) {
       setTasks([...tasks, task])
-      console.log(task)
     } else if (tasks.some((t) => t.id === task.id)) {
       console.log('Error : cannot add an already added task')
     }

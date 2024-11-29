@@ -164,7 +164,7 @@ app.post('/mood', authenticateToken, (req, res) => {
 app.post('/task/add', authenticateToken, (req, res) => {
   const { name, user_id } = req.body;
 
-  if (!user_id || typeof task !== 'string') {
+  if (!user_id || typeof name !== 'string') {
     return res.status(400).send('Données invalides');
   }
 
@@ -180,7 +180,7 @@ app.post('/task/add', authenticateToken, (req, res) => {
     }
 
     // Si l'utilisateur existe, on ajoute la tâche
-    const insertTaskQuery = 'INSERT INTO Task (name, user_id) VALUES (?, ?)';
+    const insertTaskQuery = 'INSERT INTO TasksInfos (name, user_id) VALUES (?, ?)';
     db.query(insertTaskQuery, [name, user_id], (err, result) => {
       if (err) {
         console.error('Erreur lors de l\'insertion dans la base de données :', err);
@@ -196,11 +196,11 @@ app.post('/task/add', authenticateToken, (req, res) => {
 app.put('/task/setDone', authenticateToken, (req, res) => {
   const { id } = req.body;
 
-  if (!id || typeof task !== 'string') {
+  if (!id) {
     return res.status(400).send('Données invalides');
   }
 
-  const checkTaskQuery = 'SELECT id FROM Task WHERE id = ?'; // Vérifie l'existence de la tâche
+  const checkTaskQuery = 'SELECT id FROM TasksInfos WHERE id = ?'; // Vérifie l'existence de la tâche
   db.query(checkTaskQuery, [id], (err, results) => {
     if (err) {
       console.error('Erreur lors de la vérification de la tâche :', err);
@@ -211,8 +211,7 @@ app.put('/task/setDone', authenticateToken, (req, res) => {
       return res.status(404).send('Tâche non trouvée');
     }
 
-    // Si la tâche existe, on la met à jour
-    const updateTaskQuery = 'UPDATE Task SET isDone = TRUE WHERE id = ?';
+    const updateTaskQuery = 'UPDATE TasksInfos SET isDone = TRUE WHERE id = ?';
     db.query(updateTaskQuery, [id], (err, result) => {
       if (err) {
         console.error('Erreur lors de la mise à jour dans la base de données :', err);
